@@ -28,10 +28,24 @@ npm run dev -- --host 0.0.0.0 --port 4321
 Add one object to `src/data/publications.ts`:
 
 ```ts
-{ y: '2026', t: 'Title', a: 'Hyungwoo Song, ...', v: "CHI ’26", theme: 'Accessibility', url: 'https://doi.org/...', sel: false, n: 'Short note.' }
+{
+  y: '2026',
+  t: 'Title',
+  a: 'Hyungwoo Song, ...',
+  v: "CHI ’26",
+  theme: 'Accessibility',
+  url: 'https://doi.org/...',
+  sel: false,
+  n: 'Short note.',
+  kind: 'Full Paper',
+  award: 'Best Paper Honorable Mention', // optional
+  image: '/assets/publications/example.webp' // optional
+}
 ```
 
 Set `sel: true` to show it on the homepage selected-work list.
+
+Publication image files go in `public/assets/publications/`. If `award` is present, the publication card shows a star award badge. Use `kind` to distinguish `Full Paper`, `Extended Abstract`, `Demo / Adjunct`, `Companion Paper`, etc.
 
 ## Add a field note
 

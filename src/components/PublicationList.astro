@@ -3,11 +3,20 @@ import type { Publication } from '../data/publications';
 const { publications, selected = false } = Astro.props as { publications: Publication[]; selected?: boolean };
 const items = selected ? publications.filter((p) => p.sel).slice(0, 5) : publications;
 ---
-<div class={`pub-list ${selected ? 'selected-pubs' : ''}`}>
+<div class={`pub-list ${selected ? 'selected-pubs' : 'publication-gallery'}`}>
   {items.map((p) => (
-    <article class="pub" data-theme={p.theme} data-year={p.y}>
+    <article class={`pub ${p.image ? 'has-image' : ''}`} data-theme={p.theme} data-year={p.y}>
+      {p.image && (
+        <a class="pub-image" href={p.url || '#'} target={p.url ? '_blank' : undefined} rel={p.url ? 'noreferrer' : undefined} aria-label={`${p.t} representative image`}>
+          <img src={p.image} alt={`${p.t} representative image`} loading="lazy" />
+        </a>
+      )}
       <div class="pub-year">{p.y}<br /><span class="small">{p.v}</span></div>
-      <div>
+      <div class="pub-main">
+        <div class="pub-badges">
+          <span class="pub-kind">{p.kind}</span>
+          {p.award && <span class="pub-award">★ {p.award}</span>}
+        </div>
         <div class="pub-title">{p.t}</div>
         {!selected && <div class="pub-meta" set:html={p.a.replaceAll('Hyungwoo Song', '<strong>Hyungwoo Song</strong>')} />}
         <div class="pub-meta">{p.theme}{p.url && <> · <a href={p.url} target="_blank" rel="noreferrer">DOI</a></>}</div>
