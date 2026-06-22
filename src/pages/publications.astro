@@ -2,6 +2,34 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PublicationList from '../components/PublicationList.astro';
 import { publications } from '../data/publications';
-const themes = [...new Set(publications.map((p) => p.theme))];
+const count = publications.length;
 ---
-<BaseLayout title="Publications — Hyungwoo Song" lang="en"><section class="page-hero"><div class="wrap"><div class="eyebrow">Publications</div><h1 class="page-title">Papers are traces of questions I kept returning to.</h1><p class="lead">A year-sorted publication list. The design stays quiet here: titles, venues, links, and themes should be easy to scan.</p><div class="pub-controls"><a href="#all">All</a>{themes.slice(0,8).map((theme)=><a href={`#${theme.toLowerCase().replaceAll(' ','-')}`}>{theme}</a>)}</div></div></section><section id="all" class="section"><div class="wrap"><PublicationList publications={publications} /></div></section></BaseLayout>
+<BaseLayout title="Publications — Hyungwoo Song" lang="en"><section class="page-hero publications-hero"><div class="wrap"><div class="eyebrow">Publications</div><h1 class="page-title">A clearer map of the work.</h1><p class="lead">Filter by paper type, authorship, awards, or selected work.</p><div class="pub-filter-panel" data-pub-filter-panel><div class="pub-filter-row"><button class="filter-btn active" type="button" data-filter="all">All <span>{count}</span></button><button class="filter-btn" type="button" data-filter="full">Full papers</button><button class="filter-btn" type="button" data-filter="first">1st author</button><button class="filter-btn" type="button" data-filter="award">Awarded</button><button class="filter-btn" type="button" data-filter="selected">Selected</button></div><p class="filter-status"><span data-filter-count>{count}</span> publications shown</p></div></div></section><section class="section"><div class="wrap"><PublicationList publications={publications} /></div></section><script>
+  const panels = document.querySelectorAll('[data-pub-filter-panel]');
+  panels.forEach((panel) => {
+    const buttons = panel.querySelectorAll('[data-filter]');
+    const status = panel.querySelector('[data-filter-count]');
+    const list = panel.closest('section')?.nextElementSibling?.querySelector('.publication-gallery');
+    if (!list) return;
+    const pubs = Array.from(list.querySelectorAll('.pub'));
+    const matches = (pub, filter) => {
+      if (filter === 'all') return true;
+      if (filter === 'full') return pub.dataset.kind === 'Full Paper' || pub.dataset.kind === 'Conference Paper';
+      if (filter === 'first') return pub.dataset.firstAuthor === 'true';
+      if (filter === 'award') return pub.dataset.award === 'true';
+      if (filter === 'selected') return pub.dataset.selected === 'true';
+      return true;
+    };
+    buttons.forEach((button) => button.addEventListener('click', () => {
+      const filter = button.dataset.filter;
+      buttons.forEach((b) => b.classList.toggle('active', b === button));
+      let visible = 0;
+      pubs.forEach((pub) => {
+        const show = matches(pub, filter);
+        pub.hidden = !show;
+        if (show) visible += 1;
+      });
+      if (status) status.textContent = String(visible);
+    }));
+  });
+</script></BaseLayout>

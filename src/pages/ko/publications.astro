@@ -2,5 +2,34 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PublicationList from '../../components/PublicationList.astro';
 import { publications } from '../../data/publications';
+const count = publications.length;
 ---
-<BaseLayout title="논문 — Hyungwoo Song" lang="ko"><section class="page-hero"><div class="wrap"><div class="eyebrow">논문</div><h1 class="page-title">논문은 제가 계속 붙잡아온 질문들의 흔적입니다.</h1><p class="lead">공식 논문 제목은 영어로 유지하되, 이 페이지는 연구의 흐름을 빠르게 훑어볼 수 있도록 정리했습니다.</p></div></section><section class="section"><div class="wrap"><PublicationList publications={publications} /></div></section></BaseLayout>
+<BaseLayout title="논문 — Hyungwoo Song" lang="ko"><section class="page-hero publications-hero"><div class="wrap"><div class="eyebrow">Publications</div><h1 class="page-title">논문을 더 쉽게 훑어볼 수 있게.</h1><p class="lead">논문 종류, 1저자 여부, 수상 여부, 대표 연구 기준으로 바로 필터링할 수 있습니다.</p><div class="pub-filter-panel" data-pub-filter-panel><div class="pub-filter-row"><button class="filter-btn active" type="button" data-filter="all">전체 <span>{count}</span></button><button class="filter-btn" type="button" data-filter="full">Full paper</button><button class="filter-btn" type="button" data-filter="first">1저자</button><button class="filter-btn" type="button" data-filter="award">수상</button><button class="filter-btn" type="button" data-filter="selected">대표 연구</button></div><p class="filter-status"><span data-filter-count>{count}</span>개 표시 중</p></div></div></section><section class="section"><div class="wrap"><PublicationList publications={publications} /></div></section><script>
+  const panels = document.querySelectorAll('[data-pub-filter-panel]');
+  panels.forEach((panel) => {
+    const buttons = panel.querySelectorAll('[data-filter]');
+    const status = panel.querySelector('[data-filter-count]');
+    const list = panel.closest('section')?.nextElementSibling?.querySelector('.publication-gallery');
+    if (!list) return;
+    const pubs = Array.from(list.querySelectorAll('.pub'));
+    const matches = (pub, filter) => {
+      if (filter === 'all') return true;
+      if (filter === 'full') return pub.dataset.kind === 'Full Paper' || pub.dataset.kind === 'Conference Paper';
+      if (filter === 'first') return pub.dataset.firstAuthor === 'true';
+      if (filter === 'award') return pub.dataset.award === 'true';
+      if (filter === 'selected') return pub.dataset.selected === 'true';
+      return true;
+    };
+    buttons.forEach((button) => button.addEventListener('click', () => {
+      const filter = button.dataset.filter;
+      buttons.forEach((b) => b.classList.toggle('active', b === button));
+      let visible = 0;
+      pubs.forEach((pub) => {
+        const show = matches(pub, filter);
+        pub.hidden = !show;
+        if (show) visible += 1;
+      });
+      if (status) status.textContent = String(visible);
+    }));
+  });
+</script></BaseLayout>
