@@ -1,0 +1,7 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PublicationList from '../components/PublicationList.astro';
+import { publications } from '../data/publications';
+const themes = [...new Set(publications.map((p) => p.theme))];
+---
+<BaseLayout title="Publications — Hyungwoo Song" lang="en"><section class="page-hero"><div class="wrap"><div class="eyebrow">Publications</div><h1 class="page-title">Papers are traces of questions I kept returning to.</h1><p class="lead">A year-sorted publication list. The design stays quiet here: titles, venues, links, and themes should be easy to scan.</p><div class="pub-controls"><a href="#all">All</a>{themes.slice(0,8).map((theme)=><a href={`#${theme.toLowerCase().replaceAll(' ','-')}`}>{theme}</a>)}</div></div></section><section id="all" class="section"><div class="wrap"><PublicationList publications={publications} /></div></section></BaseLayout>

@@ -1,0 +1,5 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { lifePosts } from '../data/life';
+---
+<BaseLayout title="Life — Hyungwoo Song" lang="en"><section class="page-hero"><div class="wrap"><div class="eyebrow">Life</div><h1 class="page-title">The things outside research that teach me how to notice.</h1><p class="lead">A light, curated layer for the non-paper parts: films, books, ordinary scenes, and things that sharpen attention. Images can be added later.</p></div></section><section class="section"><div class="wrap postcard-grid">{lifePosts.map((post, i)=><a class="postcard note-link" style={`--r:${i % 2 ? '1.2deg' : '-1.2deg'}`} href={`/life/${post.slug}/`}>{post.image && <img src={post.image} alt="Life post visual" />}<span class="stamp">{post.date}</span><h3>{post.title.en}</h3><p>{post.excerpt.en}</p><strong>Read →</strong></a>)}<article class="postcard"><span class="stamp">image slot</span><h3>Photos later</h3><p>This section is ready for visual fragments once images are selected.</p></article></div></section></BaseLayout>

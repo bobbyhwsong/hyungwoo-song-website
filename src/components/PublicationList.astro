@@ -1,0 +1,18 @@
+---
+import type { Publication } from '../data/publications';
+const { publications, selected = false } = Astro.props as { publications: Publication[]; selected?: boolean };
+const items = selected ? publications.filter((p) => p.sel).slice(0, 6) : publications;
+---
+<div class="pub-list">
+  {items.map((p) => (
+    <article class="pub" data-theme={p.theme} data-year={p.y}>
+      <div class="pub-year">{p.y}<br /><span class="small">{p.v}</span></div>
+      <div>
+        <div class="pub-title">{p.t}</div>
+        <div class="pub-meta" set:html={p.a.replaceAll('Hyungwoo Song', '<strong>Hyungwoo Song</strong>')} />
+        <div class="pub-meta">{p.theme}{p.url && <> · <a href={p.url} target="_blank" rel="noreferrer">DOI</a></>}</div>
+        <p class="small">{p.n}</p>
+      </div>
+    </article>
+  ))}
+</div>

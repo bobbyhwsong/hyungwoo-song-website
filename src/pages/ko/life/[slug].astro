@@ -1,0 +1,7 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { lifePosts } from '../../../data/life';
+export function getStaticPaths() { return lifePosts.map((post) => ({ params: { slug: post.slug }, props: { post } })); }
+const { post } = Astro.props;
+---
+<BaseLayout title={`${post.title.ko} — 삶`} lang="ko"><article class="note-article"><div class="wrap"><a class="pill" href="/ko/life/">← 삶으로 돌아가기</a><div class="eyebrow">Life · {post.date}</div><h1 class="page-title">{post.title.ko}</h1><p class="lead">{post.excerpt.ko}</p>{post.image && <img class="note-hero-image" src={post.image} alt="라이프 글 이미지" />}<div class="note-body">{post.body.ko.map((p)=><p>{p}</p>)}{post.quote && <blockquote>{post.quote.ko}</blockquote>}<p class="small">Tags: {post.tags.join(', ')}</p></div></div></article></BaseLayout>

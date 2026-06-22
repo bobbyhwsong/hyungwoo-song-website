@@ -1,0 +1,6 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PublicationList from '../../components/PublicationList.astro';
+import { publications } from '../../data/publications';
+---
+<BaseLayout title="논문 — Hyungwoo Song" lang="ko"><section class="page-hero"><div class="wrap"><div class="eyebrow">논문</div><h1 class="page-title">논문은 제가 계속 붙잡아온 질문들의 흔적입니다.</h1><p class="lead">공식 논문 제목은 영어로 유지하되, 이 페이지는 연구의 흐름을 빠르게 훑어볼 수 있도록 정리했습니다.</p></div></section><section class="section"><div class="wrap"><PublicationList publications={publications} /></div></section></BaseLayout>

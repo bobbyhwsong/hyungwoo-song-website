@@ -1,0 +1,5 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { profile } from '../data/profile';
+---
+<BaseLayout title="About — Hyungwoo Song" lang="en"><section class="page-hero"><div class="wrap"><div class="eyebrow">About</div><h1 class="page-title">I try to build systems that understand context, not just commands.</h1></div></section><section class="section"><div class="wrap wide-panel"><div class="about-grid"><img class="about-photo" src={profile.portrait} alt="Portrait of Hyungwoo Song"><div><p class="lead">Hyungwoo Song is a Ph.D. student in Intelligence and Information at Seoul National University. His research sits at the intersection of Human-Computer Interaction, Human-Centered AI, Accessibility, and Education.</p><p>He studies how people make sense of AI-driven systems, how these systems can support learning and care, and how design can make complex technologies more inclusive and accountable.</p><p>He is especially interested in designing technologies that are not merely automated, but understandable, adaptable, and responsive to people's lived contexts.</p></div></div></div></section></BaseLayout>

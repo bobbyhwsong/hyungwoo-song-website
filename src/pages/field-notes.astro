@@ -1,0 +1,5 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { notes } from '../data/notes';
+---
+<BaseLayout title="Field Notes — Hyungwoo Song" lang="en"><section class="page-hero"><div class="wrap"><div class="eyebrow">Field notes</div><h1 class="page-title">A place for thoughts I want to keep thinking with.</h1><p class="lead">Field Notes are for things I want to record: unfinished thoughts, images, fragments, scenes, and questions that may or may not become research later.</p></div></section><section class="section"><div class="wrap postcard-grid">{notes.map((note, i)=><a class="postcard note-link featured-note" style={`--r:${i % 2 ? '1.4deg' : '-1.4deg'}`} href={`/field-notes/${note.slug}/`}>{note.image && <img src={note.image} alt="Field note visual" />}<span class="stamp">{note.date}</span><h3>{note.title.en}</h3><p>{note.excerpt.en}</p><strong>Read full note →</strong></a>)}</div></section></BaseLayout>

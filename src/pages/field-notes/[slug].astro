@@ -1,0 +1,7 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { notes } from '../../data/notes';
+export function getStaticPaths() { return notes.map((note) => ({ params: { slug: note.slug }, props: { note } })); }
+const { note } = Astro.props;
+---
+<BaseLayout title={`${note.title.en} — Field Note`} lang="en"><article class="note-article"><div class="wrap"><a class="pill" href="/field-notes/">← Back to Field Notes</a><div class="eyebrow">Field Note · {note.date}</div><h1 class="page-title">{note.title.en}</h1><p class="lead">{note.excerpt.en}</p>{note.image && <img class="note-hero-image" src={note.image} alt="Field note visual" />}<div class="note-body">{note.body.en.map((p)=><p>{p}</p>)}{note.quote && <blockquote>{note.quote.en}</blockquote>}<p class="small">Tags: {note.tags.join(', ')}</p></div></div></article></BaseLayout>

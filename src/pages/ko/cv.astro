@@ -1,0 +1,5 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { profile } from '../../data/profile';
+---
+<BaseLayout title="CV — Hyungwoo Song" lang="ko"><section class="page-hero"><div class="wrap"><div class="eyebrow">CV</div><h1 class="page-title">교육, 수업, 수상, 그리고 연구를 가능하게 한 일들.</h1><p class="lead">웹에서는 요약만 보여주고, 최신 공식 기록은 PDF CV를 기준으로 합니다.</p><div class="cta-row"><a class="btn" href={profile.cv}>CV PDF 다운로드</a><a class="btn secondary" href="/ko/publications/">논문 보기</a></div></div></section><section class="section"><div class="wrap grid two"><div class="card"><h3>Education</h3><p>Ph.D. in Intelligence and Information, Seoul National University — Expected Fall 2027</p><p>M.S. in Intelligence and Information, Seoul National University — Fall 2024</p><p>B.S. in Electrical and Computer Engineering, Seoul National University — Fall 2022</p></div><div class="card"><h3>Awards</h3><p>Best Demo Award (People’s Choice), UIST 2025</p><p>BK21 Future Innovation Talent Award (Bronze Prize), Seoul National University</p><p>Outstanding Poster Paper Award, HCI Korea 2024</p></div></div></section></BaseLayout>

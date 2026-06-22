@@ -1,0 +1,5 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { lifePosts } from '../../data/life';
+---
+<BaseLayout title="삶 — Hyungwoo Song" lang="ko"><section class="page-hero"><div class="wrap"><div class="eyebrow">삶</div><h1 class="page-title">연구 바깥의 것들이 제가 무엇을 보는지 가르칩니다.</h1><p class="lead">영화, 책, 일상의 장면처럼 연구가 아니지만 제 감각을 만드는 것들을 가볍게 모아두는 공간입니다. 이미지는 나중에 추가할 수 있게 비워두었습니다.</p></div></section><section class="section"><div class="wrap postcard-grid">{lifePosts.map((post, i)=><a class="postcard note-link" style={`--r:${i % 2 ? '1.2deg' : '-1.2deg'}`} href={`/ko/life/${post.slug}/`}>{post.image && <img src={post.image} alt="라이프 글 이미지" />}<span class="stamp">{post.date}</span><h3>{post.title.ko}</h3><p>{post.excerpt.ko}</p><strong>읽기 →</strong></a>)}<article class="postcard"><span class="stamp">image slot</span><h3>사진은 나중에</h3><p>형아가 이미지를 고르면 각 글에 맞춰 넣을 수 있게 해두었습니다.</p></article></div></section></BaseLayout>
