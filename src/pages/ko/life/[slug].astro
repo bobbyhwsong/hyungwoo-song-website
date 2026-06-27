@@ -3,5 +3,6 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { lifePosts } from '../../../data/life';
 export function getStaticPaths() { return lifePosts.map((post) => ({ params: { slug: post.slug }, props: { post } })); }
 const { post } = Astro.props;
+const target = `/ko/thoughts/${post.slug}/`;
 ---
-<BaseLayout title={`${post.title.ko} — 삶`} lang="ko"><article class="note-article"><div class="wrap"><a class="pill" href="/ko/life/">← 삶으로 돌아가기</a><div class="eyebrow">Life · {post.date}</div><h1 class="page-title">{post.title.ko}</h1><p class="lead">{post.excerpt.ko}</p>{post.image && <img class="note-hero-image" src={post.image} alt="라이프 글 이미지" />}<div class="note-body">{post.body.ko.map((p)=><p>{p}</p>)}{post.quote && <blockquote>{post.quote.ko}</blockquote>}<p class="small">Tags: {post.tags.join(', ')}</p></div></div></article></BaseLayout>
+<BaseLayout title={`${post.title.ko} — 생각`} lang="ko"><section class="page-hero"><div class="wrap"><div class="eyebrow">Moved</div><h1 class="page-title">이 글은 생각으로 옮겼습니다.</h1><div class="cta-row"><a class="btn" href={target}>글 열기</a></div></div></section><script is:inline define:vars={{ target }}>window.location.replace(target);</script></BaseLayout>

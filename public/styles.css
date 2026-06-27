@@ -33,3 +33,6 @@
 
 /* Unified readable typography */
 body{font-weight:450;letter-spacing:-.006em}.hero h1,.page-title,.section h2,.portal-card h2,.note-row h2,.life-tile h2,.card h3,.statement-panel h2,.research-principles h2{font-family:var(--sans)!important;font-weight:780;letter-spacing:-.04em}.hero h1{font-weight:800}.lead{font-weight:470}.pub-title{font-weight:760}.brand{font-family:var(--sans)!important;font-weight:760}.nav-links a,.pill,.filter-btn{font-weight:650}.eyebrow,.section-kicker,.stamp{font-family:var(--mono);letter-spacing:.11em}.note-body blockquote{font-family:var(--sans)!important;font-weight:700}.about-copy{font-weight:450}
+
+/* Unified Thoughts space */
+.thoughts-hero{background:#fff;border-bottom:1px solid var(--line)}.thought-index{display:grid;gap:.8rem}.thought-row{display:grid;grid-template-columns:70px minmax(0,1fr) 38px;align-items:center;gap:1rem;background:#fff;border:1px solid var(--line);border-radius:28px;padding:1rem 1.1rem;box-shadow:0 10px 35px rgba(20,20,20,.035)}.thought-row h2{font-family:var(--sans)!important;font-size:clamp(1.45rem,2.7vw,2.6rem);font-weight:780;line-height:1.08;letter-spacing:-.04em;margin:.15rem 0}.thought-row p{color:var(--muted);margin:0;max-width:720px}@media(max-width:620px){.thought-row{grid-template-columns:1fr;gap:.35rem}}

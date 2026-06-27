@@ -1,5 +1,4 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { lifePosts } from '../data/life';
 ---
-<BaseLayout title="Life — Hyungwoo Song" lang="en"><section class="page-hero life-hero"><div class="wrap"><div class="eyebrow">Life</div><h1 class="page-title">Small records of taste and attention.</h1><p class="lead">Films, books, and the things outside research that move thought.</p></div></section><section class="section tight"><div class="wrap life-grid">{lifePosts.map((post, i)=><a class={`life-tile tile-${i}`} href={`/life/${post.slug}/`}><div class="tile-media"><span>{post.tags[0]}</span></div><div><span class="stamp">{post.date}</span><h2>{post.title.en}</h2><p>{post.excerpt.en}</p></div></a>)}</div></section></BaseLayout>
+<BaseLayout title="Thoughts — Hyungwoo Song" lang="en"><section class="page-hero"><div class="wrap"><div class="eyebrow">Moved</div><h1 class="page-title">Life moved to Thoughts.</h1><p class="lead">Life and Field Notes are now combined into one free writing space.</p><div class="cta-row"><a class="btn" href="/thoughts/">Go to Thoughts</a></div></div></section><script>window.location.replace('/thoughts/');</script></BaseLayout>

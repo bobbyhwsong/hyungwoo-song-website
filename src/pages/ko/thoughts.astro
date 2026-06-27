@@ -1,0 +1,5 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { thoughts } from '../../data/thoughts';
+---
+<BaseLayout title="생각 — Hyungwoo Song" lang="ko"><section class="page-hero thoughts-hero"><div class="wrap"><div class="eyebrow">Thoughts</div><h1 class="page-title">생각을 자유롭게 적는 공간.</h1><p class="lead">연구 질문, 필드노트, 영화와 책, 일상의 장면처럼 저의 시선을 만드는 조각들을 함께 모아둡니다.</p></div></section><section class="section tight"><div class="wrap thought-index">{thoughts.map((thought, i)=><a class={`thought-row tone-${i % 4}`} href={`/ko/thoughts/${thought.slug}/`}><div class="note-number">{String(i+1).padStart(2,'0')}</div><div><span class="stamp">{thought.kind.ko} · {thought.tags.slice(0,2).join(' · ')}</span><h2>{thought.title.ko}</h2><p>{thought.excerpt.ko}</p></div><span class="arrow">→</span></a>)}</div></section></BaseLayout>

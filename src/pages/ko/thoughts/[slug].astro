@@ -1,0 +1,7 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { thoughts } from '../../../data/thoughts';
+export function getStaticPaths() { return thoughts.map((thought) => ({ params: { slug: thought.slug }, props: { thought } })); }
+const { thought } = Astro.props;
+---
+<BaseLayout title={`${thought.title.ko} — 생각`} lang="ko"><article class="note-article"><div class="wrap"><a class="pill" href="/ko/thoughts/">← 생각 목록으로 돌아가기</a><div class="eyebrow">{thought.kind.ko} · {thought.date}</div><h1 class="page-title">{thought.title.ko}</h1><p class="lead">{thought.excerpt.ko}</p>{thought.image && <img class="note-hero-image" src={thought.image} alt="생각 글 이미지" />}<div class="note-body">{thought.body.ko.map((p)=><p>{p}</p>)}{thought.quote && <blockquote>{thought.quote.ko}</blockquote>}<p class="small">Tags: {thought.tags.join(', ')}</p></div></div></article></BaseLayout>

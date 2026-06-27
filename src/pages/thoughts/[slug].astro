@@ -1,0 +1,7 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { thoughts } from '../../data/thoughts';
+export function getStaticPaths() { return thoughts.map((thought) => ({ params: { slug: thought.slug }, props: { thought } })); }
+const { thought } = Astro.props;
+---
+<BaseLayout title={`${thought.title.en} — Thoughts`} lang="en"><article class="note-article"><div class="wrap"><a class="pill" href="/thoughts/">← Back to Thoughts</a><div class="eyebrow">{thought.kind.en} · {thought.date}</div><h1 class="page-title">{thought.title.en}</h1><p class="lead">{thought.excerpt.en}</p>{thought.image && <img class="note-hero-image" src={thought.image} alt="Thought visual" />}<div class="note-body">{thought.body.en.map((p)=><p>{p}</p>)}{thought.quote && <blockquote>{thought.quote.en}</blockquote>}<p class="small">Tags: {thought.tags.join(', ')}</p></div></div></article></BaseLayout>

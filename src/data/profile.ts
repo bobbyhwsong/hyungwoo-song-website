@@ -12,12 +12,12 @@ export const profile = {
 
 export const ui = {
   en: {
-    nav: { research: 'Research', publications: 'Publications', notes: 'Field Notes', life: 'Life', about: 'About', cv: 'CV', otherLang: '한국어' },
+    nav: { research: 'Research', publications: 'Publications', notes: 'Thoughts', life: 'Life', about: 'About', cv: 'CV', otherLang: '한국어' },
     langPrefix: '',
     otherLangHref: '/ko/'
   },
   ko: {
-    nav: { research: '연구', publications: '논문', notes: '필드노트', life: '삶', about: '소개', cv: 'CV', otherLang: 'English' },
+    nav: { research: '연구', publications: '논문', notes: '생각', life: '삶', about: '소개', cv: 'CV', otherLang: 'English' },
     langPrefix: '/ko',
     otherLangHref: '/'
   }

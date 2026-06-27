@@ -1,5 +1,4 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { notes } from '../data/notes';
 ---
-<BaseLayout title="Field Notes — Hyungwoo Song" lang="en"><section class="page-hero editorial"><div class="wrap"><div class="eyebrow">Field Notes</div><h1 class="page-title">Short notes for thoughts in progress.</h1><p class="lead">Not finished arguments; questions worth keeping close.</p></div></section><section class="section tight"><div class="wrap note-index">{notes.map((note, i)=><a class={`note-row tone-${i % 4}`} href={`/field-notes/${note.slug}/`}><div class="note-number">{String(i+1).padStart(2,'0')}</div><div><span class="stamp">{note.tags.slice(0,2).join(' · ')}</span><h2>{note.title.en}</h2><p>{note.excerpt.en}</p></div><span class="arrow">→</span></a>)}</div></section></BaseLayout>
+<BaseLayout title="Thoughts — Hyungwoo Song" lang="en"><section class="page-hero"><div class="wrap"><div class="eyebrow">Moved</div><h1 class="page-title">Field Notes moved to Thoughts.</h1><p class="lead">Field Notes and Life are now combined into one free writing space.</p><div class="cta-row"><a class="btn" href="/thoughts/">Go to Thoughts</a></div></div></section><script>window.location.replace('/thoughts/');</script></BaseLayout>

@@ -16,8 +16,7 @@ npm run dev -- --host 0.0.0.0 --port 4321
 ## Manage content
 
 - Publications: `src/data/publications.ts`
-- Field notes: `src/data/notes.ts`
-- Life posts: `src/data/life.ts`
+- Thoughts data: `src/data/notes.ts` and `src/data/life.ts` are combined by `src/data/thoughts.ts`
 - Profile links: `src/data/profile.ts`
 - Shared layout/nav: `src/layouts/BaseLayout.astro`
 - Assets: `public/assets/`
@@ -47,11 +46,13 @@ Set `sel: true` to show it on the homepage selected-work list.
 
 Publication image files go in `public/assets/publications/`. If `award` is present, the publication card shows a star award badge. Use `kind` to distinguish `Full Paper`, `Extended Abstract`, `Demo / Adjunct`, `Companion Paper`, etc.
 
-## Add a field note
+## Add a thought
 
-Add one object to `src/data/notes.ts`. The dynamic pages are generated automatically at:
+Add research-adjacent notes to `src/data/notes.ts` or personal/free-form notes to `src/data/life.ts`. Both are merged automatically by `src/data/thoughts.ts` and generated at:
 
-- English: `/field-notes/<slug>/`
-- Korean: `/ko/field-notes/<slug>/`
+- English: `/thoughts/<slug>/`
+- Korean: `/ko/thoughts/<slug>/`
+
+The old `/field-notes/` and `/life/` paths point users toward Thoughts.
 
 Put images under `public/assets/` and reference them as `/assets/file-name.jpg`.

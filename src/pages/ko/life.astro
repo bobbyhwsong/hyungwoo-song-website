@@ -1,5 +1,4 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { lifePosts } from '../../data/life';
 ---
-<BaseLayout title="삶 — Hyungwoo Song" lang="ko"><section class="page-hero life-hero"><div class="wrap"><div class="eyebrow">Life</div><h1 class="page-title">취향과 감각의 작은 기록.</h1><p class="lead">영화와 책, 그리고 연구 바깥에서 생각을 움직이는 것들.</p></div></section><section class="section tight"><div class="wrap life-grid">{lifePosts.map((post, i)=><a class={`life-tile tile-${i}`} href={`/ko/life/${post.slug}/`}><div class="tile-media"><span>{post.tags[0]}</span></div><div><span class="stamp">{post.date}</span><h2>{post.title.ko}</h2><p>{post.excerpt.ko}</p></div></a>)}</div></section></BaseLayout>
+<BaseLayout title="생각 — Hyungwoo Song" lang="ko"><section class="page-hero"><div class="wrap"><div class="eyebrow">Moved</div><h1 class="page-title">삶은 생각으로 합쳤습니다.</h1><p class="lead">Life와 Field Notes를 자유롭게 생각을 적는 하나의 공간으로 모았습니다.</p><div class="cta-row"><a class="btn" href="/ko/thoughts/">생각으로 가기</a></div></div></section><script>window.location.replace('/ko/thoughts/');</script></BaseLayout>

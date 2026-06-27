@@ -3,5 +3,6 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { notes } from '../../../data/notes';
 export function getStaticPaths() { return notes.map((note) => ({ params: { slug: note.slug }, props: { note } })); }
 const { note } = Astro.props;
+const target = `/ko/thoughts/${note.slug}/`;
 ---
-<BaseLayout title={`${note.title.ko} — 필드노트`} lang="ko"><article class="note-article"><div class="wrap"><a class="pill" href="/ko/field-notes/">← 필드노트로 돌아가기</a><div class="eyebrow">Field Note · {note.date}</div><h1 class="page-title">{note.title.ko}</h1><p class="lead">{note.excerpt.ko}</p>{note.image && <img class="note-hero-image" src={note.image} alt="필드노트 이미지" />}<div class="note-body">{note.body.ko.map((p)=><p>{p}</p>)}{note.quote && <blockquote>{note.quote.ko}</blockquote>}<p class="small">Tags: {note.tags.join(', ')}</p></div></div></article></BaseLayout>
+<BaseLayout title={`${note.title.ko} — 생각`} lang="ko"><section class="page-hero"><div class="wrap"><div class="eyebrow">Moved</div><h1 class="page-title">이 글은 생각으로 옮겼습니다.</h1><div class="cta-row"><a class="btn" href={target}>글 열기</a></div></div></section><script is:inline define:vars={{ target }}>window.location.replace(target);</script></BaseLayout>
