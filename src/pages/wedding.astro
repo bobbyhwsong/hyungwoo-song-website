@@ -17,32 +17,31 @@ const description = 'A mobile wedding invitation preview for Hyungwoo Song.';
     <style>
       @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
       :root{
-        --paper:#fffaf3;
-        --surface:#fffdf8;
-        --ink:#2b2621;
-        --muted:#7b7167;
-        --soft:#eadfce;
-        --line:rgba(67,54,40,.14);
-        --accent:#9b6b4f;
-        --accent2:#c5a27c;
-        --green:#6d7d69;
-        --shadow:0 24px 80px rgba(66,44,24,.12);
+        --paper:#ffffff;
+        --surface:#ffffff;
+        --ink:#111111;
+        --muted:#666666;
+        --soft:#f4f4f4;
+        --line:rgba(17,17,17,.16);
+        --accent:#111111;
+        --accent2:#9a9a9a;
+        --green:#555555;
+        --shadow:0 24px 80px rgba(0,0,0,.08);
         --serif: Georgia, 'Times New Roman', serif;
         --sans:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
       }
       *{box-sizing:border-box}
       html{scroll-behavior:smooth}
-      body{margin:0;background:linear-gradient(180deg,#fffaf3 0%,#f8efe4 50%,#fffaf3 100%);color:var(--ink);font-family:var(--sans);line-height:1.72;letter-spacing:-.02em;-webkit-font-smoothing:antialiased}
-      body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.42;background:
-        radial-gradient(circle at 18% 2%,rgba(214,188,154,.42),transparent 32%),
-        radial-gradient(circle at 88% 12%,rgba(197,162,124,.28),transparent 28%),
-        radial-gradient(circle at 50% 100%,rgba(255,255,255,.78),transparent 42%);z-index:-2}
+      body{margin:0;background:#fff;color:var(--ink);font-family:var(--sans);line-height:1.72;letter-spacing:-.02em;-webkit-font-smoothing:antialiased}
+      body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:1;background:#fff;z-index:-2}
       body:after{content:"";position:fixed;inset:0;pointer-events:none;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");z-index:-1}
-      a{color:inherit;text-decoration:none}.mobile-shell{width:min(100%,520px);margin:0 auto;background:rgba(255,253,248,.66);box-shadow:0 0 0 1px rgba(255,255,255,.55)}
+      a{color:inherit;text-decoration:none}.mobile-shell{width:min(100%,520px);margin:0 auto;background:#fff;box-shadow:0 0 0 1px rgba(17,17,17,.06)}
       .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:space-between;padding:22px 22px 36px;position:relative;overflow:hidden}.hero:before{content:"";position:absolute;inset:18px;border:1px solid rgba(112,86,60,.16);border-radius:34px;pointer-events:none}.topline{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;padding:8px 8px 0}.photo-card{margin:34px auto 20px;width:min(82vw,380px);aspect-ratio:3/4;border-radius:44% 44% 8px 8px;background:linear-gradient(145deg,#efe1cf,#fff8ef 56%,#d6c1aa);border:1px solid rgba(124,94,62,.18);box-shadow:var(--shadow);position:relative;overflow:hidden}.photo-card:before{content:"";position:absolute;inset:16px;border:1px solid rgba(255,255,255,.78);border-radius:44% 44% 8px 8px}.photo-card:after{content:"PHOTO";position:absolute;inset:0;display:grid;place-items:center;color:rgba(82,62,42,.34);font-family:var(--serif);font-size:2.4rem;letter-spacing:.18em}.names{text-align:center;padding:0 10px}.names .small{font-size:.88rem;color:var(--muted);letter-spacing:.2em;text-transform:uppercase}.names h1{font-family:var(--serif);font-weight:400;font-size:clamp(3.4rem,17vw,5.7rem);line-height:.92;margin:12px 0 18px;letter-spacing:-.07em}.names h1 span{display:block}.date-pill{display:inline-flex;gap:.7rem;align-items:center;border:1px solid var(--line);background:rgba(255,255,255,.58);border-radius:999px;padding:.72rem 1rem;box-shadow:0 10px 35px rgba(66,44,24,.07);font-weight:650}.scroll-hint{text-align:center;color:var(--muted);font-size:.82rem;margin-top:22px}.section{padding:64px 24px;border-top:1px solid rgba(85,67,48,.09)}.center{text-align:center}.kicker{font-size:.76rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:800;margin-bottom:12px}.section h2{font-family:var(--serif);font-weight:400;font-size:2.2rem;line-height:1.1;margin:0 0 20px;letter-spacing:-.045em}.invite-copy{font-size:1.06rem;color:#4f453b;margin:0 auto;max-width:360px;word-break:keep-all}.parents{display:grid;gap:10px;margin:34px auto 0;max-width:340px;color:#5b5148}.parents p{margin:0}.parents strong{color:var(--ink)}.info-card{background:rgba(255,255,255,.66);border:1px solid var(--line);border-radius:28px;padding:24px;box-shadow:0 18px 55px rgba(66,44,24,.08)}.info-card + .info-card{margin-top:14px}.info-label{font-size:.8rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}.info-value{font-size:1.15rem;font-weight:760;margin-top:4px}.calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-top:20px;text-align:center}.calendar span{aspect-ratio:1;border-radius:999px;display:grid;place-items:center;color:#766a60;font-size:.84rem}.calendar .dow{font-size:.72rem;color:var(--muted);aspect-ratio:auto}.calendar .day{background:rgba(255,255,255,.5)}.calendar .target{background:var(--ink);color:#fff;box-shadow:0 12px 25px rgba(43,38,33,.18)}.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:20px}.countdown div{border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.55);padding:10px 4px}.countdown strong{display:block;font-size:1.25rem}.countdown span{font-size:.7rem;color:var(--muted)}.gallery{display:grid;grid-template-columns:1fr 1fr;gap:10px}.tile{min-height:172px;border-radius:24px;background:linear-gradient(135deg,#ead8c2,#fff8ef);border:1px solid rgba(124,94,62,.15);display:grid;place-items:center;color:rgba(82,62,42,.34);font-family:var(--serif);letter-spacing:.14em}.tile:nth-child(1){grid-column:1/3;min-height:220px}.tile:nth-child(2){background:linear-gradient(135deg,#e8ded2,#fbf5ee)}.tile:nth-child(3){background:linear-gradient(135deg,#f3e6d9,#ddd0bf)}.mapbox{height:220px;border-radius:24px;background:linear-gradient(135deg,#eee5d9,#fffaf3);border:1px solid var(--line);position:relative;overflow:hidden;margin-bottom:16px}.mapbox:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 49%,rgba(120,100,80,.13) 50%,transparent 51%),linear-gradient(0deg,transparent 49%,rgba(120,100,80,.13) 50%,transparent 51%);background-size:62px 62px}.pin{position:absolute;left:50%;top:48%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50% 50% 50% 0;background:var(--accent);rotate:-45deg;box-shadow:0 10px 24px rgba(92,53,33,.25)}.pin:after{content:"";position:absolute;inset:14px;background:#fff;border-radius:50%}.button-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}.btn{display:flex;justify-content:center;align-items:center;min-height:48px;border-radius:999px;background:var(--ink);color:#fff;font-weight:760}.btn.secondary{background:rgba(255,255,255,.62);color:var(--ink);border:1px solid var(--line)}.account-list{display:grid;gap:10px}.account{display:flex;justify-content:space-between;gap:14px;align-items:center;background:rgba(255,255,255,.58);border:1px solid var(--line);border-radius:20px;padding:14px 16px}.account small{display:block;color:var(--muted)}.copy{border:0;background:#efe5d8;border-radius:999px;padding:.48rem .7rem;font-weight:760;color:#5c4636}.final{padding:76px 24px 92px;text-align:center}.final h2{font-family:var(--serif);font-weight:400;font-size:2.8rem;line-height:1;margin:0 0 14px}.floating-nav{position:sticky;bottom:12px;z-index:5;padding:0 14px 14px}.floating-nav nav{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;background:rgba(43,38,33,.88);backdrop-filter:blur(16px);border-radius:999px;padding:6px;box-shadow:0 18px 50px rgba(43,38,33,.22)}.floating-nav a{color:#fff;text-align:center;font-size:.75rem;padding:9px 4px;border-radius:999px}.floating-nav a:hover{background:rgba(255,255,255,.13)}
 
       /* Dot envelope intro + privacy-minded gallery interactions */
-      body.opening{overflow:hidden}.intro-envelope{position:fixed;inset:0;z-index:100;background:radial-gradient(circle at 50% 8%,#fffdf8,#f2e6d6 66%,#e4d2bd);display:grid;place-items:center;padding:28px;transition:opacity .75s ease,visibility .75s ease}.intro-envelope.done{opacity:0;visibility:hidden;pointer-events:none}.envelope-stage{width:min(86vw,390px);text-align:center;perspective:1200px}.dot-envelope{position:relative;width:100%;aspect-ratio:1.34;border-radius:22px;background-color:#fff8ee;background-image:radial-gradient(circle,rgba(55,45,35,.5) 1.1px,transparent 1.35px);background-size:12px 12px;box-shadow:0 28px 90px rgba(73,48,26,.22),inset 0 0 0 1px rgba(94,72,49,.18);overflow:hidden;transform-style:preserve-3d}.dot-envelope:before,.dot-envelope:after{content:"";position:absolute;inset:auto 0 0 0;height:62%;background:linear-gradient(135deg,rgba(255,255,255,.6),rgba(224,203,178,.78));clip-path:polygon(0 0,50% 52%,100% 0,100% 100%,0 100%);border-top:1px solid rgba(94,72,49,.12)}.dot-envelope:after{inset:0 0 auto 0;height:64%;clip-path:polygon(0 0,100% 0,50% 82%);transform-origin:top center;background-color:#f6eadb;background-image:radial-gradient(circle,rgba(55,45,35,.42) 1.05px,transparent 1.35px);background-size:12px 12px;transition:transform .9s cubic-bezier(.2,.8,.2,1)}.intro-card{position:absolute;left:10%;right:10%;bottom:13%;height:64%;border-radius:18px;background:rgba(255,253,248,.96);display:grid;place-items:center;box-shadow:0 20px 50px rgba(68,45,24,.18);transform:translateY(34%);transition:transform 1s cubic-bezier(.2,.9,.15,1) .22s}.intro-card strong{font-family:var(--serif);font-weight:400;font-size:2.1rem;line-height:1;letter-spacing:-.05em}.intro-card span{display:block;margin-top:10px;color:var(--muted);font-size:.78rem;letter-spacing:.18em;text-transform:uppercase}.intro-envelope.opening .dot-envelope:after{transform:rotateX(168deg)}.intro-envelope.opening .intro-card{transform:translateY(-42%)}.open-button{margin-top:24px;border:1px solid rgba(84,64,43,.18);background:rgba(43,38,33,.92);color:#fff;border-radius:999px;padding:14px 22px;font:inherit;font-weight:760;box-shadow:0 16px 45px rgba(43,38,33,.18)}.intro-note{margin:14px 0 0;color:var(--muted);font-size:.86rem}.motion{animation:floatIn .9s both;animation-timeline:view();animation-range:entry 0% cover 32%}@keyframes floatIn{from{opacity:0;transform:translateY(28px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}.protected-photo,.photo-card{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}.protected-photo{position:relative;cursor:zoom-in;overflow:hidden}.protected-photo:after{content:"확대하면 모자이크로 보여요";position:absolute;left:12px;right:12px;bottom:12px;border-radius:999px;background:rgba(43,38,33,.58);color:#fff;padding:.45rem .7rem;font-size:.74rem;text-align:center;opacity:0;transform:translateY(6px);transition:.25s}.protected-photo:hover:after{opacity:1;transform:none}.photo-modal{position:fixed;inset:0;z-index:90;background:rgba(27,22,18,.78);display:none;place-items:center;padding:28px;backdrop-filter:blur(10px)}.photo-modal.show{display:grid}.mosaic-frame{width:min(88vw,430px);aspect-ratio:3/4;border-radius:28px;border:1px solid rgba(255,255,255,.28);background:linear-gradient(135deg,#d2bda6,#fff1df);box-shadow:0 30px 90px rgba(0,0,0,.32);position:relative;overflow:hidden;image-rendering:pixelated;filter:contrast(1.08) saturate(.78)}.mosaic-frame:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,#ceb69c 0 12.5%,#f5e7d5 12.5% 25%,#bda58d 25% 37.5%,#eadac8 37.5% 50%,#d8c1aa 50% 62.5%,#f8ecdc 62.5% 75%,#a98f78 75% 87.5%,#dfccb7 87.5%);background-size:64px 64px;filter:blur(.2px)}.mosaic-frame:after{content:"원본 확대 대신 모자이크 미리보기만 제공됩니다";position:absolute;left:18px;right:18px;bottom:18px;border-radius:18px;background:rgba(255,253,248,.82);padding:12px 14px;text-align:center;font-size:.86rem;color:#4a4037}.modal-close{position:absolute;top:18px;right:18px;border:0;border-radius:999px;background:#fff;color:#2b2621;width:42px;height:42px;font-size:1.2rem}@media (prefers-reduced-motion:reduce){.motion{animation:none}.intro-envelope *{transition:none!important}}
+      body.opening{overflow:hidden}.intro-envelope{position:fixed;inset:0;z-index:100;background:#fff;display:grid;place-items:center;padding:28px;transition:opacity .75s ease,visibility .75s ease}.intro-envelope.done{opacity:0;visibility:hidden;pointer-events:none}.envelope-stage{width:min(86vw,390px);text-align:center;perspective:1200px}.dot-envelope{position:relative;width:100%;aspect-ratio:1.34;border-radius:22px;background-color:#fff;background-image:radial-gradient(circle,rgba(17,17,17,.58) 1.1px,transparent 1.35px);background-size:12px 12px;box-shadow:0 28px 90px rgba(73,48,26,.22),inset 0 0 0 1px rgba(94,72,49,.18);overflow:hidden;transform-style:preserve-3d}.dot-envelope:before,.dot-envelope:after{content:"";position:absolute;inset:auto 0 0 0;height:62%;background:linear-gradient(135deg,rgba(255,255,255,.6),rgba(246,246,246,.96));clip-path:polygon(0 0,50% 52%,100% 0,100% 100%,0 100%);border-top:1px solid rgba(94,72,49,.12)}.dot-envelope:after{inset:0 0 auto 0;height:64%;clip-path:polygon(0 0,100% 0,50% 82%);transform-origin:top center;background-color:#fff;background-image:radial-gradient(circle,rgba(17,17,17,.52) 1.05px,transparent 1.35px);background-size:12px 12px;transition:transform .9s cubic-bezier(.2,.8,.2,1)}.intro-card{position:absolute;left:10%;right:10%;bottom:13%;height:64%;border-radius:18px;background:rgba(255,253,248,.96);display:grid;place-items:center;box-shadow:0 20px 50px rgba(68,45,24,.18);transform:translateY(34%);transition:transform 1s cubic-bezier(.2,.9,.15,1) .22s}.intro-card strong{font-family:var(--serif);font-weight:400;font-size:2.1rem;line-height:1;letter-spacing:-.05em}.intro-card span{display:block;margin-top:10px;color:var(--muted);font-size:.78rem;letter-spacing:.18em;text-transform:uppercase}.intro-envelope.opening .dot-envelope:after{transform:rotateX(168deg)}.intro-envelope.opening .intro-card{transform:translateY(-42%)}.open-button{margin-top:24px;border:1px solid rgba(84,64,43,.18);background:rgba(43,38,33,.92);color:#fff;border-radius:999px;padding:14px 22px;font:inherit;font-weight:760;box-shadow:0 16px 45px rgba(43,38,33,.18)}.intro-note{margin:14px 0 0;color:var(--muted);font-size:.86rem}.motion{animation:floatIn .9s both;animation-timeline:view();animation-range:entry 0% cover 32%}@keyframes floatIn{from{opacity:0;transform:translateY(28px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}.protected-photo,.photo-card{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}.protected-photo{position:relative;cursor:zoom-in;overflow:hidden}.protected-photo:after{content:"확대하면 모자이크로 보여요";position:absolute;left:12px;right:12px;bottom:12px;border-radius:999px;background:rgba(43,38,33,.58);color:#fff;padding:.45rem .7rem;font-size:.74rem;text-align:center;opacity:0;transform:translateY(6px);transition:.25s}.protected-photo:hover:after{opacity:1;transform:none}.photo-modal{position:fixed;inset:0;z-index:90;background:rgba(27,22,18,.78);display:none;place-items:center;padding:28px;backdrop-filter:blur(10px)}.photo-modal.show{display:grid}.mosaic-frame{width:min(88vw,430px);aspect-ratio:3/4;border-radius:28px;border:1px solid rgba(255,255,255,.28);background:linear-gradient(135deg,#d2bda6,#fff1df);box-shadow:0 30px 90px rgba(0,0,0,.32);position:relative;overflow:hidden;image-rendering:pixelated;filter:contrast(1.08) saturate(.78)}.mosaic-frame:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,#ceb69c 0 12.5%,#f5e7d5 12.5% 25%,#bda58d 25% 37.5%,#eadac8 37.5% 50%,#d8c1aa 50% 62.5%,#f8ecdc 62.5% 75%,#a98f78 75% 87.5%,#dfccb7 87.5%);background-size:64px 64px;filter:blur(.2px)}.mosaic-frame:after{content:"원본 확대 대신 모자이크 미리보기만 제공됩니다";position:absolute;left:18px;right:18px;bottom:18px;border-radius:18px;background:rgba(255,253,248,.82);padding:12px 14px;text-align:center;font-size:.86rem;color:#4a4037}.modal-close{position:absolute;top:18px;right:18px;border:0;border-radius:999px;background:#fff;color:#2b2621;width:42px;height:42px;font-size:1.2rem}@media (prefers-reduced-motion:reduce){.motion{animation:none}.intro-envelope *{transition:none!important}}
+
+      .postcard{background:#fff;border:1.5px solid #111;box-shadow:0 0 0 5px #fff,0 0 0 6.5px #111,0 20px 60px rgba(0,0,0,.055);padding:54px 26px;margin:0 auto;max-width:420px;text-align:center}.postcard-photo{width:min(62vw,260px);aspect-ratio:1.62;margin:0 auto 34px;background:#fff;border:12px solid #f6f6f6;border-bottom-width:42px;box-shadow:0 10px 24px rgba(0,0,0,.12);position:relative}.postcard-photo:before{content:"PHOTO";position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(135deg,#efefef,#fff);color:#aaa;font-family:var(--serif);letter-spacing:.12em}.core-message{font-size:1.03rem;line-height:1.92;letter-spacing:-.035em;color:#111;word-break:keep-all;white-space:pre-line}.couple-line{font-size:1.2rem;line-height:1.7;margin-top:34px}.event-line{font-size:1.18rem;line-height:1.7;margin-top:34px}.qr-placeholder{width:74px;height:74px;background:#111;margin:34px 0 0 auto}.qr-caption{text-align:right;font-size:.78rem;margin-top:4px;color:#111}
       @media (min-width:760px){body{padding:28px 0}.mobile-shell{border-radius:42px;overflow:hidden;box-shadow:0 30px 90px rgba(66,44,24,.16),0 0 0 1px rgba(100,78,52,.1)}.hero{min-height:820px}}
     </style>
   </head>
@@ -62,20 +61,20 @@ const description = 'A mobile wedding invitation preview for Hyungwoo Song.';
           <div class="names">
             <div class="small">We are getting married</div>
             <h1><span>Hyungwoo</span><span>&amp; You</span></h1>
-            <div class="date-pill">2026. 10. 24. SAT · 12:30 PM</div>
+            <div class="date-pill">2026. 10. 24. SAT · 12:00 PM</div>
           </div>
         </div>
         <div class="scroll-hint">아래로 내려 초대장을 확인해주세요</div>
       </section>
 
       <section class="section center motion" id="invite">
-        <div class="kicker">Invitation</div>
-        <h2>서로의 계절이 되어<br />함께 걸어가려 합니다.</h2>
-        <p class="invite-copy">가장 가까운 마음으로 지켜봐 주신 분들을 모시고, 저희 두 사람이 새로운 시작을 약속하려 합니다. 바쁘시더라도 귀한 걸음으로 축복해 주시면 더없는 기쁨으로 간직하겠습니다.</p>
-        <div class="parents">
-          <p><strong>신랑</strong> 송형우</p>
-          <p><strong>신부</strong> 이름을 입력해주세요</p>
-          <p>양가 부모님 성함 자리</p>
+        <div class="postcard">
+          <div class="postcard-photo protected-photo" role="button" tabindex="0" aria-label="대표 사진 모자이크 확대"></div>
+          <p class="core-message">무용한 것, 연약한 것, 작은 것들을<br />더 다정히 바라보게 해준 사람을 만났습니다.<br /><br />그 마음 안에서<br />가장 자연스럽고 편안한 우리를 발견했고,<br />이제 서로의 곁에서 오래도록 함께 살아가려 합니다.<br /><br />저희의 첫걸음에 함께해 주시면 감사하겠습니다.</p>
+          <div class="couple-line">송형우 · 이름을 입력해주세요</div>
+          <div class="event-line">2026년 10월 24일 토요일 낮 12시<br />천주교도림동성당</div>
+          <div class="qr-placeholder" aria-hidden="true"></div>
+          <div class="qr-caption">모바일 청첩장</div>
         </div>
       </section>
 
@@ -83,7 +82,7 @@ const description = 'A mobile wedding invitation preview for Hyungwoo Song.';
         <div class="kicker">Date & Place</div>
         <div class="info-card">
           <div class="info-label">예식 일시</div>
-          <div class="info-value">2026년 10월 24일 토요일 낮 12시 30분</div>
+          <div class="info-value">2026년 10월 24일 토요일 낮 12시</div>
           <div class="countdown" aria-label="예식일까지 남은 시간">
             <div><strong id="d">--</strong><span>Days</span></div>
             <div><strong id="h">--</strong><span>Hours</span></div>
@@ -93,8 +92,8 @@ const description = 'A mobile wedding invitation preview for Hyungwoo Song.';
         </div>
         <div class="info-card">
           <div class="info-label">예식 장소</div>
-          <div class="info-value">아직 정하지 않은 예식장 · 그랜드홀</div>
-          <p style="margin:8px 0 0;color:var(--muted)">서울특별시 어딘가의 따뜻한 공간</p>
+          <div class="info-value">천주교도림동성당</div>
+          <p style="margin:8px 0 0;color:var(--muted)">서울 영등포구 도림동</p>
         </div>
         <div class="calendar" aria-label="2026년 10월 달력">
           <span class="dow">S</span><span class="dow">M</span><span class="dow">T</span><span class="dow">W</span><span class="dow">T</span><span class="dow">F</span><span class="dow">S</span>
@@ -121,7 +120,7 @@ const description = 'A mobile wedding invitation preview for Hyungwoo Song.';
         <h2>오시는 길</h2>
         <div class="mapbox"><div class="pin"></div></div>
         <div class="info-card">
-          <div class="info-value">아직 정하지 않은 예식장</div>
+          <div class="info-value">천주교도림동성당</div>
           <p style="margin:8px 0 0;color:var(--muted)">주소가 확정되면 이 자리에 카카오맵/네이버지도 링크와 주차 안내를 넣겠습니다.</p>
           <div class="button-row">
             <a class="btn" href="#">카카오맵</a>
