@@ -1,0 +1,171 @@
+---
+const title = 'Wedding Invitation — Hyungwoo & Partner';
+const description = 'A mobile wedding invitation preview for Hyungwoo Song.';
+---
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="noindex" />
+    <meta property="og:title" content="우리 결혼합니다" />
+    <meta property="og:description" content="소중한 분들을 초대합니다." />
+    <meta property="og:type" content="website" />
+    <title>{title}</title>
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <style>
+      @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+      :root{
+        --paper:#fffaf3;
+        --surface:#fffdf8;
+        --ink:#2b2621;
+        --muted:#7b7167;
+        --soft:#eadfce;
+        --line:rgba(67,54,40,.14);
+        --accent:#9b6b4f;
+        --accent2:#c5a27c;
+        --green:#6d7d69;
+        --shadow:0 24px 80px rgba(66,44,24,.12);
+        --serif: Georgia, 'Times New Roman', serif;
+        --sans:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+      }
+      *{box-sizing:border-box}
+      html{scroll-behavior:smooth}
+      body{margin:0;background:linear-gradient(180deg,#fffaf3 0%,#f8efe4 50%,#fffaf3 100%);color:var(--ink);font-family:var(--sans);line-height:1.72;letter-spacing:-.02em;-webkit-font-smoothing:antialiased}
+      body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.42;background:
+        radial-gradient(circle at 18% 2%,rgba(214,188,154,.42),transparent 32%),
+        radial-gradient(circle at 88% 12%,rgba(197,162,124,.28),transparent 28%),
+        radial-gradient(circle at 50% 100%,rgba(255,255,255,.78),transparent 42%);z-index:-2}
+      body:after{content:"";position:fixed;inset:0;pointer-events:none;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");z-index:-1}
+      a{color:inherit;text-decoration:none}.mobile-shell{width:min(100%,520px);margin:0 auto;background:rgba(255,253,248,.66);box-shadow:0 0 0 1px rgba(255,255,255,.55)}
+      .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:space-between;padding:22px 22px 36px;position:relative;overflow:hidden}.hero:before{content:"";position:absolute;inset:18px;border:1px solid rgba(112,86,60,.16);border-radius:34px;pointer-events:none}.topline{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;padding:8px 8px 0}.photo-card{margin:34px auto 20px;width:min(82vw,380px);aspect-ratio:3/4;border-radius:44% 44% 8px 8px;background:linear-gradient(145deg,#efe1cf,#fff8ef 56%,#d6c1aa);border:1px solid rgba(124,94,62,.18);box-shadow:var(--shadow);position:relative;overflow:hidden}.photo-card:before{content:"";position:absolute;inset:16px;border:1px solid rgba(255,255,255,.78);border-radius:44% 44% 8px 8px}.photo-card:after{content:"PHOTO";position:absolute;inset:0;display:grid;place-items:center;color:rgba(82,62,42,.34);font-family:var(--serif);font-size:2.4rem;letter-spacing:.18em}.names{text-align:center;padding:0 10px}.names .small{font-size:.88rem;color:var(--muted);letter-spacing:.2em;text-transform:uppercase}.names h1{font-family:var(--serif);font-weight:400;font-size:clamp(3.4rem,17vw,5.7rem);line-height:.92;margin:12px 0 18px;letter-spacing:-.07em}.names h1 span{display:block}.date-pill{display:inline-flex;gap:.7rem;align-items:center;border:1px solid var(--line);background:rgba(255,255,255,.58);border-radius:999px;padding:.72rem 1rem;box-shadow:0 10px 35px rgba(66,44,24,.07);font-weight:650}.scroll-hint{text-align:center;color:var(--muted);font-size:.82rem;margin-top:22px}.section{padding:64px 24px;border-top:1px solid rgba(85,67,48,.09)}.center{text-align:center}.kicker{font-size:.76rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:800;margin-bottom:12px}.section h2{font-family:var(--serif);font-weight:400;font-size:2.2rem;line-height:1.1;margin:0 0 20px;letter-spacing:-.045em}.invite-copy{font-size:1.06rem;color:#4f453b;margin:0 auto;max-width:360px;word-break:keep-all}.parents{display:grid;gap:10px;margin:34px auto 0;max-width:340px;color:#5b5148}.parents p{margin:0}.parents strong{color:var(--ink)}.info-card{background:rgba(255,255,255,.66);border:1px solid var(--line);border-radius:28px;padding:24px;box-shadow:0 18px 55px rgba(66,44,24,.08)}.info-card + .info-card{margin-top:14px}.info-label{font-size:.8rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}.info-value{font-size:1.15rem;font-weight:760;margin-top:4px}.calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-top:20px;text-align:center}.calendar span{aspect-ratio:1;border-radius:999px;display:grid;place-items:center;color:#766a60;font-size:.84rem}.calendar .dow{font-size:.72rem;color:var(--muted);aspect-ratio:auto}.calendar .day{background:rgba(255,255,255,.5)}.calendar .target{background:var(--ink);color:#fff;box-shadow:0 12px 25px rgba(43,38,33,.18)}.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:20px}.countdown div{border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.55);padding:10px 4px}.countdown strong{display:block;font-size:1.25rem}.countdown span{font-size:.7rem;color:var(--muted)}.gallery{display:grid;grid-template-columns:1fr 1fr;gap:10px}.tile{min-height:172px;border-radius:24px;background:linear-gradient(135deg,#ead8c2,#fff8ef);border:1px solid rgba(124,94,62,.15);display:grid;place-items:center;color:rgba(82,62,42,.34);font-family:var(--serif);letter-spacing:.14em}.tile:nth-child(1){grid-column:1/3;min-height:220px}.tile:nth-child(2){background:linear-gradient(135deg,#e8ded2,#fbf5ee)}.tile:nth-child(3){background:linear-gradient(135deg,#f3e6d9,#ddd0bf)}.mapbox{height:220px;border-radius:24px;background:linear-gradient(135deg,#eee5d9,#fffaf3);border:1px solid var(--line);position:relative;overflow:hidden;margin-bottom:16px}.mapbox:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 49%,rgba(120,100,80,.13) 50%,transparent 51%),linear-gradient(0deg,transparent 49%,rgba(120,100,80,.13) 50%,transparent 51%);background-size:62px 62px}.pin{position:absolute;left:50%;top:48%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50% 50% 50% 0;background:var(--accent);rotate:-45deg;box-shadow:0 10px 24px rgba(92,53,33,.25)}.pin:after{content:"";position:absolute;inset:14px;background:#fff;border-radius:50%}.button-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}.btn{display:flex;justify-content:center;align-items:center;min-height:48px;border-radius:999px;background:var(--ink);color:#fff;font-weight:760}.btn.secondary{background:rgba(255,255,255,.62);color:var(--ink);border:1px solid var(--line)}.account-list{display:grid;gap:10px}.account{display:flex;justify-content:space-between;gap:14px;align-items:center;background:rgba(255,255,255,.58);border:1px solid var(--line);border-radius:20px;padding:14px 16px}.account small{display:block;color:var(--muted)}.copy{border:0;background:#efe5d8;border-radius:999px;padding:.48rem .7rem;font-weight:760;color:#5c4636}.final{padding:76px 24px 92px;text-align:center}.final h2{font-family:var(--serif);font-weight:400;font-size:2.8rem;line-height:1;margin:0 0 14px}.floating-nav{position:sticky;bottom:12px;z-index:5;padding:0 14px 14px}.floating-nav nav{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;background:rgba(43,38,33,.88);backdrop-filter:blur(16px);border-radius:999px;padding:6px;box-shadow:0 18px 50px rgba(43,38,33,.22)}.floating-nav a{color:#fff;text-align:center;font-size:.75rem;padding:9px 4px;border-radius:999px}.floating-nav a:hover{background:rgba(255,255,255,.13)}
+      @media (min-width:760px){body{padding:28px 0}.mobile-shell{border-radius:42px;overflow:hidden;box-shadow:0 30px 90px rgba(66,44,24,.16),0 0 0 1px rgba(100,78,52,.1)}.hero{min-height:820px}}
+    </style>
+  </head>
+  <body>
+    <div class="mobile-shell">
+      <section class="hero" id="top">
+        <div class="topline"><span>Wedding Invitation</span><span>2026</span></div>
+        <div>
+          <div class="photo-card" aria-label="대표 사진 자리"></div>
+          <div class="names">
+            <div class="small">We are getting married</div>
+            <h1><span>Hyungwoo</span><span>&amp; You</span></h1>
+            <div class="date-pill">2026. 10. 24. SAT · 12:30 PM</div>
+          </div>
+        </div>
+        <div class="scroll-hint">아래로 내려 초대장을 확인해주세요</div>
+      </section>
+
+      <section class="section center" id="invite">
+        <div class="kicker">Invitation</div>
+        <h2>서로의 계절이 되어<br />함께 걸어가려 합니다.</h2>
+        <p class="invite-copy">가장 가까운 마음으로 지켜봐 주신 분들을 모시고, 저희 두 사람이 새로운 시작을 약속하려 합니다. 바쁘시더라도 귀한 걸음으로 축복해 주시면 더없는 기쁨으로 간직하겠습니다.</p>
+        <div class="parents">
+          <p><strong>신랑</strong> 송형우</p>
+          <p><strong>신부</strong> 이름을 입력해주세요</p>
+          <p>양가 부모님 성함 자리</p>
+        </div>
+      </section>
+
+      <section class="section" id="when">
+        <div class="kicker">Date & Place</div>
+        <div class="info-card">
+          <div class="info-label">예식 일시</div>
+          <div class="info-value">2026년 10월 24일 토요일 낮 12시 30분</div>
+          <div class="countdown" aria-label="예식일까지 남은 시간">
+            <div><strong id="d">--</strong><span>Days</span></div>
+            <div><strong id="h">--</strong><span>Hours</span></div>
+            <div><strong id="m">--</strong><span>Minutes</span></div>
+            <div><strong id="s">--</strong><span>Seconds</span></div>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-label">예식 장소</div>
+          <div class="info-value">아직 정하지 않은 예식장 · 그랜드홀</div>
+          <p style="margin:8px 0 0;color:var(--muted)">서울특별시 어딘가의 따뜻한 공간</p>
+        </div>
+        <div class="calendar" aria-label="2026년 10월 달력">
+          <span class="dow">S</span><span class="dow">M</span><span class="dow">T</span><span class="dow">W</span><span class="dow">T</span><span class="dow">F</span><span class="dow">S</span>
+          <span></span><span></span><span></span><span></span><span class="day">1</span><span class="day">2</span><span class="day">3</span>
+          <span class="day">4</span><span class="day">5</span><span class="day">6</span><span class="day">7</span><span class="day">8</span><span class="day">9</span><span class="day">10</span>
+          <span class="day">11</span><span class="day">12</span><span class="day">13</span><span class="day">14</span><span class="day">15</span><span class="day">16</span><span class="day">17</span>
+          <span class="day">18</span><span class="day">19</span><span class="day">20</span><span class="day">21</span><span class="day">22</span><span class="day">23</span><span class="day target">24</span>
+          <span class="day">25</span><span class="day">26</span><span class="day">27</span><span class="day">28</span><span class="day">29</span><span class="day">30</span><span class="day">31</span>
+        </div>
+      </section>
+
+      <section class="section" id="gallery">
+        <div class="kicker">Gallery</div>
+        <h2>사진이 들어갈 자리</h2>
+        <div class="gallery">
+          <div class="tile">PHOTO 01</div>
+          <div class="tile">PHOTO 02</div>
+          <div class="tile">PHOTO 03</div>
+        </div>
+      </section>
+
+      <section class="section" id="map">
+        <div class="kicker">Location</div>
+        <h2>오시는 길</h2>
+        <div class="mapbox"><div class="pin"></div></div>
+        <div class="info-card">
+          <div class="info-value">아직 정하지 않은 예식장</div>
+          <p style="margin:8px 0 0;color:var(--muted)">주소가 확정되면 이 자리에 카카오맵/네이버지도 링크와 주차 안내를 넣겠습니다.</p>
+          <div class="button-row">
+            <a class="btn" href="#">카카오맵</a>
+            <a class="btn secondary" href="#">네이버지도</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="kicker">Contact & Gift</div>
+        <h2>마음 전하실 곳</h2>
+        <div class="account-list">
+          <div class="account"><div><strong>신랑측</strong><small>은행 000-0000-0000</small></div><button class="copy" data-copy="000-0000-0000">복사</button></div>
+          <div class="account"><div><strong>신부측</strong><small>은행 000-0000-0000</small></div><button class="copy" data-copy="000-0000-0000">복사</button></div>
+        </div>
+        <div class="button-row">
+          <a class="btn" href="tel:01000000000">신랑에게 연락</a>
+          <a class="btn secondary" href="tel:01000000000">신부에게 연락</a>
+        </div>
+      </section>
+
+      <section class="final">
+        <div class="kicker">Thank you</div>
+        <h2>그날 뵙겠습니다.</h2>
+        <p style="color:var(--muted);margin:0">Hyungwoo &amp; Partner</p>
+      </section>
+
+      <div class="floating-nav" aria-label="청첩장 메뉴">
+        <nav>
+          <a href="#invite">초대</a>
+          <a href="#when">일시</a>
+          <a href="#gallery">사진</a>
+          <a href="#map">장소</a>
+        </nav>
+      </div>
+    </div>
+    <script>
+      const target = new Date('2026-10-24T12:30:00+09:00').getTime();
+      const ids = ['d','h','m','s'].map((id) => document.getElementById(id));
+      function tick(){
+        const diff = Math.max(0, target - Date.now());
+        const d = Math.floor(diff / 86400000);
+        const h = Math.floor((diff % 86400000) / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+        [d,h,m,s].forEach((v,i)=>{ if(ids[i]) ids[i].textContent = String(v).padStart(i ? 2 : 1,'0'); });
+      }
+      tick(); setInterval(tick, 1000);
+      document.querySelectorAll('.copy').forEach((btn)=>{
+        btn.addEventListener('click', async ()=>{
+          try { await navigator.clipboard.writeText(btn.dataset.copy || ''); btn.textContent='완료'; setTimeout(()=>btn.textContent='복사',1200); }
+          catch { btn.textContent='복사 실패'; setTimeout(()=>btn.textContent='복사',1200); }
+        });
+      });
+    </script>
+  </body>
+</html>
