@@ -4,6 +4,7 @@ const description = '송형우와 강혜진의 모바일 청첩장';
 const naverMap = 'https://map.naver.com/p/search/%EC%B2%9C%EC%A3%BC%EA%B5%90%20%EB%8F%84%EB%A6%BC%EB%8F%99%EC%84%B1%EB%8B%B9';
 const kakaoMap = 'http://place.map.kakao.com/10311412';
 const naverMapClientId = import.meta.env.PUBLIC_NAVER_MAP_CLIENT_ID;
+const naverMapScriptSrc = naverMapClientId ? `https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${naverMapClientId}` : '';
 ---
 <!doctype html>
 <html lang="ko">
@@ -264,7 +265,7 @@ const naverMapClientId = import.meta.env.PUBLIC_NAVER_MAP_CLIENT_ID;
       <button class="modal-nav next" type="button" aria-label="다음 사진">›</button>
     </div>
 
-    {naverMapClientId && <script src={`https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${naverMapClientId}`}></script>}
+    {naverMapClientId && <script is:inline src={naverMapScriptSrc}></script>}
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script>
       const cover = document.getElementById('cover');
