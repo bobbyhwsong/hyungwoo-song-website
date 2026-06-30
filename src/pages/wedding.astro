@@ -47,17 +47,25 @@ const description = 'A mobile wedding invitation preview for Hyungwoo Song.';
       .first-screen{min-height:100svh;display:flex;align-items:center;justify-content:center;padding:44px 24px 76px;border-top:0}.first-screen .postcard{width:100%}.postcard{border-radius:2px}.postcard:before{content:"WEDDING INVITATION";display:block;font-size:.76rem;letter-spacing:.22em;color:#666;text-align:left;margin-bottom:30px}.postcard:after{content:"아래로 내려 초대장을 확인해주세요";display:block;margin-top:32px;color:#777;font-size:.82rem}.mobile-shell{min-height:100svh}.hero{display:none!important}
       .postcard{background:#fff;background-image:linear-gradient(rgba(255,255,255,.94),rgba(255,255,255,.94)),url("/assets/wedding-dot-pattern.jpeg");background-size:auto,260px auto;background-position:center,center top;}
       .family-line{font-size:.95rem;line-height:1.75;color:#555;margin:-18px 0 32px}.map-buttons{grid-template-columns:1fr;gap:8px}.map-buttons .btn{min-height:50px}@media(min-width:430px){.map-buttons{grid-template-columns:repeat(3,1fr)}}
+      
+      body.opening{overflow:hidden}.cover{min-height:100svh;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:32px 24px 28px;text-align:center}.cover-copy p{font-size:.96rem;line-height:1.72;color:#555;margin:0 0 42px;word-break:keep-all}.cover-copy h1{font-family:var(--sans);font-size:clamp(1.9rem,8.8vw,3.05rem);line-height:1.18;letter-spacing:-.05em;margin:0;font-weight:760}.cover-copy h1 span{font-weight:760}.cover-date{font-size:1.28rem;font-weight:760;margin-top:28px;letter-spacing:.01em}.envelope-button{appearance:none;border:0;background:transparent;padding:0;margin:22px 0 0;width:min(78vw,360px);height:min(64vw,300px);max-height:310px;position:relative;cursor:pointer;-webkit-tap-highlight-color:transparent}.envelope-button:focus-visible{outline:2px solid #111;outline-offset:8px}.dot-envelope{display:block;position:absolute;left:0;right:0;bottom:0;width:100%;height:54%;border-radius:3px;background-color:#fff;background-image:url("/assets/wedding-dot-pattern.jpeg");background-size:210px auto;background-position:center;background-repeat:repeat;box-shadow:0 18px 40px rgba(0,0,0,.10),inset 0 0 0 1.2px rgba(17,17,17,.18);z-index:2;transition:transform .8s cubic-bezier(.2,.8,.2,1)}.dot-envelope:before{content:"";position:absolute;inset:0;background:linear-gradient(145deg,transparent 49.2%,rgba(17,17,17,.13) 50%,transparent 50.8%),linear-gradient(35deg,transparent 49.2%,rgba(17,17,17,.13) 50%,transparent 50.8%)}.dot-envelope:after{content:"";position:absolute;left:0;right:0;top:0;height:72%;clip-path:polygon(0 0,100% 0,50% 76%);background-color:#fff;background-image:url("/assets/wedding-dot-pattern.jpeg");background-size:210px auto;background-position:center top;transform-origin:top center;transition:transform .9s cubic-bezier(.2,.8,.2,1);box-shadow:inset 0 -1px rgba(17,17,17,.12)}.rising-photo{display:block;position:absolute;left:50%;bottom:18%;width:58%;aspect-ratio:3/4;transform:translate(-50%,42%) scale(.96);background:#fff;border:10px solid #fff;border-bottom-width:34px;box-shadow:0 14px 35px rgba(0,0,0,.16);z-index:1;opacity:.98;transition:transform 1.05s cubic-bezier(.16,.9,.2,1),opacity .4s ease}.rising-photo:before{content:"PHOTO";position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(135deg,#ececec,#fff);color:#aaa;font-family:var(--serif);letter-spacing:.12em}.cover.opened .dot-envelope:after{transform:rotateX(172deg)}.cover.opened .rising-photo{transform:translate(-50%,-54%) scale(1);opacity:1}.view-details{font-weight:730;margin-top:14px;line-height:1.35}.view-details span{font-size:1.3rem}.intro-envelope,.envelope-stage,.open-button,.intro-note,.intro-card{display:none!important}.first-screen{min-height:auto;padding-top:70px}.first-screen .postcard{transform:translateY(20px);opacity:0;transition:opacity .75s ease,transform .75s ease}.cover.opened + .mobile-shell .first-screen .postcard{transform:translateY(0);opacity:1}.cover.opened + .mobile-shell{animation:revealShell .7s ease .5s both}@keyframes revealShell{from{opacity:.45}to{opacity:1}}
+
       @media (min-width:760px){body{padding:28px 0}.mobile-shell{border-radius:42px;overflow:hidden;box-shadow:0 30px 90px rgba(66,44,24,.16),0 0 0 1px rgba(100,78,52,.1)}.hero{min-height:820px}}
     </style>
   </head>
   <body class="opening">
-    <div class="intro-envelope" id="introEnvelope" aria-label="청첩장 봉투 열기">
-      <div class="envelope-stage">
-        <div class="dot-envelope" aria-hidden="true"><div class="intro-card"><div><strong>송형우<br />그리고<br />강혜진</strong><span>Wedding Invitation</span></div></div></div>
-        <button class="open-button" id="openInvitation" type="button">청첩장 열기</button>
-        <p class="intro-note">봉투를 열어 초대장을 확인해주세요</p>
+    <section class="cover" id="cover" aria-label="청첩장 봉투 열기">
+      <div class="cover-copy">
+        <p>무용한 것, 연약한 것, 작은 것들을<br />더 다정히 바라보게 해준 사람을 만났습니다.</p>
+        <h1>The Wedding of<br /><span>송형우 &amp; 강혜진</span></h1>
+        <div class="cover-date">2026.10.24</div>
       </div>
-    </div>
+      <button class="envelope-button" id="openInvitation" type="button" aria-label="봉투 열기">
+        <span class="rising-photo protected-photo" aria-hidden="true"></span>
+        <span class="dot-envelope" aria-hidden="true"></span>
+      </button>
+      <a class="view-details" href="#invite">View Details<br /><span>⌄</span></a>
+    </section>
     <div class="mobile-shell">
       <section class="section center motion first-screen" id="invite">
         <div class="postcard">
@@ -152,18 +160,15 @@ const description = 'A mobile wedding invitation preview for Hyungwoo Song.';
     <div class="photo-modal" id="photoModal" aria-hidden="true"><button class="modal-close" type="button" aria-label="닫기">×</button><div class="mosaic-frame" role="img" aria-label="모자이크 처리된 사진 확대 미리보기"></div></div>
     <script>
 
-      const intro = document.getElementById('introEnvelope');
+      const cover = document.getElementById('cover');
       const openInvitation = () => {
-        if (!intro || intro.classList.contains('done')) return;
-        intro.classList.add('opening');
-        window.setTimeout(() => {
-          intro.classList.add('done');
-          document.body.classList.remove('opening');
-          window.scrollTo({ top: 0, behavior: 'instant' });
-        }, 1050);
+        if (!cover || cover.classList.contains('opened')) return;
+        cover.classList.add('opened');
+        document.body.classList.remove('opening');
+        window.setTimeout(() => document.getElementById('invite')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 900);
       };
       document.getElementById('openInvitation')?.addEventListener('click', openInvitation);
-      intro?.addEventListener('click', (event) => { if (event.target === intro) openInvitation(); });
+      cover?.addEventListener('click', (event) => { if (event.target === cover) openInvitation(); });
       document.addEventListener('keydown', (event) => { if (event.key === 'Escape') document.getElementById('photoModal')?.classList.remove('show'); });
       document.addEventListener('contextmenu', (event) => { if (event.target.closest?.('.protected-photo,.photo-card,.photo-modal')) event.preventDefault(); });
       document.addEventListener('dragstart', (event) => { if (event.target.closest?.('.protected-photo,.photo-card,.photo-modal')) event.preventDefault(); });
