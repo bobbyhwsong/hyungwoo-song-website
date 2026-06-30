@@ -3,6 +3,7 @@ const title = '송형우 · 강혜진 결혼합니다';
 const description = '송형우와 강혜진의 모바일 청첩장';
 const naverMap = 'https://map.naver.com/p/search/%EC%B2%9C%EC%A3%BC%EA%B5%90%20%EB%8F%84%EB%A6%BC%EB%8F%99%EC%84%B1%EB%8B%B9';
 const kakaoMap = 'http://place.map.kakao.com/10311412';
+const naverMapClientId = import.meta.env.PUBLIC_NAVER_MAP_CLIENT_ID;
 ---
 <!doctype html>
 <html lang="ko">
@@ -263,12 +264,28 @@ const kakaoMap = 'http://place.map.kakao.com/10311412';
       <button class="modal-nav next" type="button" aria-label="다음 사진">›</button>
     </div>
 
+    {naverMapClientId && <script src={`https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${naverMapClientId}`}></script>}
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script>
       const cover = document.getElementById('cover');
       const venueLatLng = [37.5105716, 126.9013946];
       const mapEl = document.getElementById('weddingMap');
-      if (mapEl && window.L) {
+      if (mapEl && window.naver?.maps) {
+        const venue = new naver.maps.LatLng(venueLatLng[0], venueLatLng[1]);
+        const weddingMap = new naver.maps.Map(mapEl, {
+          center: venue,
+          zoom: 16,
+          minZoom: 10,
+          zoomControl: true,
+          zoomControlOptions: { position: naver.maps.Position.TOP_RIGHT }
+        });
+        const marker = new naver.maps.Marker({ position: venue, map: weddingMap, title: '천주교 도림동성당' });
+        const infoWindow = new naver.maps.InfoWindow({
+          content: '<div style="padding:10px 12px;font-size:13px;line-height:1.45"><strong style="display:block;margin-bottom:3px">천주교 도림동성당</strong>서울 영등포구 도영로22길 22</div>'
+        });
+        infoWindow.open(weddingMap, marker);
+        naver.maps.Event.addListener(marker, 'click', () => infoWindow.open(weddingMap, marker));
+      } else if (mapEl && window.L) {
         const weddingMap = L.map(mapEl, { scrollWheelZoom: false, tap: true }).setView(venueLatLng, 16);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           maxZoom: 19,
