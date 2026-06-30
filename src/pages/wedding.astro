@@ -44,6 +44,7 @@ const description = 'A mobile wedding invitation preview for Hyungwoo Song.';
       .postcard{background:#fff;border:1.5px solid #111;box-shadow:0 0 0 5px #fff,0 0 0 6.5px #111,0 20px 60px rgba(0,0,0,.055);padding:54px 26px;margin:0 auto;max-width:420px;text-align:center}.postcard-photo{width:min(62vw,260px);aspect-ratio:1.62;margin:0 auto 34px;background:#fff;border:12px solid #f6f6f6;border-bottom-width:42px;box-shadow:0 10px 24px rgba(0,0,0,.12);position:relative}.postcard-photo:before{content:"PHOTO";position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(135deg,#efefef,#fff);color:#aaa;font-family:var(--serif);letter-spacing:.12em}.core-message{font-size:1.03rem;line-height:1.92;letter-spacing:-.035em;color:#111;word-break:keep-all;white-space:pre-line}.couple-line{font-size:1.2rem;line-height:1.7;margin-top:34px}.event-line{font-size:1.18rem;line-height:1.7;margin-top:34px}
 
       .names h1 span:nth-child(2){font-family:var(--sans);font-size:.9rem;letter-spacing:.18em;margin:.35rem 0;color:var(--muted);font-weight:500}.postcard-names{font-family:var(--serif);font-size:2.05rem;line-height:1.18;letter-spacing:-.05em;margin:0 0 34px}.postcard-names span{font-family:var(--sans);font-size:.8rem;letter-spacing:.18em;color:var(--muted)}.postcard .event-line{border-top:1px solid var(--line);padding-top:28px}.postcard .core-message{margin:0 auto 34px;max-width:330px}.section{background:#fff}.info-card,.account,.btn.secondary{background:#fff}.gallery .tile,.mapbox{background:#fff;border-color:#111;color:#777}.gallery .tile:before{content:"";position:absolute;inset:10px;border:1px solid rgba(17,17,17,.1);border-radius:18px}.tile{position:relative}.mapbox:before{background:linear-gradient(90deg,transparent 49%,rgba(17,17,17,.1) 50%,transparent 51%),linear-gradient(0deg,transparent 49%,rgba(17,17,17,.1) 50%,transparent 51%);background-size:54px 54px}.pin{background:#111}.date-pill,.info-card,.account{box-shadow:none}.floating-nav nav{background:rgba(17,17,17,.9)}
+      .first-screen{min-height:100svh;display:flex;align-items:center;justify-content:center;padding:44px 24px 76px;border-top:0}.first-screen .postcard{width:100%}.postcard{border-radius:2px}.postcard:before{content:"WEDDING INVITATION";display:block;font-size:.76rem;letter-spacing:.22em;color:#666;text-align:left;margin-bottom:30px}.postcard:after{content:"아래로 내려 초대장을 확인해주세요";display:block;margin-top:32px;color:#777;font-size:.82rem}.mobile-shell{min-height:100svh}.hero{display:none!important}
       @media (min-width:760px){body{padding:28px 0}.mobile-shell{border-radius:42px;overflow:hidden;box-shadow:0 30px 90px rgba(66,44,24,.16),0 0 0 1px rgba(100,78,52,.1)}.hero{min-height:820px}}
     </style>
   </head>
@@ -56,20 +57,7 @@ const description = 'A mobile wedding invitation preview for Hyungwoo Song.';
       </div>
     </div>
     <div class="mobile-shell">
-      <section class="hero" id="top">
-        <div class="topline"><span>Wedding Invitation</span><span>2026</span></div>
-        <div>
-          <div class="photo-card" aria-label="대표 사진 자리"></div>
-          <div class="names">
-            <div class="small">We are getting married</div>
-            <h1><span>송형우</span><span>그리고</span><span>신부이름</span></h1>
-            <div class="date-pill">2026. 10. 24. 토요일 낮 12시</div>
-          </div>
-        </div>
-        <div class="scroll-hint">아래로 내려 초대장을 확인해주세요</div>
-      </section>
-
-      <section class="section center motion" id="invite">
+      <section class="section center motion first-screen" id="invite">
         <div class="postcard">
           <div class="postcard-photo protected-photo" role="button" tabindex="0" aria-label="대표 사진 모자이크 확대"></div>
           <div class="postcard-names">송형우<br /><span>그리고</span><br />신부이름</div>
@@ -167,6 +155,7 @@ const description = 'A mobile wedding invitation preview for Hyungwoo Song.';
         window.setTimeout(() => {
           intro.classList.add('done');
           document.body.classList.remove('opening');
+          window.scrollTo({ top: 0, behavior: 'instant' });
         }, 1050);
       };
       document.getElementById('openInvitation')?.addEventListener('click', openInvitation);
