@@ -62,6 +62,8 @@ const tmap = 'tmap://route?goalx=126.90139457764799&goaly=37.51057157299321&goal
       .postcard-photo{width:min(62vw,260px);aspect-ratio:1.62;margin:0 auto 34px;background:#fff;border:12px solid #f6f6f6;border-bottom-width:42px;box-shadow:0 10px 24px rgba(0,0,0,.12);position:relative;overflow:hidden;cursor:zoom-in;-webkit-touch-callout:none;user-select:none}.postcard-photo:before{content:'PHOTO';position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(135deg,#efefef,#fff);color:#aaa;font-family:var(--serif);letter-spacing:.12em}.postcard-names{font-family:var(--serif);font-size:2.05rem;line-height:1.18;letter-spacing:-.05em;margin:0 0 34px}.postcard-names span{font-family:var(--sans);font-size:.8rem;letter-spacing:.18em;color:var(--muted)}.family-line{font-size:.95rem;line-height:1.75;color:#555;margin:-18px 0 32px}.core-message{font-size:1.03rem;line-height:1.92;letter-spacing:-.035em;color:#111;word-break:keep-all;margin:0 auto 34px;max-width:330px}.event-line{font-size:1.18rem;line-height:1.7;margin-top:34px;border-top:1px solid var(--line);padding-top:28px}
       .info-card{background:#fff;border:1px solid var(--line);border-radius:28px;padding:24px}.info-card+.info-card{margin-top:14px}.info-label{font-size:.8rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}.info-value{font-size:1.15rem;font-weight:760;margin-top:4px}.calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-top:20px;text-align:center}.calendar span{aspect-ratio:1;border-radius:999px;display:grid;place-items:center;color:#766a60;font-size:.84rem}.calendar .dow{font-size:.72rem;color:var(--muted);aspect-ratio:auto}.calendar .day{background:#fff}.calendar .target{background:#111;color:#fff}.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:20px}.countdown div{border:1px solid var(--line);border-radius:18px;background:#fff;padding:10px 4px}.countdown strong{display:block;font-size:1.25rem}.countdown span{font-size:.7rem;color:var(--muted)}
       .gallery{display:grid;grid-template-columns:1fr 1fr;gap:10px}.tile{min-height:172px;border-radius:24px;background:#fff;border:1px solid #111;display:grid;place-items:center;color:#777;font-family:var(--serif);letter-spacing:.14em;position:relative;overflow:hidden;cursor:zoom-in;-webkit-touch-callout:none;user-select:none}.tile:before{content:'';position:absolute;inset:10px;border:1px solid rgba(17,17,17,.1);border-radius:18px}.tile:first-child{grid-column:1/3;min-height:220px}.protected-photo:after{content:'확대하면 모자이크로 보여요';position:absolute;left:12px;right:12px;bottom:12px;border-radius:999px;background:rgba(17,17,17,.58);color:#fff;padding:.45rem .7rem;font-size:.74rem;text-align:center;opacity:0;transform:translateY(6px);transition:.25s}.protected-photo:hover:after{opacity:1;transform:none}
+      .gallery-section{background:#050505;color:#fff;border-top:0;padding:76px 18px}.gallery-section .kicker,.gallery-section h2{color:#fff}.gallery-copy{max-width:360px;margin:-8px auto 28px;color:rgba(255,255,255,.68);text-align:center;word-break:keep-all}.photo-collage{height:620px;max-width:440px;margin:0 auto;position:relative;background:#050505;overflow:hidden}.collage-frame{position:absolute;appearance:none;border:10px solid #fff;background:#eee;padding:0;box-shadow:0 10px 24px rgba(0,0,0,.36);cursor:pointer;transform:rotate(var(--r,0deg));transition:transform .25s ease,box-shadow .25s ease;display:grid;place-items:center;color:#999;font-family:var(--serif);letter-spacing:.12em}.collage-frame:before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#e9e9e9,#fff 45%,#d7d7d7);z-index:0}.collage-frame span{position:relative;z-index:1;font-size:.8rem}.collage-frame:hover{transform:rotate(var(--r,0deg)) translateY(-4px);box-shadow:0 18px 34px rgba(0,0,0,.42)}.f1{left:46px;top:0;width:180px;height:230px;--r:-.5deg}.f2{right:20px;top:70px;width:178px;height:230px;--r:.8deg}.f3{left:0;top:230px;width:86px;height:116px;--r:-1.5deg}.f4{left:130px;top:250px;width:170px;height:230px;z-index:3;--r:.4deg}.f5{right:0;top:245px;width:124px;height:170px;--r:1deg}.f6{left:10px;top:365px;width:150px;height:230px;--r:-.8deg}.f7{right:18px;top:470px;width:190px;height:132px;--r:.7deg}.f8{left:250px;top:20px;width:98px;height:130px;--r:1.2deg}.f9{left:88px;top:486px;width:100px;height:132px;--r:-1deg}.photo-modal{position:fixed;inset:0;z-index:120;background:rgba(0,0,0,.86);display:none;place-items:center;padding:22px;backdrop-filter:blur(10px)}.photo-modal.show{display:grid}.modal-photo-shell{margin:0;width:min(82vw,430px);position:relative;text-align:center;color:#fff}.modal-photo{aspect-ratio:3/4;width:100%;background:#fff;border:12px solid #fff;border-bottom-width:42px;box-shadow:0 24px 80px rgba(0,0,0,.45);display:grid;place-items:center;color:#999;font-family:var(--serif);letter-spacing:.14em;position:relative;overflow:hidden;cursor:zoom-in}.modal-photo:before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#e8e8e8,#fff 45%,#d2d2d2);z-index:0}.modal-photo span{position:relative;z-index:1}.modal-photo.mosaic:before{background:linear-gradient(135deg,#d0d0d0 0 12.5%,#f6f6f6 12.5% 25%,#aaa 25% 37.5%,#eee 37.5% 50%,#d7d7d7 50% 62.5%,#fff 62.5% 75%,#999 75% 87.5%,#e2e2e2 87.5%);background-size:54px 54px;image-rendering:pixelated}.modal-photo.mosaic:after{content:'확대 보호 모자이크 보기';position:absolute;left:18px;right:18px;bottom:18px;border-radius:999px;background:rgba(17,17,17,.72);color:#fff;padding:.7rem 1rem;font-family:var(--sans);font-size:.86rem;letter-spacing:-.02em;z-index:2}.modal-photo-shell figcaption{margin-top:14px;color:rgba(255,255,255,.75);font-size:.88rem}.modal-close,.modal-nav{position:fixed;border:0;background:rgba(255,255,255,.92);color:#111;border-radius:999px;display:grid;place-items:center;z-index:121}.modal-close{top:18px;right:18px;width:42px;height:42px;font-size:1.2rem}.modal-nav{top:50%;width:46px;height:46px;font-size:2rem;transform:translateY(-50%)}.modal-nav.prev{left:16px}.modal-nav.next{right:16px}@media(max-width:420px){.photo-collage{height:560px}.f1{left:38px;width:158px;height:210px}.f2{right:0;width:160px;height:212px}.f4{left:116px;width:156px;height:216px}.f7{width:170px}.modal-nav{width:40px;height:40px}.modal-nav.prev{left:8px}.modal-nav.next{right:8px}}
+
       .mapbox{height:220px;border-radius:24px;background:#fff;border:1px solid #111;position:relative;overflow:hidden;margin-bottom:16px}.mapbox:before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 49%,rgba(17,17,17,.1) 50%,transparent 51%),linear-gradient(0deg,transparent 49%,rgba(17,17,17,.1) 50%,transparent 51%);background-size:54px 54px}.pin{position:absolute;left:50%;top:48%;transform:translate(-50%,-50%) rotate(-45deg);width:48px;height:48px;border-radius:50% 50% 50% 0;background:#111}.pin:after{content:'';position:absolute;inset:14px;background:#fff;border-radius:50%}.button-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}.map-buttons{grid-template-columns:1fr;gap:8px}.btn{display:flex;justify-content:center;align-items:center;min-height:48px;border-radius:999px;background:#111;color:#fff;font-weight:760}.btn.secondary{background:#fff;color:#111;border:1px solid var(--line)}
       .account-list{display:grid;gap:10px}.account{display:flex;justify-content:space-between;gap:14px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:20px;padding:14px 16px}.account small{display:block;color:var(--muted)}.copy{border:0;background:#f0f0f0;border-radius:999px;padding:.48rem .7rem;font-weight:760;color:#111}.final{padding:76px 24px 92px;text-align:center}.final h2{font-family:var(--serif);font-weight:400;font-size:2.8rem;line-height:1;margin:0 0 14px}.floating-nav{position:sticky;bottom:12px;z-index:5;padding:0 14px 14px}.floating-nav nav{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;background:rgba(17,17,17,.9);backdrop-filter:blur(16px);border-radius:999px;padding:6px;box-shadow:0 18px 50px rgba(17,17,17,.18)}.floating-nav a{color:#fff;text-align:center;font-size:.75rem;padding:9px 4px;border-radius:999px}
       .photo-modal{position:fixed;inset:0;z-index:90;background:rgba(17,17,17,.78);display:none;place-items:center;padding:28px;backdrop-filter:blur(10px)}.photo-modal.show{display:grid}.mosaic-frame{width:min(88vw,430px);aspect-ratio:3/4;border-radius:28px;border:1px solid rgba(255,255,255,.28);background:linear-gradient(135deg,#d2d2d2,#fff);box-shadow:0 30px 90px rgba(0,0,0,.32);position:relative;overflow:hidden;image-rendering:pixelated;filter:contrast(1.08) saturate(.78)}.mosaic-frame:before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#ccc 0 12.5%,#f5f5f5 12.5% 25%,#aaa 25% 37.5%,#eee 37.5% 50%,#ddd 50% 62.5%,#fff 62.5% 75%,#999 75% 87.5%,#e1e1e1 87.5%);background-size:64px 64px}.mosaic-frame:after{content:'원본 확대 대신 모자이크 미리보기만 제공됩니다';position:absolute;left:18px;right:18px;bottom:18px;border-radius:18px;background:rgba(255,255,255,.82);padding:12px 14px;text-align:center;font-size:.86rem;color:#333}.modal-close{position:absolute;top:18px;right:18px;border:0;border-radius:999px;background:#fff;color:#111;width:42px;height:42px;font-size:1.2rem}
@@ -162,13 +164,16 @@ const tmap = 'tmap://route?goalx=126.90139457764799&goaly=37.51057157299321&goal
         </div>
       </section>
 
-      <section class="section" id="gallery">
+      <section class="section gallery-section" id="gallery">
         <div class="kicker">Gallery</div>
-        <h2>사진이 들어갈 자리</h2>
-        <div class="gallery">
-          <div class="tile protected-photo" role="button" tabindex="0" aria-label="사진 1 모자이크 확대">PHOTO 01</div>
-          <div class="tile protected-photo" role="button" tabindex="0" aria-label="사진 2 모자이크 확대">PHOTO 02</div>
-          <div class="tile protected-photo" role="button" tabindex="0" aria-label="사진 3 모자이크 확대">PHOTO 03</div>
+        <h2>우리의 장면들</h2>
+        <p class="gallery-copy">액자처럼 겹쳐 놓은 사진을 눌러 크게 볼 수 있습니다. 확대 보기는 보호를 위해 모자이크로 전환됩니다.</p>
+        <div class="photo-collage" aria-label="사진 갤러리 미리보기">
+          {Array.from({ length: 9 }).map((_, index) => (
+            <button class={`collage-frame f${index + 1}`} type="button" data-photo-index={index} aria-label={`사진 ${index + 1} 크게 보기`}>
+              <span>PHOTO {String(index + 1).padStart(2, '0')}</span>
+            </button>
+          ))}
         </div>
       </section>
 
@@ -216,7 +221,15 @@ const tmap = 'tmap://route?goalx=126.90139457764799&goaly=37.51057157299321&goal
       </div>
     </div>
 
-    <div class="photo-modal" id="photoModal" aria-hidden="true"><button class="modal-close" type="button" aria-label="닫기">×</button><div class="mosaic-frame" role="img" aria-label="모자이크 처리된 사진 확대 미리보기"></div></div>
+    <div class="photo-modal" id="photoModal" aria-hidden="true">
+      <button class="modal-close" type="button" aria-label="닫기">×</button>
+      <button class="modal-nav prev" type="button" aria-label="이전 사진">‹</button>
+      <figure class="modal-photo-shell">
+        <div class="modal-photo protected-photo" id="modalPhoto" role="img" aria-label="선택한 사진 확대 보기"><span id="modalPhotoLabel">PHOTO 01</span></div>
+        <figcaption><span id="modalCounter">1 / 20</span> · 한 번 더 누르면 모자이크 보기</figcaption>
+      </figure>
+      <button class="modal-nav next" type="button" aria-label="다음 사진">›</button>
+    </div>
 
     <script>
       const cover = document.getElementById('cover');
@@ -233,18 +246,44 @@ const tmap = 'tmap://route?goalx=126.90139457764799&goaly=37.51057157299321&goal
       };
       document.getElementById('openInvitation')?.addEventListener('click', openInvitation);
       cover?.addEventListener('click', (event) => { if (event.target === cover) openInvitation(); });
-      document.addEventListener('keydown', (event) => { if (event.key === 'Escape') document.getElementById('photoModal')?.classList.remove('show'); });
-      document.addEventListener('contextmenu', (event) => { if (event.target.closest?.('.protected-photo,.photo-card,.photo-modal')) event.preventDefault(); });
-      document.addEventListener('dragstart', (event) => { if (event.target.closest?.('.protected-photo,.photo-card,.photo-modal')) event.preventDefault(); });
+      document.addEventListener('contextmenu', (event) => { if (event.target.closest?.('.protected-photo,.photo-card,.photo-modal,.collage-frame')) event.preventDefault(); });
+      document.addEventListener('dragstart', (event) => { if (event.target.closest?.('.protected-photo,.photo-card,.photo-modal,.collage-frame')) event.preventDefault(); });
       const photoModal = document.getElementById('photoModal');
-      const showMosaic = () => { photoModal?.classList.add('show'); photoModal?.setAttribute('aria-hidden','false'); };
-      const hideMosaic = () => { photoModal?.classList.remove('show'); photoModal?.setAttribute('aria-hidden','true'); };
-      document.querySelectorAll('.protected-photo').forEach((tile) => {
-        tile.addEventListener('click', showMosaic);
-        tile.addEventListener('keydown', (event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); showMosaic(); } });
+      const modalPhoto = document.getElementById('modalPhoto');
+      const modalPhotoLabel = document.getElementById('modalPhotoLabel');
+      const modalCounter = document.getElementById('modalCounter');
+      const totalPhotos = 20;
+      let currentPhoto = 0;
+      const renderPhoto = () => {
+        if (!modalPhoto || !modalPhotoLabel || !modalCounter) return;
+        modalPhoto.classList.remove('mosaic');
+        modalPhotoLabel.textContent = `PHOTO ${String(currentPhoto + 1).padStart(2, '0')}`;
+        modalCounter.textContent = `${currentPhoto + 1} / ${totalPhotos}`;
+      };
+      const openPhoto = (index = 0) => {
+        currentPhoto = (index + totalPhotos) % totalPhotos;
+        renderPhoto();
+        photoModal?.classList.add('show');
+        photoModal?.setAttribute('aria-hidden','false');
+      };
+      const closePhoto = () => { photoModal?.classList.remove('show'); photoModal?.setAttribute('aria-hidden','true'); };
+      const movePhoto = (delta) => { currentPhoto = (currentPhoto + delta + totalPhotos) % totalPhotos; renderPhoto(); };
+      document.querySelectorAll('[data-photo-index]').forEach((tile) => {
+        tile.addEventListener('click', () => openPhoto(Number(tile.dataset.photoIndex || 0)));
+        tile.addEventListener('keydown', (event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openPhoto(Number(tile.dataset.photoIndex || 0)); } });
       });
-      photoModal?.addEventListener('click', (event) => { if (event.target === photoModal) hideMosaic(); });
-      document.querySelector('.modal-close')?.addEventListener('click', hideMosaic);
+      document.querySelector('.postcard-photo')?.addEventListener('click', () => openPhoto(0));
+      modalPhoto?.addEventListener('click', (event) => { event.stopPropagation(); modalPhoto.classList.toggle('mosaic'); });
+      document.querySelector('.modal-nav.prev')?.addEventListener('click', (event) => { event.stopPropagation(); movePhoto(-1); });
+      document.querySelector('.modal-nav.next')?.addEventListener('click', (event) => { event.stopPropagation(); movePhoto(1); });
+      photoModal?.addEventListener('click', (event) => { if (event.target === photoModal) closePhoto(); });
+      document.querySelector('.modal-close')?.addEventListener('click', closePhoto);
+      document.addEventListener('keydown', (event) => {
+        if (!photoModal?.classList.contains('show')) return;
+        if (event.key === 'Escape') closePhoto();
+        if (event.key === 'ArrowLeft') movePhoto(-1);
+        if (event.key === 'ArrowRight') movePhoto(1);
+      });
       const target = new Date('2026-10-24T12:00:00+09:00').getTime();
       const ids = ['d','h','m','s'].map((id) => document.getElementById(id));
       function tick(){
