@@ -68,21 +68,22 @@ const tmap = 'tmap://route?goalx=126.90139457764799&goaly=37.51057157299321&goal
 
       .cover.opened .envelope-flap,.cover.zooming .envelope-flap{opacity:1!important;z-index:6!important;backface-visibility:visible!important;transform:rotateX(178deg)!important}.cover.opened .photo-card{z-index:4}.cover.zooming .photo-card{z-index:4!important}
 
-      /* Layer correction: photo stays in front, opened flap peeks from behind it */
-      .cover.opened .photo-card{z-index:7!important;width:42%!important;transform:translate(-50%,-34%) scale(1)!important}
-      .cover.opened .envelope-flap{z-index:5!important;opacity:.95!important;transform:rotateX(178deg) translateY(-34px) scaleY(.72)!important;filter:drop-shadow(0 -6px 10px rgba(0,0,0,.06))!important}
+      /* Layer correction: photo stays on top, but the opened triangular flap still peeks behind it. */
+      .cover.opened .photo-card{z-index:7!important;width:40%!important;transform:translate(-50%,-34%) scale(1)!important}
+      .cover.opened .envelope-flap{z-index:5!important;opacity:.92!important;transform:rotateX(178deg) translateY(-82px) scaleX(.96) scaleY(.84)!important;filter:drop-shadow(0 -8px 12px rgba(0,0,0,.13))!important}
+      .cover.opened .envelope-flap:before{content:'';position:absolute;inset:0;border:1.4px solid rgba(17,17,17,.22);clip-path:polygon(0 0,100% 0,50% 100%);pointer-events:none}
       .cover.zooming .photo-card{z-index:7!important;transform:translate(-50%,-48%) scale(2.28)!important}
-      .cover.zooming .envelope-flap{z-index:5!important;opacity:.55!important;transform:rotateX(178deg) translateY(-34px) scaleY(.72)!important}
+      .cover.zooming .envelope-flap{z-index:5!important;opacity:.48!important;transform:rotateX(178deg) translateY(-82px) scaleX(.96) scaleY(.84)!important}
 
 
-      /* Hinge alignment: flap shares the exact top edge of the pocket */
+      /* Hinge alignment: flap shares the pocket edge, then lifts enough to remain visible behind the photo. */
       .envelope-back,.envelope-pocket{height:68%!important}
-      .envelope-flap{top:32%!important;height:48%!important;border-top:0!important;filter:drop-shadow(0 1px 0 rgba(17,17,17,.12))!important;transform-origin:50% 0!important}
+      .envelope-flap{top:32%!important;height:48%!important;border-top:0!important;transform-origin:50% 0!important}
       .envelope-flap:after{top:0!important;height:1px!important;background:rgba(17,17,17,.18)!important}
       .envelope-pocket:before{top:0!important;height:1px!important;background:rgba(17,17,17,.18)!important}
-      .cover.opened .envelope-flap{transform:rotateX(178deg) translateY(-1px)!important}
-      .cover.opened .photo-card{transform:translate(-50%,-34%) scale(1)!important}
-      .cover.zooming .envelope-flap{transform:rotateX(178deg) translateY(-18px) scaleY(.78)!important;opacity:.55!important}
+      .cover.opened .envelope-flap{z-index:5!important;opacity:.92!important;transform:rotateX(178deg) translateY(-82px) scaleX(.96) scaleY(.84)!important;filter:drop-shadow(0 -8px 12px rgba(0,0,0,.13))!important}
+      .cover.opened .photo-card{z-index:7!important;width:40%!important;transform:translate(-50%,-34%) scale(1)!important}
+      .cover.zooming .envelope-flap{z-index:5!important;opacity:.48!important;transform:rotateX(178deg) translateY(-82px) scaleX(.96) scaleY(.84)!important}
 
       @media(min-width:430px){.map-buttons{grid-template-columns:repeat(3,1fr)}}
       @media(min-width:760px){body{padding:28px 0}.mobile-shell{border-radius:42px;overflow:hidden;box-shadow:0 30px 90px rgba(0,0,0,.12),0 0 0 1px rgba(17,17,17,.08)}}
