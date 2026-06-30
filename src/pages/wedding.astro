@@ -109,6 +109,9 @@ const tmap = 'tmap://route?goalx=126.90139457764799&goaly=37.51057157299321&goal
       .cover.opened .photo-card{width:54%!important}
       .cover.zooming .photo-card{transform:translate(-50%,-48%) scale(2.16)!important}
 
+
+      .cover{grid-template-rows:1fr auto 1.15fr;gap:34px;padding:42px 24px 34px}.cover-title{align-self:end;text-align:center;color:#111;letter-spacing:-.02em;animation:titleIn .9s ease both}.cover-korean{font-family:var(--sans);font-size:clamp(1.45rem,7vw,2.25rem);font-weight:520;letter-spacing:.58em;text-indent:.58em;line-height:1}.cover-rule{width:34px;height:1px;background:#111;margin:20px auto 18px;opacity:.75}.cover-date-text{font-family:var(--serif);font-size:clamp(1.05rem,4.6vw,1.42rem);font-weight:400;letter-spacing:.08em;line-height:1}.cover-names{margin-top:14px;font-size:clamp(1rem,4.2vw,1.28rem);font-weight:560;letter-spacing:.04em}.cover-names span{font-family:var(--serif);font-weight:400;margin:0 .32em}.envelope-button{align-self:start}@keyframes titleIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
       @media(min-width:430px){.map-buttons{grid-template-columns:repeat(3,1fr)}}
       @media(min-width:760px){body{padding:28px 0}.mobile-shell{border-radius:42px;overflow:hidden;box-shadow:0 30px 90px rgba(0,0,0,.12),0 0 0 1px rgba(17,17,17,.08)}}
       @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.mobile-shell{opacity:1;transform:none}.cover{display:none}}
@@ -116,6 +119,12 @@ const tmap = 'tmap://route?goalx=126.90139457764799&goaly=37.51057157299321&goal
   </head>
   <body class="opening">
     <section class="cover" id="cover" aria-label="청첩장 봉투 열기">
+      <div class="cover-title" aria-hidden="true">
+        <div class="cover-korean">결&nbsp;&nbsp;혼</div>
+        <div class="cover-rule"></div>
+        <div class="cover-date-text">2026.10.24.12:00</div>
+        <div class="cover-names">송형우 <span>&amp;</span> 강혜진</div>
+      </div>
       <button class="envelope-button" id="openInvitation" type="button" aria-label="봉투 열기">
         <span class="envelope" aria-hidden="true">
           <span class="envelope-back"></span>
