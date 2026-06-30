@@ -92,6 +92,15 @@ const tmap = 'tmap://route?goalx=126.90139457764799&goaly=37.51057157299321&goal
       .cover.zooming .envelope-pocket,.cover.zooming .envelope-back{transform:none!important;opacity:1!important}
       .cover.zooming .envelope-flap{transform:rotateX(178deg) translateY(-1px) scaleY(.72)!important;opacity:.72!important}
 
+
+      /* Preserve opening in place; move envelope as a unit only during zoom-out transition */
+      .cover.opened .envelope{transform:none!important;transition:none!important}
+      .cover.zooming .envelope{transform:translateY(40px) scale(.96)!important;transition:transform .55s ease!important}
+      .cover.opened .envelope-pocket,.cover.opened .envelope-back{transform:none!important;opacity:1!important}
+      .cover.zooming .envelope-pocket,.cover.zooming .envelope-back{transform:none!important;opacity:.1!important;transition:opacity .55s ease!important}
+      .cover.opened .envelope-flap{transform:rotateX(178deg) translateY(-1px)!important;transition:transform .82s cubic-bezier(.18,.82,.23,1)!important}
+      .cover.zooming .envelope-flap{transform:rotateX(178deg) translateY(-1px)!important;opacity:.55!important}
+
       @media(min-width:430px){.map-buttons{grid-template-columns:repeat(3,1fr)}}
       @media(min-width:760px){body{padding:28px 0}.mobile-shell{border-radius:42px;overflow:hidden;box-shadow:0 30px 90px rgba(0,0,0,.12),0 0 0 1px rgba(17,17,17,.08)}}
       @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.mobile-shell{opacity:1;transform:none}.cover{display:none}}
