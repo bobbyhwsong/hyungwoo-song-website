@@ -79,6 +79,7 @@ const kakaoMapScriptSrc = kakaoJavascriptKey ? `https://dapi.kakao.com/v2/maps/s
 
       .location-section{padding-bottom:84px}.venue-first{margin-bottom:16px}.location-head{padding:0 2px}.mapbox{height:260px;border-radius:24px;background:#f4f4f4;border:1px solid #111;position:relative;overflow:hidden;margin-bottom:16px;display:block;box-shadow:0 10px 28px rgba(0,0,0,.06)}.interactive-map .leaflet-control-attribution{font-size:10px}.interactive-map .leaflet-popup-content{margin:10px 12px;font-family:var(--sans);letter-spacing:-.02em}.interactive-map .leaflet-popup-content strong{display:block;margin-bottom:2px}.address-line{margin:8px 0 0;color:var(--muted)}.button-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}.map-buttons{grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}.btn{display:flex;justify-content:center;align-items:center;min-height:48px;border-radius:999px;background:#111;color:#fff;font-weight:760}.btn.secondary{background:#fff;color:#111;border:1px solid var(--line)}.route-guide{display:grid;gap:12px;margin-top:16px}.route-guide article{border:1px solid var(--line);border-radius:24px;padding:20px 18px;background:#fff}.route-guide h3{margin:0 0 8px;font-size:1.05rem;letter-spacing:-.03em}.route-guide p{margin:0;color:#555;line-height:1.78;word-break:keep-all}.route-guide strong{color:#111;font-weight:780}
       .account-list{display:grid;gap:10px}.account{display:flex;justify-content:space-between;gap:14px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:20px;padding:14px 16px}.account small{display:block;color:var(--muted)}.copy{border:0;background:#f0f0f0;border-radius:999px;padding:.48rem .7rem;font-weight:760;color:#111}.final{padding:76px 24px 92px;text-align:center}.final h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.78rem,7.2vw,2.35rem);line-height:1.28;letter-spacing:-.06em;word-break:keep-all;max-width:360px;margin:0 auto 16px}.floating-nav{position:sticky;bottom:12px;z-index:5;padding:0 14px 14px}.floating-nav nav{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;background:rgba(17,17,17,.9);backdrop-filter:blur(16px);border-radius:999px;padding:6px;box-shadow:0 18px 50px rgba(17,17,17,.18)}.floating-nav a{color:#fff;text-align:center;font-size:.75rem;padding:9px 4px;border-radius:999px}
+      .account-group{border:1px solid var(--line);border-radius:24px;background:#fff;overflow:hidden}.account-group summary{list-style:none;display:flex;justify-content:space-between;align-items:center;padding:18px 20px;font-weight:780;cursor:pointer}.account-group summary::-webkit-details-marker{display:none}.account-group summary:after{content:'열기';font-size:.78rem;color:var(--muted);font-weight:700}.account-group[open] summary:after{content:'닫기'}.account-group .account-list{padding:0 12px 14px}.account-group .account{border-radius:18px;background:#fafafa}.account-role{font-size:.78rem;color:var(--muted);margin-left:.35em;font-weight:600}
       .photo-modal{position:fixed;inset:0;z-index:90;background:rgba(17,17,17,.78);display:none;place-items:center;padding:28px;backdrop-filter:blur(10px)}.photo-modal.show{display:grid}.modal-close{position:absolute;top:18px;right:18px;border:0;border-radius:999px;background:#fff;color:#111;width:42px;height:42px;font-size:1.2rem}
 
       /* Photo viewing: allow enlargement, but keep preview intentionally soft rather than protected. */
@@ -238,8 +239,22 @@ const kakaoMapScriptSrc = kakaoJavascriptKey ? `https://dapi.kakao.com/v2/maps/s
       <section class="section" id="contact">
         <h2>마음 전하실 곳</h2>
         <div class="account-list">
-          <div class="account"><div><strong>신랑측</strong><small>은행 000-0000-0000</small></div><button class="copy" data-copy="000-0000-0000">복사</button></div>
-          <div class="account"><div><strong>신부측</strong><small>은행 000-0000-0000</small></div><button class="copy" data-copy="000-0000-0000">복사</button></div>
+          <details class="account-group">
+            <summary>신랑측</summary>
+            <div class="account-list">
+              <div class="account"><div><strong>송윤상</strong><span class="account-role">아버지</span><small>은행 000-0000-0000</small></div><button class="copy" data-copy="000-0000-0000">복사</button></div>
+              <div class="account"><div><strong>이정은</strong><span class="account-role">어머니</span><small>은행 000-0000-0000</small></div><button class="copy" data-copy="000-0000-0000">복사</button></div>
+              <div class="account"><div><strong>송형우</strong><span class="account-role">신랑</span><small>은행 000-0000-0000</small></div><button class="copy" data-copy="000-0000-0000">복사</button></div>
+            </div>
+          </details>
+          <details class="account-group">
+            <summary>신부측</summary>
+            <div class="account-list">
+              <div class="account"><div><strong>강기원</strong><span class="account-role">아버지</span><small>은행 000-0000-0000</small></div><button class="copy" data-copy="000-0000-0000">복사</button></div>
+              <div class="account"><div><strong>한정원</strong><span class="account-role">어머니</span><small>은행 000-0000-0000</small></div><button class="copy" data-copy="000-0000-0000">복사</button></div>
+              <div class="account"><div><strong>강혜진</strong><span class="account-role">신부</span><small>은행 000-0000-0000</small></div><button class="copy" data-copy="000-0000-0000">복사</button></div>
+            </div>
+          </details>
         </div>
         <div class="button-row">
           <a class="btn" href="tel:01000000000">신랑에게 연락</a>
