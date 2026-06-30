@@ -45,13 +45,14 @@ const description = 'A mobile wedding invitation preview for Hyungwoo Song.';
 
       .names h1 span:nth-child(2){font-family:var(--sans);font-size:.9rem;letter-spacing:.18em;margin:.35rem 0;color:var(--muted);font-weight:500}.postcard-names{font-family:var(--serif);font-size:2.05rem;line-height:1.18;letter-spacing:-.05em;margin:0 0 34px}.postcard-names span{font-family:var(--sans);font-size:.8rem;letter-spacing:.18em;color:var(--muted)}.postcard .event-line{border-top:1px solid var(--line);padding-top:28px}.postcard .core-message{margin:0 auto 34px;max-width:330px}.section{background:#fff}.info-card,.account,.btn.secondary{background:#fff}.gallery .tile,.mapbox{background:#fff;border-color:#111;color:#777}.gallery .tile:before{content:"";position:absolute;inset:10px;border:1px solid rgba(17,17,17,.1);border-radius:18px}.tile{position:relative}.mapbox:before{background:linear-gradient(90deg,transparent 49%,rgba(17,17,17,.1) 50%,transparent 51%),linear-gradient(0deg,transparent 49%,rgba(17,17,17,.1) 50%,transparent 51%);background-size:54px 54px}.pin{background:#111}.date-pill,.info-card,.account{box-shadow:none}.floating-nav nav{background:rgba(17,17,17,.9)}
       .first-screen{min-height:100svh;display:flex;align-items:center;justify-content:center;padding:44px 24px 76px;border-top:0}.first-screen .postcard{width:100%}.postcard{border-radius:2px}.postcard:before{content:"WEDDING INVITATION";display:block;font-size:.76rem;letter-spacing:.22em;color:#666;text-align:left;margin-bottom:30px}.postcard:after{content:"아래로 내려 초대장을 확인해주세요";display:block;margin-top:32px;color:#777;font-size:.82rem}.mobile-shell{min-height:100svh}.hero{display:none!important}
+      .family-line{font-size:.95rem;line-height:1.75;color:#555;margin:-18px 0 32px}.map-buttons{grid-template-columns:1fr;gap:8px}.map-buttons .btn{min-height:50px}@media(min-width:430px){.map-buttons{grid-template-columns:repeat(3,1fr)}}
       @media (min-width:760px){body{padding:28px 0}.mobile-shell{border-radius:42px;overflow:hidden;box-shadow:0 30px 90px rgba(66,44,24,.16),0 0 0 1px rgba(100,78,52,.1)}.hero{min-height:820px}}
     </style>
   </head>
   <body class="opening">
     <div class="intro-envelope" id="introEnvelope" aria-label="청첩장 봉투 열기">
       <div class="envelope-stage">
-        <div class="dot-envelope" aria-hidden="true"><div class="intro-card"><div><strong>송형우<br />그리고<br />신부이름</strong><span>Wedding Invitation</span></div></div></div>
+        <div class="dot-envelope" aria-hidden="true"><div class="intro-card"><div><strong>송형우<br />그리고<br />강혜진</strong><span>Wedding Invitation</span></div></div></div>
         <button class="open-button" id="openInvitation" type="button">청첩장 열기</button>
         <p class="intro-note">봉투를 열어 초대장을 확인해주세요</p>
       </div>
@@ -60,9 +61,10 @@ const description = 'A mobile wedding invitation preview for Hyungwoo Song.';
       <section class="section center motion first-screen" id="invite">
         <div class="postcard">
           <div class="postcard-photo protected-photo" role="button" tabindex="0" aria-label="대표 사진 모자이크 확대"></div>
-          <div class="postcard-names">송형우<br /><span>그리고</span><br />신부이름</div>
+          <div class="postcard-names">송형우<br /><span>그리고</span><br />강혜진</div>
+          <div class="family-line">송윤상 · 이정은의 장남<br />강기원 · 한정원의 차녀</div>
           <p class="core-message">무용한 것, 연약한 것, 작은 것들을<br />더 다정히 바라보게 해준 사람을 만났습니다.<br /><br />그 마음 안에서<br />가장 자연스럽고 편안한 우리를 발견했고,<br />이제 서로의 곁에서 오래도록 함께 살아가려 합니다.<br /><br />저희의 첫걸음에 함께해 주시면 감사하겠습니다.</p>
-          <div class="event-line">2026년 10월 24일 토요일 낮 12시<br />천주교도림동성당</div>
+          <div class="event-line">2026년 10월 24일 토요일 오후 12시<br />천주교 도림동성당</div>
         </div>
       </section>
 
@@ -70,7 +72,7 @@ const description = 'A mobile wedding invitation preview for Hyungwoo Song.';
         <div class="kicker">Date & Place</div>
         <div class="info-card">
           <div class="info-label">예식 일시</div>
-          <div class="info-value">2026년 10월 24일 토요일 낮 12시</div>
+          <div class="info-value">2026년 10월 24일 토요일 오후 12시</div>
           <div class="countdown" aria-label="예식일까지 남은 시간">
             <div><strong id="d">--</strong><span>Days</span></div>
             <div><strong id="h">--</strong><span>Hours</span></div>
@@ -80,8 +82,8 @@ const description = 'A mobile wedding invitation preview for Hyungwoo Song.';
         </div>
         <div class="info-card">
           <div class="info-label">예식 장소</div>
-          <div class="info-value">천주교도림동성당</div>
-          <p style="margin:8px 0 0;color:var(--muted)">서울 영등포구 도림동</p>
+          <div class="info-value">천주교 도림동성당</div>
+          <p style="margin:8px 0 0;color:var(--muted)">서울 영등포구 도영로22길 22</p>
         </div>
         <div class="calendar" aria-label="2026년 10월 달력">
           <span class="dow">S</span><span class="dow">M</span><span class="dow">T</span><span class="dow">W</span><span class="dow">T</span><span class="dow">F</span><span class="dow">S</span>
@@ -108,11 +110,12 @@ const description = 'A mobile wedding invitation preview for Hyungwoo Song.';
         <h2>오시는 길</h2>
         <div class="mapbox"><div class="pin"></div></div>
         <div class="info-card">
-          <div class="info-value">천주교도림동성당</div>
-          <p style="margin:8px 0 0;color:var(--muted)">주소가 확정되면 이 자리에 카카오맵/네이버지도 링크와 주차 안내를 넣겠습니다.</p>
-          <div class="button-row">
-            <a class="btn" href="#">카카오맵</a>
-            <a class="btn secondary" href="#">네이버지도</a>
+          <div class="info-value">천주교 도림동성당</div>
+          <p style="margin:8px 0 0;color:var(--muted)">서울 영등포구 도영로22길 22 · 지도 앱으로 길찾기를 열 수 있습니다.</p>
+          <div class="button-row map-buttons">
+            <a class="btn" href="https://map.naver.com/p/search/%EC%B2%9C%EC%A3%BC%EA%B5%90%20%EB%8F%84%EB%A6%BC%EB%8F%99%EC%84%B1%EB%8B%B9" target="_blank" rel="noopener">네이버 지도</a>
+            <a class="btn secondary" href="http://place.map.kakao.com/10311412" target="_blank" rel="noopener">카카오맵</a>
+            <a class="btn secondary" href="tmap://route?goalx=126.90139457764799&goaly=37.51057157299321&goalname=%EC%B2%9C%EC%A3%BC%EA%B5%90%20%EB%8F%84%EB%A6%BC%EB%8F%99%EC%84%B1%EB%8B%B9">티맵</a>
           </div>
         </div>
       </section>
@@ -133,7 +136,7 @@ const description = 'A mobile wedding invitation preview for Hyungwoo Song.';
       <section class="final">
         <div class="kicker">Thank you</div>
         <h2>그날 뵙겠습니다.</h2>
-        <p style="color:var(--muted);margin:0">송형우 그리고 신부이름</p>
+        <p style="color:var(--muted);margin:0">송형우 그리고 강혜진</p>
       </section>
 
       <div class="floating-nav" aria-label="청첩장 메뉴">
