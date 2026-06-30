@@ -67,6 +67,13 @@ const tmap = 'tmap://route?goalx=126.90139457764799&goaly=37.51057157299321&goal
       .photo-modal{position:fixed;inset:0;z-index:90;background:rgba(17,17,17,.78);display:none;place-items:center;padding:28px;backdrop-filter:blur(10px)}.photo-modal.show{display:grid}.mosaic-frame{width:min(88vw,430px);aspect-ratio:3/4;border-radius:28px;border:1px solid rgba(255,255,255,.28);background:linear-gradient(135deg,#d2d2d2,#fff);box-shadow:0 30px 90px rgba(0,0,0,.32);position:relative;overflow:hidden;image-rendering:pixelated;filter:contrast(1.08) saturate(.78)}.mosaic-frame:before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#ccc 0 12.5%,#f5f5f5 12.5% 25%,#aaa 25% 37.5%,#eee 37.5% 50%,#ddd 50% 62.5%,#fff 62.5% 75%,#999 75% 87.5%,#e1e1e1 87.5%);background-size:64px 64px}.mosaic-frame:after{content:'원본 확대 대신 모자이크 미리보기만 제공됩니다';position:absolute;left:18px;right:18px;bottom:18px;border-radius:18px;background:rgba(255,255,255,.82);padding:12px 14px;text-align:center;font-size:.86rem;color:#333}.modal-close{position:absolute;top:18px;right:18px;border:0;border-radius:999px;background:#fff;color:#111;width:42px;height:42px;font-size:1.2rem}
 
       .cover.opened .envelope-flap,.cover.zooming .envelope-flap{opacity:1!important;z-index:6!important;backface-visibility:visible!important;transform:rotateX(178deg)!important}.cover.opened .photo-card{z-index:4}.cover.zooming .photo-card{z-index:4!important}
+
+      /* Layer correction: photo stays in front, opened flap peeks from behind it */
+      .cover.opened .photo-card{z-index:7!important;width:42%!important;transform:translate(-50%,-34%) scale(1)!important}
+      .cover.opened .envelope-flap{z-index:5!important;opacity:.95!important;transform:rotateX(178deg) translateY(-34px) scaleY(.72)!important;filter:drop-shadow(0 -6px 10px rgba(0,0,0,.06))!important}
+      .cover.zooming .photo-card{z-index:7!important;transform:translate(-50%,-48%) scale(2.28)!important}
+      .cover.zooming .envelope-flap{z-index:5!important;opacity:.55!important;transform:rotateX(178deg) translateY(-34px) scaleY(.72)!important}
+
       @media(min-width:430px){.map-buttons{grid-template-columns:repeat(3,1fr)}}
       @media(min-width:760px){body{padding:28px 0}.mobile-shell{border-radius:42px;overflow:hidden;box-shadow:0 30px 90px rgba(0,0,0,.12),0 0 0 1px rgba(17,17,17,.08)}}
       @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.mobile-shell{opacity:1;transform:none}.cover{display:none}}
