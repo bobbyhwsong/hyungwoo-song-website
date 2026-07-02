@@ -10,17 +10,17 @@ FONT_MYUNGJO = '/System/Library/Fonts/Supplemental/AppleMyungjo.ttf'
 def font(size):
     return ImageFont.truetype(FONT_MYUNGJO, size)
 
-title_font = font(66)
-date_font = font(43)
+date_font = font(58)
+place_font = font(42)
 
 img = Image.new('RGB', (W, H), '#ffffff')
 d = ImageDraw.Draw(img)
 cx = W // 2
 
-# Exactly the requested elements: Korean title, date, and the dotted envelope.
+# Thumbnail elements: date, place, and the dotted envelope.
 for text, y, f in [
-    ('송형우와 강혜진의 결혼식', 38, title_font),
-    ('2026.10.24 토요일 낮 12시', 122, date_font),
+    ('2026년 10월 24일 토요일 낮 12시', 48, date_font),
+    ('천주교 도림동성당', 132, place_font),
 ]:
     bbox = d.textbbox((0, 0), text, font=f)
     d.text((cx - (bbox[2]-bbox[0]) / 2, y), text, font=f, fill='#111111')
