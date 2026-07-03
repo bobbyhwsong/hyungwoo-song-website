@@ -61,17 +61,24 @@ mid_x = (ex0 + ex1) / 2
 flap = [(ex0, ey0), (ex1, ey0), (ex1, side_y), (mid_x, point_y), (ex0, side_y)]
 d.polygon(flap, fill=cream_light)
 
-# Subtle dot pattern over the whole envelope, including the top flap.
+# Clear, visible polka-dot pattern over the whole envelope, including the top flap.
 dot_layer = Image.new('RGBA', (W, H), (0, 0, 0, 0))
 dot_draw = ImageDraw.Draw(dot_layer)
-sx = env_w / 154
-sy = env_h / 110
-for x, y, r, fill in load_dots():
-    px = ex0 + x * sx
-    py = ey0 + y * sy
-    rr = r * min(sx, sy) * 0.72
-    color = fill if fill else blue_default
-    dot_draw.ellipse((px - rr, py - rr, px + rr, py + rr), fill=color)
+spacing_x = 58
+spacing_y = 48
+radius = 6
+start_x = ex0 + 22
+start_y = ey0 + 18
+row = 0
+y = start_y
+while y < ey1 + spacing_y:
+    offset = 0 if row % 2 == 0 else spacing_x / 2
+    x = start_x + offset
+    while x < ex1 + spacing_x:
+        dot_draw.ellipse((x - radius, y - radius, x + radius, y + radius), fill=blue_default)
+        x += spacing_x
+    y += spacing_y
+    row += 1
 mask = Image.new('L', (W, H), 0)
 ImageDraw.Draw(mask).rectangle((ex0, ey0, ex1, ey1), fill=255)
 clipped = Image.new('RGBA', (W, H), (0, 0, 0, 0))
