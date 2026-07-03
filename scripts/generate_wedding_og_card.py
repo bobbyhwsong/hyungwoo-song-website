@@ -30,29 +30,32 @@ for text, y, f in [
     bbox = d.textbbox((0, 0), text, font=f)
     d.text((cx - (bbox[2] - bbox[0]) / 2, y), text, font=f, fill='#111111')
 
-# Same 154:110 envelope proportion as the mobile invitation cover.
-env_w = 610
-env_h = round(env_w / ENVELOPE_RATIO)
+# Classic horizontal envelope layout from the reference image: wide body,
+# a shallow top band, and one centered downward flap. This reads as an
+# envelope at thumbnail size much better than the earlier diagrammatic folds.
+env_w = 760
+env_h = 340
 ex0 = (W - env_w) // 2
 ex1 = ex0 + env_w
-ey0 = 186
+ey0 = 222
 ey1 = ey0 + env_h
 line = '#111111'
-cream = '#fbf7e8'
+cream = '#f4efe4'
+cream_light = '#faf7ef'
 blue_default = '#607f99'
 
 # Soft paper shadow.
 shadow = Image.new('RGBA', (W, H), (0, 0, 0, 0))
 sd = ImageDraw.Draw(shadow)
-sd.rounded_rectangle((ex0 + 24, ey1 - 8, ex1 - 24, ey1 + 24), radius=18, fill=(0, 0, 0, 28))
+sd.rounded_rectangle((ex0 + 22, ey1 - 6, ex1 - 22, ey1 + 22), radius=18, fill=(0, 0, 0, 30))
 shadow = shadow.filter(ImageFilter.GaussianBlur(20))
 img = Image.alpha_composite(img, shadow)
 d = ImageDraw.Draw(img)
 
-# Envelope paper base.
-d.rectangle((ex0, ey0, ex1, ey1), fill=cream, outline=(17, 17, 17, 70), width=3)
+# Envelope body.
+d.rectangle((ex0, ey0, ex1, ey1), fill=cream, outline=(17, 17, 17, 64), width=3)
 
-# Dot pattern: use the exact 154x110 SVG coordinates so the thumbnail matches the first screen.
+# Subtle dot pattern, clipped to body, using the same source motif but scaled to the wide layout.
 dot_layer = Image.new('RGBA', (W, H), (0, 0, 0, 0))
 dot_draw = ImageDraw.Draw(dot_layer)
 sx = env_w / 154
@@ -60,10 +63,9 @@ sy = env_h / 110
 for x, y, r, fill in load_dots():
     px = ex0 + x * sx
     py = ey0 + y * sy
-    rr = r * min(sx, sy)
+    rr = r * min(sx, sy) * 0.72
     color = fill if fill else blue_default
     dot_draw.ellipse((px - rr, py - rr, px + rr, py + rr), fill=color)
-# Clip dots to the envelope bounds.
 mask = Image.new('L', (W, H), 0)
 ImageDraw.Draw(mask).rectangle((ex0, ey0, ex1, ey1), fill=255)
 clipped = Image.new('RGBA', (W, H), (0, 0, 0, 0))
@@ -71,13 +73,20 @@ clipped.paste(dot_layer, (0, 0), mask)
 img = Image.alpha_composite(img, clipped)
 d = ImageDraw.Draw(img)
 
-# Match the first-screen closed envelope: keep only the quiet hinge line.
-# Avoid explanatory X/triangle fold lines; they made the thumbnail look like a diagram.
-hinge_y = ey0 + env_h * 0.32
-subtle = (17, 17, 17, 48)
-d.line((ex0, hinge_y, ex1, hinge_y), fill=subtle, width=2)
-# Outer outline again on top.
-d.rectangle((ex0, ey0, ex1, ey1), outline=(17, 17, 17, 70), width=3)
+# Top flap: reference-like shallow sides meeting at the center point.
+side_y = ey0 + env_h * 0.17
+point_y = ey0 + env_h * 0.41
+mid_x = (ex0 + ex1) / 2
+flap = [(ex0, ey0), (ex1, ey0), (ex1, side_y), (mid_x, point_y), (ex0, side_y)]
+d.polygon(flap, fill=cream_light)
+# A small soft shadow under the flap edges.
+d.line((ex0, side_y, mid_x, point_y, ex1, side_y), fill=(17, 17, 17, 44), width=4, joint='curve')
+d.line((ex0, side_y, mid_x, point_y, ex1, side_y), fill=(255, 255, 255, 96), width=1, joint='curve')
+# Outer top/side outline again on top.
+d.line((ex0, ey0, ex1, ey0), fill=(17, 17, 17, 64), width=3)
+d.line((ex0, ey0, ex0, ey1), fill=(17, 17, 17, 54), width=3)
+d.line((ex1, ey0, ex1, ey1), fill=(17, 17, 17, 54), width=3)
+d.line((ex0, ey1, ex1, ey1), fill=(17, 17, 17, 54), width=3)
 
 OUT.parent.mkdir(parents=True, exist_ok=True)
 img.convert('RGB').save(OUT, quality=95)
