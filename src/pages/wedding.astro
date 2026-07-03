@@ -61,7 +61,6 @@ const kakaoMapScriptSrc = kakaoJavascriptKey ? `https://dapi.kakao.com/v2/maps/s
       .envelope-pocket{position:absolute;left:0;right:0;bottom:0;height:70%;background:#fbf7e8;background-image:var(--dot);background-size:100% auto;background-position:center bottom;border:1.2px solid rgba(17,17,17,.22);box-shadow:0 18px 42px rgba(0,0,0,.12);z-index:3;overflow:hidden}
       .envelope-pocket:before{content:'';position:absolute;left:0;right:0;top:0;height:1px;background:rgba(17,17,17,.14);box-shadow:0 1px 0 rgba(255,255,255,.46),0 3px 8px rgba(17,17,17,.035);z-index:2}
       .envelope-flap{position:absolute;left:0;right:0;top:30%;height:50%;background:#fbf7e8;background-image:var(--dot);background-size:100% auto;background-position:center top;border-top:1.2px solid rgba(17,17,17,.22);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:50% 0;transform:rotateX(0deg);backface-visibility:visible;z-index:4;filter:drop-shadow(0 1px 0 rgba(17,17,17,.10));transition:transform .82s cubic-bezier(.18,.82,.23,1),z-index 0s linear .82s}
-      .envelope-flap:before{content:'';position:absolute;inset:0;clip-path:polygon(0 0,100% 0,50% 100%);background:linear-gradient(to bottom right,transparent calc(50% - .55px),rgba(17,17,17,.22) calc(50% - .55px),rgba(17,17,17,.22) calc(50% + .55px),transparent calc(50% + .55px)) left top/50% 100% no-repeat,linear-gradient(to bottom left,transparent calc(50% - .55px),rgba(17,17,17,.22) calc(50% - .55px),rgba(17,17,17,.22) calc(50% + .55px),transparent calc(50% + .55px)) right top/50% 100% no-repeat;mix-blend-mode:multiply;pointer-events:none;z-index:1}
       .envelope-flap:after{content:'';position:absolute;left:0;right:0;top:0;height:1px;background:rgba(17,17,17,.14);box-shadow:0 1px 0 rgba(255,255,255,.46);z-index:2}
       .cover.opened .envelope-flap{transform:rotateX(178deg);z-index:5}
       .cover.opened .photo-card{opacity:1;transform:translate(-50%,-34%) scale(1)}
@@ -93,7 +92,7 @@ const kakaoMapScriptSrc = kakaoJavascriptKey ? `https://dapi.kakao.com/v2/maps/s
       /* Layer correction: photo stays on top, but the opened triangular flap still peeks behind it. */
       .cover.opened .photo-card{z-index:7!important;width:40%!important;transform:translate(-50%,-34%) scale(1)!important}
       .cover.opened .envelope-flap{z-index:5!important;opacity:.92!important;transform:rotateX(178deg) translateY(-82px) scaleX(.96) scaleY(.84)!important;filter:drop-shadow(0 -8px 12px rgba(0,0,0,.13))!important}
-      .cover.opened .envelope-flap:before{opacity:.65}
+
       .cover.zooming .photo-card{z-index:7!important;transform:translate(-50%,-48%) scale(2.28)!important}
       .cover.zooming .envelope-flap{z-index:5!important;opacity:.48!important;transform:rotateX(178deg) translateY(-82px) scaleX(.96) scaleY(.84)!important}
 
