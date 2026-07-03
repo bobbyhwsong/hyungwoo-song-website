@@ -71,19 +71,11 @@ clipped.paste(dot_layer, (0, 0), mask)
 img = Image.alpha_composite(img, clipped)
 d = ImageDraw.Draw(img)
 
-# Natural closed-envelope folds matching the CSS geometry: hinge at 32%, flap point near 80%.
+# Match the first-screen closed envelope: keep only the quiet hinge line.
+# Avoid explanatory X/triangle fold lines; they made the thumbnail look like a diagram.
 hinge_y = ey0 + env_h * 0.32
-flap_point_y = ey0 + env_h * 0.80
-mid_x = (ex0 + ex1) / 2
-subtle = (17, 17, 17, 56)
-soft = (17, 17, 17, 38)
-# Hinge between opening flap and pocket.
+subtle = (17, 17, 17, 48)
 d.line((ex0, hinge_y, ex1, hinge_y), fill=subtle, width=2)
-# Closed flap triangle, visible but not heavy.
-d.line((ex0, hinge_y, mid_x, flap_point_y, ex1, hinge_y), fill=soft, width=2)
-# Side pocket folds.
-d.line((ex0, ey1, mid_x, flap_point_y), fill=soft, width=2)
-d.line((ex1, ey1, mid_x, flap_point_y), fill=soft, width=2)
 # Outer outline again on top.
 d.rectangle((ex0, ey0, ex1, ey1), outline=(17, 17, 17, 70), width=3)
 
