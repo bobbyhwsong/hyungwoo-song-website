@@ -231,18 +231,6 @@ const kakaoMapScriptSrc = kakaoJavascriptKey ? `https://dapi.kakao.com/v2/maps/s
         </div>
       </section>
 
-      <section class="section gallery-section" id="gallery">
-        <h2>우리의 장면들</h2>
-        <p class="gallery-copy">함께 지나온 장면들을 폴라로이드처럼 모았습니다.</p>
-        <div class="photo-collage" aria-label="사진 갤러리 미리보기">
-          {[1, 2, 3, 4, 6, 7, 8].map((frame, index) => (
-            <button class={`collage-frame f${frame}`} type="button" data-photo-index={index} aria-label={`사진 ${index + 1} 크게 보기`}>
-              <span>PHOTO {String(index + 1).padStart(2, '0')}</span>
-            </button>
-          ))}
-        </div>
-      </section>
-
       <section class="section location-section" id="map">
         <h2>오시는 길</h2>
         <div class="location-head venue-first">
@@ -270,6 +258,18 @@ const kakaoMapScriptSrc = kakaoJavascriptKey ? `https://dapi.kakao.com/v2/maps/s
             <h3>자가용</h3>
             <p>내비게이션에 <strong>도림동성당</strong> 또는 <strong>서울 영등포구 도영로22길 22</strong> 검색<br /><small>* 주차 가능하나 혼잡할 수 있어 셔틀버스 이용을 권장드립니다.</small></p>
           </article>
+        </div>
+      </section>
+
+      <section class="section gallery-section" id="gallery">
+        <h2>우리의 장면들</h2>
+        <p class="gallery-copy">함께 지나온 장면들을 폴라로이드처럼 모았습니다.</p>
+        <div class="photo-collage" aria-label="사진 갤러리 미리보기">
+          {[1, 2, 3, 4, 6, 7, 8].map((frame, index) => (
+            <button class={`collage-frame f${frame}`} type="button" data-photo-index={index} aria-label={`사진 ${index + 1} 크게 보기`}>
+              <span>PHOTO {String(index + 1).padStart(2, '0')}</span>
+            </button>
+          ))}
         </div>
       </section>
 
@@ -314,8 +314,8 @@ const kakaoMapScriptSrc = kakaoJavascriptKey ? `https://dapi.kakao.com/v2/maps/s
         <nav>
           <a href="#invite">초대</a>
           <a href="#when">일시</a>
-          <a href="#gallery">사진</a>
           <a href="#map">장소</a>
+          <a href="#gallery">사진</a>
         </nav>
       </div>
     </div>
