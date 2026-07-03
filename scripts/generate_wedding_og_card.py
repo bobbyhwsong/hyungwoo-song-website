@@ -62,9 +62,10 @@ for x, y, r in DOTS:
     py = ey0 + y * sy
     rr = r * s
     dot_draw.ellipse((px-rr, py-rr, px+rr, py+rr), fill=blue)
-mask = Image.new('L', (W, H), 0)
-ImageDraw.Draw(mask).rectangle((ex0, ey0, ex1, ey1), fill=255)
-img = Image.composite(dot_layer, img, mask)
+# Composite only the blue dots over the cream envelope. Do not replace the whole
+# envelope rectangle with the transparent dot layer, or transparent pixels become
+# black after RGB conversion.
+img = Image.alpha_composite(img.convert('RGBA'), dot_layer)
 d = ImageDraw.Draw(img)
 
 mid_x = (ex0 + ex1) // 2
