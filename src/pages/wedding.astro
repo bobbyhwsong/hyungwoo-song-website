@@ -56,7 +56,7 @@ const kakaoMapScriptSrc = kakaoJavascriptKey ? `https://dapi.kakao.com/v2/maps/s
       .envelope-button{appearance:none;border:0;background:transparent;padding:0;width:min(90vw,440px);aspect-ratio:154/110;height:auto;max-height:350px;position:relative;cursor:pointer;perspective:1100px;-webkit-tap-highlight-color:transparent}
       .envelope-button:focus-visible{outline:2px solid #111;outline-offset:10px}
       .envelope{position:absolute;inset:0;isolation:isolate}
-      .photo-card{position:absolute;left:50%;bottom:30%;width:86%;aspect-ratio:1338/988;transform:translate(-50%,72%) scale(.92);opacity:0;background-image:var(--main-photo);background-size:contain;background-repeat:no-repeat;background-position:center;border:0;border-radius:2px;box-shadow:none;z-index:2;transition:transform .95s cubic-bezier(.16,.9,.2,1) .12s,opacity .28s ease .12s,box-shadow .8s ease}
+      .photo-card{position:absolute;left:50%;bottom:30%;width:75%;aspect-ratio:1338/988;transform:translate(-50%,72%) scale(.92);opacity:0;background-image:var(--main-photo);background-size:contain;background-repeat:no-repeat;background-position:center;border:0;border-radius:2px;box-shadow:none;z-index:2;transition:transform .95s cubic-bezier(.16,.9,.2,1) .2s,opacity .28s ease .2s,box-shadow .8s ease}
       .photo-card:before{content:none}
       .envelope-back{position:absolute;left:0;right:0;bottom:0;height:70%;background:#fbf7e8;background-image:var(--dot);background-size:100% auto;background-position:center bottom;border:1.2px solid rgba(17,17,17,.22);box-shadow:0 18px 42px rgba(0,0,0,.12);z-index:1;overflow:hidden}
       .envelope-pocket{position:absolute;left:0;right:0;bottom:0;height:70%;background:#fbf7e8;background-image:var(--dot);background-size:100% auto;background-position:center bottom;border:1.2px solid rgba(17,17,17,.22);box-shadow:0 18px 42px rgba(0,0,0,.12);z-index:3;overflow:hidden}
@@ -91,7 +91,7 @@ const kakaoMapScriptSrc = kakaoJavascriptKey ? `https://dapi.kakao.com/v2/maps/s
       .cover.opened .envelope-flap,.cover.zooming .envelope-flap{opacity:1!important;z-index:6!important;backface-visibility:visible!important;transform:rotateX(178deg)!important}.cover.opened .photo-card{z-index:4}.cover.zooming .photo-card{z-index:4!important}
 
       /* Layer correction: photo stays on top, but the opened triangular flap still peeks behind it. */
-      .cover.opened .photo-card{z-index:7!important;width:86%!important;transform:translate(-50%,-34%) scale(1)!important}
+      .cover.opened .photo-card{z-index:7!important;width:75%!important;transform:translate(-50%,-34%) scale(1)!important}
       .cover.opened .envelope-flap{z-index:5!important;opacity:.92!important;transform:rotateX(178deg) translateY(-82px) scaleX(.96) scaleY(.84)!important;filter:drop-shadow(0 -8px 12px rgba(0,0,0,.13))!important}
 
       .cover.zooming .photo-card{z-index:7!important;transform:translate(-50%,-48%) scale(2.28)!important}
@@ -105,7 +105,7 @@ const kakaoMapScriptSrc = kakaoJavascriptKey ? `https://dapi.kakao.com/v2/maps/s
       .envelope-flap:after{top:0!important;height:1px!important;background:rgba(17,17,17,.14)!important;box-shadow:0 1px 0 rgba(255,255,255,.46)!important}
       .envelope-pocket:before{top:0!important;height:1px!important;background:rgba(17,17,17,.14)!important;box-shadow:0 1px 0 rgba(255,255,255,.46),0 3px 8px rgba(17,17,17,.035)!important}
       .cover.opened .envelope-flap{z-index:5!important;opacity:.92!important;transform:rotateX(178deg) translateY(-82px) scaleX(.96) scaleY(.84)!important;filter:drop-shadow(0 -8px 12px rgba(0,0,0,.13))!important}
-      .cover.opened .photo-card{z-index:7!important;width:86%!important;transform:translate(-50%,-34%) scale(1)!important}
+      .cover.opened .photo-card{z-index:7!important;width:75%!important;transform:translate(-50%,-34%) scale(1)!important}
       .cover.zooming .envelope-flap{z-index:5!important;opacity:.48!important;transform:rotateX(178deg) translateY(-82px) scaleX(.96) scaleY(.84)!important}
 
 
@@ -126,8 +126,8 @@ const kakaoMapScriptSrc = kakaoJavascriptKey ? `https://dapi.kakao.com/v2/maps/s
 
 
       /* Slightly larger photo card after envelope opens */
-      .photo-card{width:86%}
-      .cover.opened .photo-card{width:86%!important}
+      .photo-card{width:75%}
+      .cover.opened .photo-card{width:75%!important}
       .cover.zooming .photo-card{transform:translate(-50%,-48%) scale(2.16)!important}
 
 
