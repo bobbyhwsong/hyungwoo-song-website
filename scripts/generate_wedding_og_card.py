@@ -52,10 +52,16 @@ shadow = shadow.filter(ImageFilter.GaussianBlur(20))
 img = Image.alpha_composite(img, shadow)
 d = ImageDraw.Draw(img)
 
-# Envelope body.
+# Envelope body and top flap base. Draw dots after both layers so the flap has
+# the same pattern as the body, matching the mobile cover.
 d.rectangle((ex0, ey0, ex1, ey1), fill=cream, outline=(17, 17, 17, 64), width=3)
+side_y = ey0 + env_h * 0.17
+point_y = ey0 + env_h * 0.41
+mid_x = (ex0 + ex1) / 2
+flap = [(ex0, ey0), (ex1, ey0), (ex1, side_y), (mid_x, point_y), (ex0, side_y)]
+d.polygon(flap, fill=cream_light)
 
-# Subtle dot pattern, clipped to body, using the same source motif but scaled to the wide layout.
+# Subtle dot pattern over the whole envelope, including the top flap.
 dot_layer = Image.new('RGBA', (W, H), (0, 0, 0, 0))
 dot_draw = ImageDraw.Draw(dot_layer)
 sx = env_w / 154
@@ -73,12 +79,6 @@ clipped.paste(dot_layer, (0, 0), mask)
 img = Image.alpha_composite(img, clipped)
 d = ImageDraw.Draw(img)
 
-# Top flap: reference-like shallow sides meeting at the center point.
-side_y = ey0 + env_h * 0.17
-point_y = ey0 + env_h * 0.41
-mid_x = (ex0 + ex1) / 2
-flap = [(ex0, ey0), (ex1, ey0), (ex1, side_y), (mid_x, point_y), (ex0, side_y)]
-d.polygon(flap, fill=cream_light)
 # A small soft shadow under the flap edges.
 d.line((ex0, side_y, mid_x, point_y, ex1, side_y), fill=(17, 17, 17, 44), width=4, joint='curve')
 d.line((ex0, side_y, mid_x, point_y, ex1, side_y), fill=(255, 255, 255, 96), width=1, joint='curve')
