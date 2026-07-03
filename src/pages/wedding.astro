@@ -130,7 +130,7 @@ const kakaoMapScriptSrc = kakaoJavascriptKey ? `https://dapi.kakao.com/v2/maps/s
       .cover.zooming .photo-card{transform:translate(-50%,-48%) scale(2.16)!important}
 
 
-      .cover{grid-template-rows:.75fr auto auto auto auto .72fr;gap:14px;padding:36px 24px 30px}.cover-title{align-self:end;text-align:center;color:#111;letter-spacing:-.02em;animation:titleIn .9s ease both}.cover-korean{font-family:var(--serif);font-size:clamp(1.25rem,5.8vw,1.82rem);font-weight:400;letter-spacing:.16em;text-indent:.16em;line-height:1}.cover-rule{width:34px;height:1px;background:#111;margin:20px auto 18px;opacity:.75}.cover-date-text{font-family:var(--serif);font-size:clamp(1.05rem,4.6vw,1.42rem);font-weight:400;letter-spacing:.08em;line-height:1}.cover-names{margin-top:14px;font-size:clamp(1rem,4.2vw,1.28rem);font-weight:560;letter-spacing:.04em}.cover-names span{font-family:var(--serif);font-weight:400;margin:0 .32em}.envelope-button{align-self:start}.cover-hint{align-self:start;margin-top:-8px;color:#555;font-size:.82rem;letter-spacing:-.02em}.cover-access-buttons{align-self:start;width:min(88vw,400px);display:grid;grid-template-columns:1fr 1fr;gap:10px;max-height:0;overflow:hidden;opacity:0;transform:translateY(8px);pointer-events:none;transition:max-height .28s ease,opacity .28s ease,transform .28s ease}.cover.opened .cover-access-buttons{max-height:130px;opacity:1;transform:none;pointer-events:auto}.cover-access{min-height:52px;border-radius:999px;border:1px solid #111;background:#111;color:#fff;font:inherit;font-size:.95rem;font-weight:780}.cover-access.secondary{background:#fff;color:#111}.cover-access.default{grid-column:1/3;background:#fff;color:#111}.cover-access.voice-suggested{box-shadow:0 0 0 4px rgba(17,17,17,.12)}.cover-made{align-self:start;margin-top:-4px;color:#e8d982;font-size:.72rem;font-weight:760;letter-spacing:.18em}@keyframes titleIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+      .cover{grid-template-rows:.82fr auto auto auto .9fr;gap:14px;padding:36px 24px 30px}.cover-title{align-self:end;text-align:center;color:#111;letter-spacing:-.02em;animation:titleIn .9s ease both}.cover-korean{font-family:var(--serif);font-size:clamp(1.25rem,5.8vw,1.82rem);font-weight:400;letter-spacing:.16em;text-indent:.16em;line-height:1}.cover-rule{width:34px;height:1px;background:#111;margin:20px auto 18px;opacity:.75}.cover-date-text{font-family:var(--serif);font-size:clamp(1.05rem,4.6vw,1.42rem);font-weight:400;letter-spacing:.08em;line-height:1}.cover-names{margin-top:14px;font-size:clamp(1rem,4.2vw,1.28rem);font-weight:560;letter-spacing:.04em}.cover-names span{font-family:var(--serif);font-weight:400;margin:0 .32em}.envelope-button{align-self:start}.cover-hint{align-self:start;margin-top:-8px;color:#555;font-size:.82rem;letter-spacing:-.02em}.cover-made{align-self:start;margin-top:-4px;color:#e8d982;font-size:.72rem;font-weight:760;letter-spacing:.18em}@keyframes titleIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
       body.large-text{font-size:18px}body.large-text .core-message,body.large-text .gallery-copy,body.large-text .route-guide p,body.large-text .voice-card p{font-size:1.12rem;line-height:2}body.large-text .info-value{font-size:1.32rem}body.large-text .info-label,body.large-text .account small,body.large-text .account-role{font-size:.96rem}body.large-text .btn,body.large-text .voice-button,body.large-text .copy,body.large-text .account-group summary{min-height:56px;font-size:1rem}body.large-text .account{padding:18px 18px}body.large-text .final-message{font-size:clamp(1.48rem,6.2vw,1.84rem)}
 
@@ -156,11 +156,6 @@ const kakaoMapScriptSrc = kakaoJavascriptKey ? `https://dapi.kakao.com/v2/maps/s
         </span>
       </button>
       <div class="cover-hint">봉투를 눌러 열어주세요</div>
-      <div class="cover-access-buttons" aria-label="읽기 도움 기능">
-        <button class="cover-access default" id="coverDefaultButton" type="button" aria-label="기본 화면으로 청첩장 보기">기본 보기</button>
-        <button class="cover-access secondary" id="coverLargeTextButton" type="button" aria-label="큰 글씨로 청첩장 보기">큰 글씨 보기</button>
-        <button class="cover-access" id="coverVoiceButton" type="button" aria-label="청첩장 주요 내용을 소리로 듣기">소리로 듣기</button>
-      </div>
       <div class="cover-made">MADE BY 형우</div>
     </section>
 
@@ -369,10 +364,6 @@ const kakaoMapScriptSrc = kakaoJavascriptKey ? `https://dapi.kakao.com/v2/maps/s
       const openInvitation = () => {
         if (!cover || cover.classList.contains('opened')) return;
         cover.classList.add('opened');
-      };
-      const finishInvitation = () => {
-        if (!cover || cover.classList.contains('done')) return;
-        if (!cover.classList.contains('opened')) cover.classList.add('opened');
         window.setTimeout(() => cover.classList.add('zooming'), 980);
         window.setTimeout(() => {
           cover.classList.add('done');
@@ -451,9 +442,6 @@ const kakaoMapScriptSrc = kakaoJavascriptKey ? `https://dapi.kakao.com/v2/maps/s
         button.addEventListener('click', () => speakGuide(button.dataset.speak || 'all'));
       });
       const largeTextToggle = document.getElementById('largeTextToggle');
-      const coverDefaultButton = document.getElementById('coverDefaultButton');
-      const coverLargeTextButton = document.getElementById('coverLargeTextButton');
-      const coverVoiceButton = document.getElementById('coverVoiceButton');
       const setLargeText = (enabled) => {
         document.body.classList.toggle('large-text', enabled);
         try { localStorage.setItem('weddingLargeText', enabled ? '1' : '0'); } catch {}
@@ -465,25 +453,6 @@ const kakaoMapScriptSrc = kakaoJavascriptKey ? `https://dapi.kakao.com/v2/maps/s
       try { savedLargeText = localStorage.getItem('weddingLargeText') === '1'; } catch {}
       setLargeText(params.get('large') === '1' || savedLargeText);
       largeTextToggle?.addEventListener('click', () => setLargeText(!document.body.classList.contains('large-text')));
-      coverDefaultButton?.addEventListener('click', (event) => {
-        event.stopPropagation();
-        setLargeText(false);
-        finishInvitation();
-      });
-      coverLargeTextButton?.addEventListener('click', (event) => {
-        event.stopPropagation();
-        setLargeText(true);
-        finishInvitation();
-      });
-      coverVoiceButton?.addEventListener('click', (event) => {
-        event.stopPropagation();
-        finishInvitation();
-        speakGuide('all');
-      });
-      if (params.get('voice') === '1') {
-        coverVoiceButton?.focus();
-        coverVoiceButton?.classList.add('voice-suggested');
-      }
       const target = new Date('2026-10-24T12:00:00+09:00').getTime();
       const ids = ['d','h','m','s'].map((id) => document.getElementById(id));
       function tick(){
