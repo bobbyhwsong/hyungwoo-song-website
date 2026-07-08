@@ -7,6 +7,7 @@ const naverMapClientId = import.meta.env.PUBLIC_NAVER_MAP_CLIENT_ID;
 const kakaoJavascriptKey = import.meta.env.PUBLIC_KAKAO_JAVASCRIPT_KEY || '5c288bab76cf2f847175887a5e01da15';
 const naverMapScriptSrc = naverMapClientId ? `https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${naverMapClientId}` : '';
 const kakaoMapScriptSrc = kakaoJavascriptKey ? `https://dapi.kakao.com/v2/maps/sdk.js?appkey=${kakaoJavascriptKey}&autoload=false` : '';
+const weddingPhotos = Array.from({ length: 29 }, (_, index) => `/assets/wedding-photos/photo-${String(index + 1).padStart(2, '0')}.jpg`);
 ---
 <!doctype html>
 <html lang="ko">
@@ -87,6 +88,7 @@ const kakaoMapScriptSrc = kakaoJavascriptKey ? `https://dapi.kakao.com/v2/maps/s
 
       /* Photo viewing: allow enlargement, but keep preview intentionally soft rather than protected. */
       .protected-photo:after,.modal-photo:after{content:none!important;display:none!important}.modal-photo,.modal-photo:before{filter:blur(.55px) saturate(.88) contrast(.96);image-rendering:auto}.modal-photo.main-photo{aspect-ratio:1338/988;background-color:transparent;background-image:var(--main-photo);background-size:contain;background-repeat:no-repeat;background-position:center;border:0;border-radius:0;box-shadow:none;filter:none;cursor:default}.modal-photo.main-photo:before{content:none}.modal-photo.main-photo span{display:none}.modal-photo{cursor:default}.countdown-label{margin:16px 0 -4px;color:var(--muted);font-size:.86rem;text-align:center;letter-spacing:-.02em}
+      .collage-frame:before{background-image:var(--photo)!important;background-size:cover!important;background-position:center!important;filter:saturate(.96) contrast(.98)}.collage-frame:after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 58%,rgba(255,255,255,.84));z-index:1}.collage-frame span{align-self:end;margin-bottom:7px;padding:2px 6px;background:rgba(255,255,255,.76);border-radius:999px;color:#333;text-shadow:0 1px 0 #fff}.modal-photo.has-real-photo{aspect-ratio:3/4;background-image:var(--modal-photo);background-size:contain;background-repeat:no-repeat;background-position:center;background-color:#111;border:0;border-radius:18px;box-shadow:0 24px 80px rgba(0,0,0,.45);filter:none;cursor:default}.modal-photo.has-real-photo:before{content:none}.modal-photo.has-real-photo span{display:none}.photo-modal.zoom-protect .modal-photo.has-real-photo{background-image:var(--mosaic-photo,var(--modal-photo));background-size:cover;image-rendering:pixelated;filter:saturate(.82) contrast(.9);border-radius:18px}.photo-modal.zoom-protect .modal-photo.has-real-photo:after{content:''!important;display:block!important;position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(0,0,0,.08)),repeating-linear-gradient(0deg,rgba(255,255,255,.06) 0 1px,transparent 1px 12px),repeating-linear-gradient(90deg,rgba(0,0,0,.06) 0 1px,transparent 1px 12px);z-index:2}
 
       .cover.opened .envelope-flap,.cover.zooming .envelope-flap{opacity:1!important;z-index:6!important;backface-visibility:visible!important;transform:rotateX(178deg)!important}.cover.opened .photo-card{z-index:4}.cover.zooming .photo-card{z-index:4!important}
 
@@ -266,7 +268,7 @@ const kakaoMapScriptSrc = kakaoJavascriptKey ? `https://dapi.kakao.com/v2/maps/s
         <p class="gallery-copy">함께 지나온 장면들을 폴라로이드처럼 모았습니다.</p>
         <div class="photo-collage" aria-label="사진 갤러리 미리보기">
           {[1, 2, 3, 4, 6, 7, 8].map((frame, index) => (
-            <button class={`collage-frame f${frame}`} type="button" data-photo-index={index} aria-label={`사진 ${index + 1} 크게 보기`}>
+            <button class={`collage-frame f${frame}`} style={`--photo:url('${weddingPhotos[index]}')`} type="button" data-photo-index={index} aria-label={`사진 ${index + 1} 크게 보기`}>
               <span>PHOTO {String(index + 1).padStart(2, '0')}</span>
             </button>
           ))}
@@ -325,7 +327,7 @@ const kakaoMapScriptSrc = kakaoJavascriptKey ? `https://dapi.kakao.com/v2/maps/s
       <button class="modal-nav prev" type="button" aria-label="이전 사진">‹</button>
       <figure class="modal-photo-shell">
         <div class="modal-photo protected-photo" id="modalPhoto" role="img" aria-label="선택한 사진 확대 보기"><span id="modalPhotoLabel">PHOTO 01</span></div>
-        <figcaption><span id="modalCounter">1 / 20</span></figcaption>
+        <figcaption><span id="modalCounter">1 / 29</span></figcaption>
       </figure>
       <button class="modal-nav next" type="button" aria-label="다음 사진">›</button>
     </div>
@@ -395,22 +397,59 @@ const kakaoMapScriptSrc = kakaoJavascriptKey ? `https://dapi.kakao.com/v2/maps/s
       const modalPhoto = document.getElementById('modalPhoto');
       const modalPhotoLabel = document.getElementById('modalPhotoLabel');
       const modalCounter = document.getElementById('modalCounter');
-      const totalPhotos = 20;
+      const photoUrls = Array.from({ length: 29 }, (_, index) => `/assets/wedding-photos/photo-${String(index + 1).padStart(2, '0')}.jpg`);
+      const totalPhotos = photoUrls.length;
       let currentPhoto = 0;
+      let mosaicPhotoIndex = -1;
+      const renderMosaic = async () => {
+        if (!modalPhoto || !photoModal?.classList.contains('zoom-protect') || mosaicPhotoIndex === currentPhoto) return;
+        mosaicPhotoIndex = currentPhoto;
+        const source = photoUrls[currentPhoto];
+        try {
+          const image = new Image();
+          image.decoding = 'async';
+          image.src = source;
+          await image.decode();
+          const canvas = document.createElement('canvas');
+          const shortSide = 34;
+          const ratio = image.width / image.height;
+          canvas.width = ratio >= 1 ? Math.round(shortSide * ratio) : shortSide;
+          canvas.height = ratio >= 1 ? shortSide : Math.round(shortSide / ratio);
+          const ctx = canvas.getContext('2d');
+          ctx.imageSmoothingEnabled = false;
+          ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+          modalPhoto.style.setProperty('--mosaic-photo', `url("${canvas.toDataURL('image/jpeg', 0.82)}")`);
+        } catch {
+          modalPhoto.style.setProperty('--mosaic-photo', `url("${source}")`);
+        }
+      };
+      const updateZoomProtection = () => {
+        const scale = window.visualViewport?.scale || 1;
+        const zoomed = photoModal?.classList.contains('show') && scale > 1.06;
+        photoModal?.classList.toggle('zoom-protect', Boolean(zoomed));
+        if (zoomed) renderMosaic();
+        else { mosaicPhotoIndex = -1; modalPhoto?.style.removeProperty('--mosaic-photo'); }
+      };
       const renderPhoto = () => {
         if (!modalPhoto || !modalPhotoLabel || !modalCounter) return;
-        const isMainPhoto = currentPhoto === 0;
-        modalPhoto.classList.toggle('main-photo', isMainPhoto);
-        modalPhotoLabel.textContent = isMainPhoto ? '' : `PHOTO ${String(currentPhoto + 1).padStart(2, '0')}`;
+        const url = photoUrls[currentPhoto];
+        modalPhoto.classList.remove('main-photo');
+        modalPhoto.classList.add('has-real-photo');
+        modalPhoto.style.setProperty('--modal-photo', `url("${url}")`);
+        modalPhotoLabel.textContent = `PHOTO ${String(currentPhoto + 1).padStart(2, '0')}`;
         modalCounter.textContent = `${currentPhoto + 1} / ${totalPhotos}`;
+        mosaicPhotoIndex = -1;
+        modalPhoto.style.removeProperty('--mosaic-photo');
+        updateZoomProtection();
       };
       const openPhoto = (index = 0) => {
         currentPhoto = (index + totalPhotos) % totalPhotos;
         renderPhoto();
         photoModal?.classList.add('show');
         photoModal?.setAttribute('aria-hidden','false');
+        updateZoomProtection();
       };
-      const closePhoto = () => { photoModal?.classList.remove('show'); photoModal?.setAttribute('aria-hidden','true'); };
+      const closePhoto = () => { photoModal?.classList.remove('show','zoom-protect'); photoModal?.setAttribute('aria-hidden','true'); modalPhoto?.style.removeProperty('--mosaic-photo'); };
       const movePhoto = (delta) => { currentPhoto = (currentPhoto + delta + totalPhotos) % totalPhotos; renderPhoto(); };
       document.querySelectorAll('[data-photo-index]').forEach((tile) => {
         tile.addEventListener('click', () => openPhoto(Number(tile.dataset.photoIndex || 0)));
@@ -428,6 +467,9 @@ const kakaoMapScriptSrc = kakaoJavascriptKey ? `https://dapi.kakao.com/v2/maps/s
         if (event.key === 'ArrowLeft') movePhoto(-1);
         if (event.key === 'ArrowRight') movePhoto(1);
       });
+      window.visualViewport?.addEventListener('resize', updateZoomProtection);
+      window.visualViewport?.addEventListener('scroll', updateZoomProtection);
+      window.addEventListener('resize', updateZoomProtection);
       const voiceStatus = document.getElementById('voiceStatus');
       const speakTexts = {
         place: '송형우와 강혜진의 결혼식에 초대합니다. 예식은 이천이십육년 시월 이십사일 토요일 오후 열두 시, 천주교 도림동성당에서 있습니다. 주소는 서울 영등포구 도영로 이십이길 이십이입니다.',
