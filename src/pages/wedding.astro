@@ -53,7 +53,7 @@ const galleryPreviewIndexes = [25, 1, 22, 3, 18, 6, 16];
       a{color:inherit;text-decoration:none}
 
       /* First screen: only the envelope. The flap is a real triangular layer attached to the pocket. */
-      .cover{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:#fff;transition:opacity .45s ease .98s,visibility .45s ease .98s}
+      .cover{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:#fff;transition:opacity .32s ease .05s,visibility .32s ease .05s}
       .cover.done{opacity:0;visibility:hidden;pointer-events:none}
       .envelope-button{appearance:none;border:0;background:transparent;padding:0;width:min(90vw,440px);aspect-ratio:154/110;height:auto;max-height:350px;position:relative;cursor:pointer;perspective:1100px;-webkit-tap-highlight-color:transparent}
       .envelope-button:focus-visible{outline:2px solid #111;outline-offset:10px}
@@ -381,13 +381,13 @@ const galleryPreviewIndexes = [25, 1, 22, 3, 18, 6, 16];
       const openInvitation = () => {
         if (!cover || cover.classList.contains('opened')) return;
         cover.classList.add('opened');
-        window.setTimeout(() => cover.classList.add('zooming'), 980);
+        window.setTimeout(() => cover.classList.add('zooming'), 760);
         window.setTimeout(() => {
           cover.classList.add('done');
           document.body.classList.remove('opening');
           document.body.classList.add('body-ready');
           window.scrollTo({ top: 0, behavior: 'instant' });
-        }, 1720);
+        }, 1280);
       };
       document.getElementById('openInvitation')?.addEventListener('click', openInvitation);
       cover?.addEventListener('click', (event) => { if (event.target === cover) openInvitation(); });
