@@ -9,7 +9,7 @@ const naverMapScriptSrc = naverMapClientId ? `https://oapi.map.naver.com/openapi
 const kakaoMapScriptSrc = kakaoJavascriptKey ? `https://dapi.kakao.com/v2/maps/sdk.js?appkey=${kakaoJavascriptKey}&autoload=false` : '';
 const selectedWeddingPhotoNumbers = [2, 3, 6, 9, 11, 14, 16, 17, 18, 20, 25, 26, 29];
 const weddingPhotos = selectedWeddingPhotoNumbers.map((number) => `/assets/wedding-photos/photo-${String(number).padStart(2, '0')}.jpg`);
-const galleryPreviewIndexes = [11, 0, 1, 3, 8, 2, 7];
+const galleryPreviewIndexes = [11, 3, 1, 0, 8, 2, 7];
 ---
 <!doctype html>
 <html lang="ko">
