@@ -60,8 +60,8 @@ const galleryPreviewIndexes = [25, 16, 2, 3, 22, 1, 6];
       .envelope{position:absolute;inset:0;isolation:isolate}
       .photo-card{position:absolute;left:50%;bottom:30%;width:75%;aspect-ratio:1338/988;transform:translate(-50%,72%) scale(.92);opacity:0;background-image:var(--main-photo);background-size:contain;background-repeat:no-repeat;background-position:center;border:0;border-radius:2px;box-shadow:none;z-index:2;transition:transform .95s cubic-bezier(.16,.9,.2,1) .2s,opacity .28s ease .2s,box-shadow .8s ease}
       .photo-card:before{content:none}
-      .envelope-back{position:absolute;left:0;right:0;bottom:0;height:70%;background:#fbf7e8;background-image:var(--dot);background-size:100% auto;background-position:center bottom;border:0;box-shadow:0 18px 42px rgba(0,0,0,.12);z-index:1;overflow:hidden}
-      .envelope-pocket{position:absolute;left:0;right:0;bottom:0;height:70%;background:#fbf7e8;background-image:var(--dot);background-size:100% auto;background-position:center bottom;border:0;box-shadow:0 18px 42px rgba(0,0,0,.12);z-index:3;overflow:hidden}
+      .envelope-back{position:absolute;left:0;right:0;bottom:0;height:70%;background:#fbf7e8;background-image:var(--dot);background-size:100% auto;background-position:center bottom;border:1.2px solid rgba(17,17,17,.22);box-shadow:0 18px 42px rgba(0,0,0,.12);z-index:1;overflow:hidden}
+      .envelope-pocket{position:absolute;left:0;right:0;bottom:0;height:70%;background:#fbf7e8;background-image:var(--dot);background-size:100% auto;background-position:center bottom;border:1.2px solid rgba(17,17,17,.22);box-shadow:0 18px 42px rgba(0,0,0,.12);z-index:3;overflow:hidden}
       .envelope-pocket:before{content:'';position:absolute;left:0;right:0;top:0;height:1px;background:rgba(17,17,17,.14);box-shadow:0 1px 0 rgba(255,255,255,.46),0 3px 8px rgba(17,17,17,.035);z-index:2}
       .envelope-flap{position:absolute;left:0;right:0;top:30%;height:50%;background:#fbf7e8;background-image:var(--dot);background-size:100% auto;background-position:center top;border-top:1.2px solid rgba(17,17,17,.22);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:50% 0;transform:rotateX(0deg);backface-visibility:visible;z-index:4;filter:drop-shadow(0 1px 0 rgba(17,17,17,.10));transition:transform .82s cubic-bezier(.18,.82,.23,1),z-index 0s linear .82s}
       .envelope-flap:after{content:'';position:absolute;left:0;right:0;top:0;height:1px;background:rgba(17,17,17,.14);box-shadow:0 1px 0 rgba(255,255,255,.46);z-index:2}
@@ -102,7 +102,7 @@ const galleryPreviewIndexes = [25, 16, 2, 3, 22, 1, 6];
 
 
       /* Hinge alignment: flap shares the pocket edge, then lifts enough to remain visible behind the photo. */
-      .envelope-back,.envelope-pocket{height:68%!important;border:0!important}
+      .envelope-back,.envelope-pocket{height:68%!important}
       .envelope-back,.envelope-pocket{background-size:100% auto!important;background-position:center bottom!important}
       .envelope-flap{top:32%!important;height:48%!important;border-top:0!important;transform-origin:50% 0!important;background-size:100% auto!important;background-position:center top!important}
       .envelope-flap:after{top:0!important;height:1px!important;background:rgba(17,17,17,.14)!important;box-shadow:0 1px 0 rgba(255,255,255,.46)!important}
