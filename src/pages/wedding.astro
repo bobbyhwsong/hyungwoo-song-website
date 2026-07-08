@@ -8,7 +8,7 @@ const kakaoJavascriptKey = import.meta.env.PUBLIC_KAKAO_JAVASCRIPT_KEY || '5c288
 const naverMapScriptSrc = naverMapClientId ? `https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${naverMapClientId}` : '';
 const kakaoMapScriptSrc = kakaoJavascriptKey ? `https://dapi.kakao.com/v2/maps/sdk.js?appkey=${kakaoJavascriptKey}&autoload=false` : '';
 const weddingPhotos = Array.from({ length: 29 }, (_, index) => `/assets/wedding-photos/photo-${String(index + 1).padStart(2, '0')}.jpg`);
-const galleryPreviewIndexes = [25, 1, 2, 3, 18, 16, 6];
+const galleryPreviewIndexes = [25, 16, 2, 3, 22, 1, 6];
 ---
 <!doctype html>
 <html lang="ko">
