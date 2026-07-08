@@ -25,6 +25,7 @@ const weddingPhotoRatios = {
 };
 const weddingPhotos = selectedWeddingPhotoNumbers.map((number) => `/assets/wedding-photos/photo-${String(number).padStart(2, '0')}.jpg`);
 const galleryPreviewIndexes = [11, 7, 1, 0, 8, 2, 3];
+const galleryModalIndexes = [11, 3, 1, 0, 8, 2, 7];
 ---
 <!doctype html>
 <html lang="ko">
@@ -285,9 +286,10 @@ const galleryPreviewIndexes = [11, 7, 1, 0, 8, 2, 3];
         <div class="photo-collage" aria-label="사진 갤러리 미리보기">
           {[1, 2, 3, 4, 6, 7, 8].map((frame, index) => {
             const photoIndex = galleryPreviewIndexes[index];
+            const modalIndex = galleryModalIndexes[index];
             const photoNumber = selectedWeddingPhotoNumbers[photoIndex];
             const photoRatio = weddingPhotoRatios[photoNumber] || '2 / 3';
-            return <button class={`collage-frame f${frame}`} style={`--photo:url('${weddingPhotos[photoIndex]}');--photo-ratio:${photoRatio}`} type="button" data-photo-index={photoIndex} aria-label={`사진 ${photoIndex + 1} 크게 보기`}></button>;
+            return <button class={`collage-frame f${frame}`} style={`--photo:url('${weddingPhotos[photoIndex]}');--photo-ratio:${photoRatio}`} type="button" data-photo-index={modalIndex} aria-label={`사진 ${modalIndex + 1} 크게 보기`}></button>;
           })}
         </div>
       </section>
