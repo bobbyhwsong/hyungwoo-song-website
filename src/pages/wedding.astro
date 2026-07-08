@@ -437,7 +437,7 @@ const galleryPreviewIndexes = [25, 1, 22, 3, 18, 6, 16];
       };
       const updateZoomProtection = () => {
         const scale = window.visualViewport?.scale || 1;
-        const zoomed = photoModal?.classList.contains('show') && scale > 1.5;
+        const zoomed = photoModal?.classList.contains('show') && scale > 2;
         photoModal?.classList.toggle('zoom-protect', Boolean(zoomed));
         if (zoomed) renderMosaic();
         else { mosaicPhotoIndex = -1; modalPhoto?.style.removeProperty('--mosaic-photo'); }
