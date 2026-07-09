@@ -7,23 +7,21 @@ const naverMapClientId = import.meta.env.PUBLIC_NAVER_MAP_CLIENT_ID;
 const kakaoJavascriptKey = import.meta.env.PUBLIC_KAKAO_JAVASCRIPT_KEY || '5c288bab76cf2f847175887a5e01da15';
 const naverMapScriptSrc = naverMapClientId ? `https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${naverMapClientId}` : '';
 const kakaoMapScriptSrc = kakaoJavascriptKey ? `https://dapi.kakao.com/v2/maps/sdk.js?appkey=${kakaoJavascriptKey}&autoload=false` : '';
-const selectedWeddingPhotoNumbers = [2, 3, 6, 9, 11, 14, 16, 17, 18, 20, 25, 26, 29];
-const weddingPhotoRatios = {
-  2: '2 / 3',
-  3: '903 / 1800',
-  6: '2 / 3',
-  9: '2 / 3',
-  11: '4 / 3',
-  14: '2 / 3',
-  16: '2 / 3',
-  17: '1081 / 1440',
-  18: '2 / 3',
-  20: '2 / 3',
-  25: '2 / 3',
-  26: '2 / 3',
-  29: '4 / 3'
-};
-const weddingPhotos = selectedWeddingPhotoNumbers.map((number) => `/assets/wedding-photos/photo-${String(number).padStart(2, '0')}.jpg`);
+const weddingPhotos = [
+  { src: '/assets/wedding-photos/w-GUWyezEPIfkyjblM.jpg', ratio: '2 / 3' },
+  { src: '/assets/wedding-photos/w-EOvth7M93zLaUQz0.jpg', ratio: '903 / 1800' },
+  { src: '/assets/wedding-photos/w-ViPAwI3SoSyXkvix.jpg', ratio: '2 / 3' },
+  { src: '/assets/wedding-photos/w-Td5b8XbIF3bEgSMV.jpg', ratio: '2 / 3' },
+  { src: '/assets/wedding-photos/w-b6PEiu7xD7XPriEP.jpg', ratio: '4 / 3' },
+  { src: '/assets/wedding-photos/w-8Cr1s1cXkrqtoyvS.jpg', ratio: '2 / 3' },
+  { src: '/assets/wedding-photos/w-qixhVV0SeyQRUeJQ.jpg', ratio: '2 / 3' },
+  { src: '/assets/wedding-photos/w-hNQyfc95TAfFClZp.jpg', ratio: '1081 / 1440' },
+  { src: '/assets/wedding-photos/w-gQiVynEu59l172ix.jpg', ratio: '2 / 3' },
+  { src: '/assets/wedding-photos/w-Ahm6F1Z0DBkRnxhB.jpg', ratio: '2 / 3' },
+  { src: '/assets/wedding-photos/w-wyLSLjywhC9i8wI3.jpg', ratio: '2 / 3' },
+  { src: '/assets/wedding-photos/w-wm7mrgsuTmFv8MGX.jpg', ratio: '2 / 3' },
+  { src: '/assets/wedding-photos/w-nsPQxyNeTWpCcUlY.jpg', ratio: '4 / 3' }
+];
 const galleryPreviewIndexes = [11, 7, 1, 0, 8, 2, 3];
 const galleryModalIndexes = [11, 3, 1, 0, 8, 2, 7];
 ---
@@ -287,9 +285,8 @@ const galleryModalIndexes = [11, 3, 1, 0, 8, 2, 7];
           {[1, 2, 3, 4, 6, 7, 8].map((frame, index) => {
             const photoIndex = galleryPreviewIndexes[index];
             const modalIndex = galleryModalIndexes[index];
-            const photoNumber = selectedWeddingPhotoNumbers[photoIndex];
-            const photoRatio = weddingPhotoRatios[photoNumber] || '2 / 3';
-            return <button class={`collage-frame f${frame}`} style={`--photo:url('${weddingPhotos[photoIndex]}');--photo-ratio:${photoRatio}`} type="button" data-photo-index={modalIndex} aria-label={`사진 ${modalIndex + 1} 크게 보기`}></button>;
+            const photo = weddingPhotos[photoIndex];
+            return <button class={`collage-frame f${frame}`} style={`--photo:url('${photo.src}');--photo-ratio:${photo.ratio}`} type="button" data-photo-index={modalIndex} aria-label={`사진 ${modalIndex + 1} 크게 보기`}></button>;
           })}
         </div>
       </section>
@@ -420,8 +417,7 @@ const galleryModalIndexes = [11, 3, 1, 0, 8, 2, 7];
       const modalPhoto = document.getElementById('modalPhoto');
       const modalPhotoLabel = document.getElementById('modalPhotoLabel');
       const modalCounter = document.getElementById('modalCounter');
-      const selectedPhotoNumbers = [2, 3, 6, 9, 11, 14, 16, 17, 18, 20, 25, 26, 29];
-      const photoUrls = selectedPhotoNumbers.map((number) => `/assets/wedding-photos/photo-${String(number).padStart(2, '0')}.jpg`);
+      const photoUrls = ['/assets/wedding-photos/w-GUWyezEPIfkyjblM.jpg', '/assets/wedding-photos/w-EOvth7M93zLaUQz0.jpg', '/assets/wedding-photos/w-ViPAwI3SoSyXkvix.jpg', '/assets/wedding-photos/w-Td5b8XbIF3bEgSMV.jpg', '/assets/wedding-photos/w-b6PEiu7xD7XPriEP.jpg', '/assets/wedding-photos/w-8Cr1s1cXkrqtoyvS.jpg', '/assets/wedding-photos/w-qixhVV0SeyQRUeJQ.jpg', '/assets/wedding-photos/w-hNQyfc95TAfFClZp.jpg', '/assets/wedding-photos/w-gQiVynEu59l172ix.jpg', '/assets/wedding-photos/w-Ahm6F1Z0DBkRnxhB.jpg', '/assets/wedding-photos/w-wyLSLjywhC9i8wI3.jpg', '/assets/wedding-photos/w-wm7mrgsuTmFv8MGX.jpg', '/assets/wedding-photos/w-nsPQxyNeTWpCcUlY.jpg'];
       const totalPhotos = photoUrls.length;
       const preloadedPhotos = new Set();
       const preloadPhoto = (index) => {
