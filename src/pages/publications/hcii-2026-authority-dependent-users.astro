@@ -1,0 +1,156 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = 'From Self-Report to Situated Behavior';
+const subtitle = 'Uncovering Information Evaluation Patterns of Authority-Dependent Users Through System-Mediated Observation';
+const assetBase = '/assets/publications/hcii-2026-authority-dependent-users';
+const citation = `@inproceedings{song2026situated,
+  title = {From Self-Report to Situated Behavior: Uncovering Information Evaluation Patterns of Authority-Dependent Users Through System-Mediated Observation},
+  author = {Song, Hyungwoo and Kim, Jeongha and Kim, Minju and Jung, Hyunggu},
+  booktitle = {HCI International 2026},
+  year = {2026}
+}`;
+---
+<BaseLayout
+  title={`${title} — Hyungwoo Song`}
+  lang="en"
+  description="HCII 2026 poster page for Hyungwoo Song's work on authority-dependent users, self-report, and system-mediated observation."
+>
+  <section class="paper-hero nk-paper-hero">
+    <div class="wrap paper-hero-grid">
+      <div>
+        <div class="eyebrow">HCII 2026 · Poster ID 157</div>
+        <h1>{title}</h1>
+        <p class="paper-subtitle">{subtitle}</p>
+        <p class="paper-authors">Hyungwoo Song, Jeongha Kim, Minju Kim, and Hyunggu Jung</p>
+        <div class="paper-action-row">
+          <a class="btn" href={`${assetBase}/HCII2026_poster_A0.pdf`} target="_blank" rel="noreferrer">Poster PDF</a>
+          <a class="btn secondary" href={`${assetBase}/HCII_2026_poster_NK.pdf`} target="_blank" rel="noreferrer">Paper PDF</a>
+          <a class="btn secondary" href="/publications/">All publications</a>
+        </div>
+      </div>
+      <aside class="paper-key-card">
+        <span>Key takeaway</span>
+        <h2>Authority reliance and private questioning can coexist.</h2>
+        <p>System-mediated observation revealed behavior that interviews alone did not capture.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section tight">
+    <div class="wrap paper-snapshot-grid">
+      <article class="paper-snapshot-card">
+        <span>5/6</span>
+        <p>participants opened the official source first.</p>
+      </article>
+      <article class="paper-snapshot-card">
+        <span>4/6</span>
+        <p>participants consulted the chatbot most often.</p>
+      </article>
+      <article class="paper-snapshot-card">
+        <span>3</span>
+        <p>behavioral patterns were revealed beyond self-report.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap paper-two-column">
+      <div>
+        <div class="section-kicker">Overview</div>
+        <h2>From reported barriers to situated behavior.</h2>
+        <p>
+          Prior research on authority-dependent users has often relied on self-report methods such as interviews.
+          This project examines what those methods can miss by studying North Korean defectors as an extreme case of
+          users transitioning from closed to open information environments.
+        </p>
+        <p>
+          We first identified self-reported barriers in emergency medical information seeking, then used a need-informed
+          prototype as an observational probe to examine how participants evaluated multiple information sources in action.
+        </p>
+      </div>
+      <figure class="paper-poster-preview">
+        <a href={`${assetBase}/HCII2026_poster_A0.pdf`} target="_blank" rel="noreferrer">
+          <img src={`${assetBase}/poster-source-1-preview.png`} alt="Preview of the HCII 2026 poster" loading="lazy" />
+        </a>
+        <figcaption>Poster preview. Click to open the full PDF.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section paper-band">
+    <div class="wrap">
+      <div class="section-kicker">Approach</div>
+      <h2>Prototype as observational probe.</h2>
+      <div class="paper-method-flow">
+        <article>
+          <span>01</span>
+          <h3>Interviews</h3>
+          <p>Semi-structured interviews with six North Korean defectors identified self-reported barriers.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Need-informed prototype</h3>
+          <p>A multi-source emergency medical information system provided guidelines and a private AI Assistant.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Scenario observation</h3>
+          <p>Think-aloud, source consultation logs, chatbot logs, and post-task interviews surfaced situated behavior.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-kicker">Findings</div>
+      <h2>What self-report missed.</h2>
+      <div class="paper-findings-grid">
+        <article>
+          <span>Finding 1</span>
+          <h3>Authority bias + private questioning</h3>
+          <p>Participants often began with authoritative sources, but privately questioned the chatbot when they became uncertain.</p>
+        </article>
+        <article>
+          <span>Finding 2</span>
+          <h3>Persona-mediated relief from inhibition</h3>
+          <p>An informal chatbot persona reduced hesitation and supported repeated clarification.</p>
+        </article>
+        <article>
+          <span>Finding 3</span>
+          <h3>Conceptual misalignment beyond vocabulary</h3>
+          <p>Difficulties were not only about unfamiliar words; participants needed help connecting biomedical concepts to prior explanatory frameworks.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tight">
+    <div class="wrap paper-implication-panel">
+      <div>
+        <div class="section-kicker">Design implications</div>
+        <h2>Design for conditions that let people ask.</h2>
+      </div>
+      <ul>
+        <li><strong>Support low-pressure questioning</strong> through private channels for questioning authoritative information.</li>
+        <li><strong>Enable non-judgmental clarification</strong> by normalizing repeated questions and simple explanations.</li>
+        <li><strong>Bridge conceptual frameworks</strong> beyond word-level simplification or translation.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap paper-materials">
+      <div>
+        <div class="section-kicker">Materials</div>
+        <h2>Poster and paper.</h2>
+      </div>
+      <div class="paper-material-links">
+        <a href={`${assetBase}/HCII2026_poster_A0.pdf`} target="_blank" rel="noreferrer">Download poster PDF</a>
+        <a href={`${assetBase}/HCII_2026_poster_NK.pdf`} target="_blank" rel="noreferrer">Download paper PDF</a>
+      </div>
+      <pre class="paper-citation"><code>{citation}</code></pre>
+    </div>
+  </section>
+</BaseLayout>
