@@ -192,7 +192,7 @@ const galleryModalIndexes = [21, 7, 3, 1, 15, 6, 14];
   <body class="opening">
     <div class="welcome-popup" id="welcomePopup" role="dialog" aria-label="안내 팝업">
       <div class="welcome-content">
-        <button class="welcome-close" type="button" id="welcomeClose" aria-label="닫기">X</button>
+        <button class="welcome-close" type="button" id="welcomeClose" aria-label="청첩장 보러가기">청첩장 보러가기</button>
         <p class="welcome-date">2026년 10월 24일 토요일</p>
         <p class="welcome-time">오후 12시</p>
         <p class="welcome-venue"><a href="https://map.naver.com/p/search/천주교%20도림동성당" target="_blank" rel="noopener">천주교 도림동성당<span class="venue-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 17 16 22 23 17 23 2 16 7 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="17"/><line x1="16" y1="7" x2="16" y2="22"/></svg></span></a></p>
@@ -354,7 +354,7 @@ const galleryModalIndexes = [21, 7, 3, 1, 15, 6, 14];
           </article>
           <article>
             <h3>식사 안내</h3>
-            <p>식사는 예식 시작 <strong>30분 전</strong>부터<br />예식 후 <strong>2시간</strong>까지 이용하실 수 있습니다.<br />편안한 마음으로 함께해 주세요.</p>
+            <p>식사는 예식 시작 <strong>1시간 전</strong>부터<br />예식 후 <strong>2시간</strong>까지 이용하실 수 있습니다.<br />편안한 마음으로 함께해 주세요.</p>
           </article>
         </div>
       </section>
@@ -539,7 +539,7 @@ const galleryModalIndexes = [21, 7, 3, 1, 15, 6, 14];
       const speakTexts = {
         place: '송형우와 강혜진의 결혼식에 초대합니다. 예식은 이천이십육년 시월 이십사일 토요일 오후 열두 시, 천주교 도림동성당에서 있습니다. 주소는 서울 영등포구 도영로 이십이길 이십이입니다.',
         route: '오시는 길 안내입니다. 대중교통 이용 시, 신도림역 이번 출구에서는 마을버스 영등포 공팔번을 타고 대우미래사랑 정류장에서 하차하신 뒤 도보 삼분입니다. 셔틀버스는 신도림역 이번 출구 마을버스 정류장 맨 끝에서 탑승하실 수 있으며, 봉사자 안내 하에 십분 간격으로 운행됩니다. 예식 전 한 시간과 예식 후 두 시간 이용 가능합니다. 영등포역 이번 출구에서는 마을버스 영등포 공구번을 타고 우성오차아파트 정류장에서 하차하신 뒤 도보 칠분입니다. 도보에는 오르막이 있어, 이동이 불편하신 분들은 셔틀버스 이용을 권장드립니다. 자가용은 내비게이션에 도림동성당 또는 서울 영등포구 도영로 이십이길 이십이를 검색해 주세요. 주차 가능하나 혼잡할 수 있어 셔틀버스 이용을 권장드립니다.',
-        gift: '마음 전하실 곳 안내입니다. 신랑측은 송윤상, 이정은, 송형우 계좌를 각각 확인하실 수 있고, 신부측은 강기원, 한정원, 강혜진 계좌를 각각 확인하실 수 있습니다. 꽃 화환은 정중히 사양합니다. 혹 마음을 전하고 싶으신 경우 쌀화환으로 보내주시면 어려운 이웃에게 소중히 전달하겠습니다. 식사는 예식 시작 삼십분 전부터 예식 후 두 시간까지 이용하실 수 있습니다. 편안한 마음으로 함께해 주세요.',
+        gift: '마음 전하실 곳 안내입니다. 신랑측은 송윤상, 이정은, 송형우 계좌를 각각 확인하실 수 있고, 신부측은 강기원, 한정원, 강혜진 계좌를 각각 확인하실 수 있습니다. 꽃 화환은 정중히 사양합니다. 혹 마음을 전하고 싶으신 경우 쌀화환으로 보내주시면 어려운 이웃에게 소중히 전달하겠습니다. 식사는 예식 시작 한 시간 전부터 예식 후 두 시간까지 이용하실 수 있습니다. 편안한 마음으로 함께해 주세요.',
         closing: '저희의 새로운 시작에 관심을 가져주시는 그 마음만으로도 저희에게는 큰 기쁨입니다. 그날 귀한 걸음으로 함께해 주신다면 감사한 마음으로 오래도록 기억하겠습니다.'
       };
       speakTexts.all = [speakTexts.place, speakTexts.route, speakTexts.gift, speakTexts.closing].join(' ');
@@ -624,14 +624,8 @@ const galleryModalIndexes = [21, 7, 3, 1, 15, 6, 14];
           catch { setLabel('복사 실패'); setTimeout(()=>setLabel(original || '복사'),1200); }
         });
       });
-      let welcomeStep = 0;
-      document.getElementById('welcomeClose')?.addEventListener('click', function() {
-        welcomeStep++;
-        if (welcomeStep === 1) {
-          this.textContent = '청첩장 보러가기';
-        } else {
-          document.getElementById('welcomePopup')?.classList.add('hidden');
-        }
+      document.getElementById('welcomeClose')?.addEventListener('click', () => {
+        document.getElementById('welcomePopup')?.classList.add('hidden');
       });
     </script>
   </body>
