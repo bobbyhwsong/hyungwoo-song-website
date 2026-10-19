@@ -1,0 +1,129 @@
+---
+const eventDate = '2026-10-24';
+const latitude = 37.5075;
+const longitude = 126.8954;
+const naverWeather = 'https://search.naver.com/search.naver?where=nexearch&query=%EC%84%9C%EC%9A%B8%20%EC%98%81%EB%93%B1%ED%8F%AC%EA%B5%AC%202026%EB%85%84%2010%EC%9B%94%2024%EC%9D%BC%20%EB%82%A0%EC%94%A8';
+---
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <meta name="description" content="2026년 10월 24일 도림동성당 주변 예보" />
+    <meta property="og:title" content="송형우 · 강혜진 결혼합니다" />
+    <meta property="og:description" content="2026년 10월 24일 도림동성당 주변 날씨 예보" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.hyungwoosong.com/wedding-weather" />
+    <title>10월 24일 날씨 · 송형우 · 강혜진</title>
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <style>
+      @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+      @import url("https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500&display=swap");
+      :root{--ink:#111;--muted:#666;--line:rgba(17,17,17,.16);--paper:#fff;--soft:#f7f7f5;--serif:'Noto Serif KR','AppleMyungjo',Georgia,serif;--sans:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+      *{box-sizing:border-box} html{background:#f7f7f5} body{min-height:100svh;margin:0;background:#f7f7f5;color:var(--ink);font-family:var(--sans);line-height:1.65;letter-spacing:-.03em;-webkit-font-smoothing:antialiased} a{color:inherit}
+      .shell{width:min(100%,520px);min-height:100svh;margin:0 auto;padding:22px 20px 42px;background:var(--paper);box-shadow:0 0 0 1px rgba(17,17,17,.05)}
+      .naver-link:focus-visible,.return-button:focus-visible{outline:2px solid #111;outline-offset:4px}
+      main{padding:54px 4px 0;text-align:center}.eyebrow{margin:0 0 12px;color:#666;font-size:.72rem;font-weight:760;letter-spacing:.2em}.title{margin:0;font-family:var(--serif);font-size:clamp(2.05rem,9vw,2.6rem);font-weight:400;line-height:1.18;letter-spacing:-.06em}.venue{margin:11px 0 0;color:#555;font-size:.98rem}.venue strong{color:#111;font-weight:720}
+      .weather-card{margin:37px auto 0;padding:30px 22px 25px;border:1px solid var(--line);border-radius:28px;background:#fff;box-shadow:0 18px 45px rgba(0,0,0,.045)}
+      .weather-card[data-state='loading'] .weather-content,.weather-card[data-state='error'] .weather-content{opacity:.35}.weather-card[data-state='loading'] #weatherIcon{animation:breathe 1.3s ease-in-out infinite alternate}@keyframes breathe{to{opacity:.35;transform:scale(.94)}}
+      .badge{display:inline-block;margin:0 0 13px;padding:4px 10px;border:1px solid rgba(17,17,17,.16);border-radius:999px;color:#555;font-size:.7rem;font-weight:720;letter-spacing:.1em}.weather-icon{display:block;height:66px;margin:0 auto 4px;font-size:3.9rem;line-height:1}.weather-label{min-height:1.65em;margin:0;font-family:var(--serif);font-size:1.55rem;font-weight:400;letter-spacing:-.05em}.weather-summary{min-height:1.65em;margin:5px 0 0;color:#555;font-size:.9rem}
+      .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:26px 0 0}.metric{min-width:0;padding:14px 6px 12px;border-radius:18px;background:var(--soft)}.metric small{display:block;color:#666;font-size:.71rem;font-weight:600;white-space:nowrap}.metric strong{display:block;margin-top:3px;color:#111;font-size:1.1rem;letter-spacing:-.05em;white-space:nowrap}.metric strong span{font-size:.72em;font-weight:600}
+      .updated{min-height:1.5em;margin:21px 0 0;color:#777;font-size:.75rem}.status{min-height:1.6em;margin:8px 0 0;color:#555;font-size:.82rem}.status.error{color:#8a3b31}.notice{margin:22px auto 0;max-width:330px;padding:14px 15px;border:1px solid var(--line);border-radius:18px;background:var(--soft);color:#555;font-size:.84rem;line-height:1.68;word-break:keep-all}.notice span{display:block;color:#666;font-size:.91em}.notice strong{display:block;margin-top:5px;color:#111;font-size:1.02em;font-weight:760;line-height:1.58}
+      .naver-link,.return-button{display:flex;align-items:center;justify-content:center;min-height:51px;border-radius:999px;font-weight:760;text-decoration:none}.naver-link{margin-top:25px;border:1px solid var(--line);background:#fff;color:#111}.naver-link svg{width:1em;height:1em;margin-right:7px}.return-button{margin-top:12px;background:#111;color:#fff}.source{margin:18px 10px 0;color:#777;font-size:.72rem;line-height:1.6}.source a{text-underline-offset:3px}
+      @media(max-width:360px){.shell{padding-left:16px;padding-right:16px}.weather-card{padding-left:17px;padding-right:17px}.metrics{gap:6px}.metric{padding-left:3px;padding-right:3px}.metric strong{font-size:1.02rem}}
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <main>
+        <p class="eyebrow">WEDDING WEATHER</p>
+        <h1 class="title">10월 24일의 날씨</h1>
+        <p class="venue"><strong>도림동성당 주변</strong> · 서울 영등포구</p>
+
+        <section class="weather-card" id="weatherCard" data-state="loading" aria-live="polite" aria-busy="true">
+          <p class="badge">참고용 예보</p>
+          <div class="weather-content">
+            <span class="weather-icon" id="weatherIcon" aria-hidden="true">◌</span>
+            <p class="weather-label" id="weatherLabel">예보를 불러오는 중입니다</p>
+            <p class="weather-summary" id="weatherSummary">잠시만 기다려 주세요.</p>
+            <div class="metrics" aria-label="날씨 수치">
+              <div class="metric"><small>최저</small><strong id="tempMin">—</strong></div>
+              <div class="metric"><small>최고</small><strong id="tempMax">—</strong></div>
+              <div class="metric"><small>강수 확률</small><strong id="precipChance">—</strong></div>
+            </div>
+          </div>
+          <p class="updated" id="updatedAt"></p>
+          <p class="status" id="weatherStatus"></p>
+        </section>
+
+        <p class="notice"><span>예보는 수시로 달라질 수 있습니다.</span><strong>예식 형태의 최종 안내는<br />청첩장에서 확인해 주세요.</strong></p>
+        <a class="naver-link" href={naverWeather} target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v2m0 16v2m10-10h-2M4 12H2m17.1-7.1-1.4 1.4M6.3 17.7l-1.4 1.4m14.2 0-1.4-1.4M6.3 6.3 4.9 4.9"/><circle cx="12" cy="12" r="4"/><path d="M19 18H8a3.5 3.5 0 1 1 .73-6.92A4.8 4.8 0 0 1 18 13.2"/></svg>
+          네이버 날씨에서 자세히 보기
+        </a>
+        <a class="return-button" href="/wedding">청첩장으로 돌아가기</a>
+        <p class="source">날씨 정보: <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> · 도림동성당 주변 격자 예보</p>
+      </main>
+    </div>
+
+    <script define:vars={{ eventDate, latitude, longitude }}>
+      const weatherCard = document.getElementById('weatherCard');
+      const setText = (id, text) => { document.getElementById(id).textContent = text; };
+      const weatherMeta = (code) => {
+        if (code === 0) return { icon: '☀︎', label: '맑음' };
+        if ([1, 2].includes(code)) return { icon: '⛅', label: '대체로 맑음' };
+        if (code === 3) return { icon: '☁︎', label: '흐림' };
+        if ([45, 48].includes(code)) return { icon: '〰', label: '안개' };
+        if ([51, 53, 55, 56, 57].includes(code)) return { icon: '☂', label: '이슬비' };
+        if ([61, 63, 65, 66, 67, 80, 81, 82].includes(code)) return { icon: '☂', label: '비' };
+        if ([71, 73, 75, 77, 85, 86].includes(code)) return { icon: '❄', label: '눈' };
+        if ([95, 96, 99].includes(code)) return { icon: 'ϟ', label: '뇌우' };
+        return { icon: '⛅', label: '날씨 예보' };
+      };
+      const formatQueriedAt = () => new Intl.DateTimeFormat('ko-KR', {
+        timeZone: 'Asia/Seoul', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false
+      }).format(new Date());
+      const endpoint = new URL('https://api.open-meteo.com/v1/forecast');
+      endpoint.search = new URLSearchParams({
+        latitude, longitude, timezone: 'Asia/Seoul', forecast_days: '16',
+        daily: 'weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,precipitation_sum,wind_speed_10m_max'
+      }).toString();
+
+      fetch(endpoint)
+        .then((response) => {
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          return response.json();
+        })
+        .then((data) => {
+          const index = data?.daily?.time?.indexOf(eventDate);
+          if (index === undefined || index < 0) throw new Error('날짜 범위를 벗어난 예보입니다.');
+          const daily = data.daily;
+          const code = daily.weather_code[index];
+          const meta = weatherMeta(code);
+          const precipitationChance = daily.precipitation_probability_max[index];
+          const precipitationSum = daily.precipitation_sum[index];
+          const wind = daily.wind_speed_10m_max[index];
+          setText('weatherIcon', meta.icon);
+          setText('weatherLabel', meta.label);
+          setText('weatherSummary', `강수량 ${precipitationSum ?? 0}mm · 최대 풍속 ${wind ?? '—'}km/h`);
+          setText('tempMin', `${Math.round(daily.temperature_2m_min[index])}°`);
+          setText('tempMax', `${Math.round(daily.temperature_2m_max[index])}°`);
+          setText('precipChance', precipitationChance === null ? '—' : `${Math.round(precipitationChance)}%`);
+          setText('updatedAt', `조회 시각 · ${formatQueriedAt()} (KST)`);
+          setText('weatherStatus', 'Open-Meteo 예보를 참고용으로 표시합니다.');
+          weatherCard.dataset.state = 'ready';
+          weatherCard.setAttribute('aria-busy', 'false');
+        })
+        .catch(() => {
+          setText('weatherIcon', '…');
+          setText('weatherLabel', '예보를 불러오지 못했습니다');
+          setText('weatherSummary', '네이버 날씨에서 최신 예보를 확인해 주세요.');
+          setText('updatedAt', '');
+          setText('weatherStatus', '연결 상태를 확인한 뒤 다시 시도해 주세요.');
+          document.getElementById('weatherStatus').classList.add('error');
+          weatherCard.dataset.state = 'error';
+          weatherCard.setAttribute('aria-busy', 'false');
+        });
+    </script>
+  </body>
+</html>
