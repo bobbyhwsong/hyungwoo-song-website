@@ -21,7 +21,7 @@ const naverWeather = 'https://search.naver.com/search.naver?where=nexearch&query
       :root{--ink:#111;--muted:#666;--line:rgba(17,17,17,.16);--paper:#fff;--soft:#f7f7f5;--serif:'Noto Serif KR','AppleMyungjo',Georgia,serif;--sans:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
       *{box-sizing:border-box} html{background:#f7f7f5} body{min-height:100svh;margin:0;background:#f7f7f5;color:var(--ink);font-family:var(--sans);line-height:1.65;letter-spacing:-.03em;-webkit-font-smoothing:antialiased} a{color:inherit}
       .shell{width:min(100%,520px);min-height:100svh;margin:0 auto;padding:22px 20px 42px;background:var(--paper);box-shadow:0 0 0 1px rgba(17,17,17,.05)}
-      .back-link{display:inline-flex;align-items:center;gap:7px;color:#444;font-size:.88rem;font-weight:650;text-decoration:none;padding:8px 0}.back-link svg{width:1em;height:1em}.back-link:focus-visible,.naver-link:focus-visible,.return-button:focus-visible{outline:2px solid #111;outline-offset:4px}
+      .naver-link:focus-visible,.return-button:focus-visible{outline:2px solid #111;outline-offset:4px}
       main{padding:54px 4px 0;text-align:center}.eyebrow{margin:0 0 12px;color:#666;font-size:.72rem;font-weight:760;letter-spacing:.2em}.title{margin:0;font-family:var(--serif);font-size:clamp(2.05rem,9vw,2.6rem);font-weight:400;line-height:1.18;letter-spacing:-.06em}.venue{margin:11px 0 0;color:#555;font-size:.98rem}.venue strong{color:#111;font-weight:720}
       .weather-card{margin:37px auto 0;padding:30px 22px 25px;border:1px solid var(--line);border-radius:28px;background:#fff;box-shadow:0 18px 45px rgba(0,0,0,.045)}
       .weather-card[data-state='loading'] .weather-content,.weather-card[data-state='error'] .weather-content{opacity:.35}.weather-card[data-state='loading'] #weatherIcon{animation:breathe 1.3s ease-in-out infinite alternate}@keyframes breathe{to{opacity:.35;transform:scale(.94)}}
@@ -34,10 +34,6 @@ const naverWeather = 'https://search.naver.com/search.naver?where=nexearch&query
   </head>
   <body>
     <div class="shell">
-      <a class="back-link" href="/wedding-preview" aria-label="청첩장으로 돌아가기">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/><path d="M9 12h11"/></svg>
-        청첩장으로 돌아가기
-      </a>
       <main>
         <p class="eyebrow">WEDDING WEATHER</p>
         <h1 class="title">10월 24일의 날씨</h1>
